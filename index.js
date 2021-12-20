@@ -16,6 +16,8 @@ const client = new Client({
 
 // register and read slash command files
 client.commands = new Collection();
+client.slashCommands = new Collection();
+
 const slashCommandFiles = fs
 	.readdirSync('./commands/slash')
 	.filter((file) => file.endsWith('.js'));
@@ -25,7 +27,7 @@ for (const file of slashCommandFiles) {
 	// Set a new item in the Collection
 	// With the key as the command name and the value as the exported module
 	console.log(`Loading ${file}`);
-	client.commands.set(command.data.name, command);
+	client.slashCommands.set(command.data.name, command);
 }
 
 // register and read event handlers
@@ -34,12 +36,13 @@ const eventFiles = fs
 	.filter((file) => file.endsWith('.js'));
 
 for (const file of eventFiles) {
-	console.log(`Loading ${file}`);
-	const event = require(`./events/${file}`);
-	if (event.once) {
-		client.once(event.name, (...args) => event.execute(...args));
-	} else {
-		client.on(event.name, (...args) => event.execute(...args));
+	try {
+		console.log(`Loading ${file}`);
+		const event = require(`./events/${file}`);
+		const eventName = file.split('.')[0];
+		client.on(eventName, event.bind(null, client));
+	} catch (error) {
+		console.log(`Error loading ${file} - ${error}`);
 	}
 }
 
@@ -51,8 +54,8 @@ const commandFiles = fs
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
 	const commandName = file.split('.')[0];
-	console.log(`Loading ${file}`);
-	client.commands.set(command.data.name, command);
+	console.log(`Loading ${commandName}`);
+	client.commands.set(commandName, command);
 }
 
 // process message events

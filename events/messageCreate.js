@@ -1,19 +1,19 @@
-const prefix = require('../config.json');
+const config = require('../config.json');
 
-module.exports = {
-	name: 'messageCreate',
-	execute(message, client) {
-		console.log(
-			`${message.author.tag} in #${message.channel.name}: ${message.content}`,
-		);
+module.exports = (client, message) => {
+	console.log(
+		`${message.author.tag} in #${message.channel.name}: ${message.content}`,
+	);
 
-		if (message.author == client) return;
+	if (message.author == client.user) return;
 
-		// Command processing
-		const args = message.content.slice(prefix.length).trim().split(/ +/g);
-		const command = args.shift().toLowerCase();
-		const cmd = client.commands.get(command);
-		if (!cmd) return;
-		cmd.run(client, message, args);
-	},
+	// Command processing
+	if (!message.content.startsWith(`${config.prefix}`)) return;
+	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
+	const command = args.shift().toLowerCase();
+	console.log(`Command is: >${command}<`);
+	const cmd = client.commands.get(command);
+	if (!cmd) return;
+	console.log(`${Object.entries(message)}`);
+	cmd.run(client, message, args);
 };
