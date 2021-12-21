@@ -53,19 +53,9 @@ const commandFiles = fs
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	const commandName = file.split('.')[0];
-	console.log(`Loading ${commandName}`);
-	client.commands.set(commandName, command);
+	console.log(`Loading ${command.name}`);
+	client.commands.set(command.name, command);
 }
-
-// process message events
-// client.on('messageCreate', (message) => {
-// 	if (message.author == client) return;
-
-// 	console.log(
-// 		`${message.author.tag} in #${message.channel.name}: ${message.content}`,
-// 	);
-// });
 
 // Login to Discord with your client's token
 client.login(token);

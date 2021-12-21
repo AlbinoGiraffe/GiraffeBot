@@ -1,18 +1,21 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const BotUtils = require('../../botUtils');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('say')
-		.setDescription('Make bot say something')
+		.setDescription('Make me say something')
 		.addStringOption((option) =>
 			option
 				.setName('input')
-				.setDescription('What you want the bot to say')
+				.setDescription('What you want me to say')
 				.setRequired(true),
 		),
-	async execute(interaction, option) {
+	run: async (client, interaction) => {
 		interaction.reply({ content: 'Sent', ephemeral: true });
-		interaction.channel.send(`${option}`);
+		interaction.channel.send(
+			`${BotUtils.cleanInput(interaction.options.getString('input'))}`,
+		);
 		return;
 	},
 };

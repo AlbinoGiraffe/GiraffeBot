@@ -4,7 +4,6 @@ module.exports = (client, message) => {
 	console.log(
 		`${message.author.tag} in #${message.channel.name}: ${message.content}`,
 	);
-
 	if (message.author == client.user) return;
 
 	// Command processing

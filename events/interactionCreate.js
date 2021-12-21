@@ -8,7 +8,7 @@ module.exports = (client, interaction) => {
 	if (!command) return;
 
 	try {
-		command.execute(interaction);
+		command.run(client, interaction);
 	} catch (error) {
 		console.error(error);
 		interaction.reply({
