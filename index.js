@@ -31,7 +31,7 @@ client.startupTime = Date.now();
 
 // read and register slash command files
 fs.readdirSync('./slashCommands').forEach((dir) => {
-	if (fs.lstatSync(`./slashcommands/${dir}`).isDirectory()) {
+	if (fs.lstatSync(`./slashCommands/${dir}`).isDirectory()) {
 		const slashCommands = fs
 			.readdirSync(`./slashCommands/${dir}/`)
 			.filter((file) => file.endsWith('.js'));
