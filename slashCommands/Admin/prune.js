@@ -28,8 +28,7 @@ module.exports = {
 					ephemeral: true,
 				}),
 			)
-			.catch((error) => {
-				console.log(color.red(error));
+			.catch(() => {
 				interaction.reply({
 					content: 'Error pruning channel!',
 					ephemeral: true,
