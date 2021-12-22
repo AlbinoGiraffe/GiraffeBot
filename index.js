@@ -18,6 +18,7 @@ const client = new Client({
 // command and event handling
 
 let numSlashCommands = 0;
+let numAdminSlashCommands = 0;
 let numCommands = 0;
 let numEvents = 0;
 
@@ -26,11 +27,11 @@ client.slashCommands = new Collection();
 client.slash = [];
 client.slashPerms = new Collection();
 client.adminSlashCommands = [];
+client.startupTime = Date.now();
 
 // read and register slash command files
 fs.readdirSync('./slashCommands').forEach((dir) => {
 	if (fs.lstatSync(`./slashcommands/${dir}`).isDirectory()) {
-		console.log(`Loading from /${dir}...`);
 		const slashCommands = fs
 			.readdirSync(`./slashCommands/${dir}/`)
 			.filter((file) => file.endsWith('.js'));
@@ -38,10 +39,11 @@ fs.readdirSync('./slashCommands').forEach((dir) => {
 			const command = require(`./slashCommands/${dir}/${file}`);
 
 			if (dir == 'Admin') {
+				numAdminSlashCommands++;
 				client.adminSlashCommands.push(command.data.name);
 			}
-			console.log(`- ${file}`);
 			numSlashCommands++;
+
 			client.slashCommands.set(command.data.name, command);
 			client.slash.push(command.data.toJSON());
 		}
@@ -76,9 +78,9 @@ for (const file of commandFiles) {
 }
 console.log(
 	color.yellow(
-		`Loaded ${numSlashCommands} slash commands`,
-		`\nLoaded ${numCommands} normal commands`,
-		`\nLoaded ${numEvents} event handlers`,
+		`Loaded ${numSlashCommands} slash commands (${numAdminSlashCommands} admin),`,
+		`${numCommands} normal commands,`,
+		`${numEvents} event handlers`,
 	),
 );
 

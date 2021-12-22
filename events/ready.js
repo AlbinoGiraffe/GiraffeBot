@@ -22,7 +22,7 @@ module.exports = async (client) => {
 					console.log(String(e));
 				}
 			});
-		console.log(`Set commands for ${count} guilds`);
+		console.log(color.yellow(`Set commands for ${count} guilds`));
 	}
 
 	// Setting Permisssions
@@ -41,7 +41,14 @@ module.exports = async (client) => {
 			count++;
 		});
 	}
-	console.log(`Set permissions for ${count} admin commands`);
+	console.log(color.yellow(`Set permissions for ${count} admin commands`));
 
-	console.log(color.green(`Ready! Logged in as ${client.user.tag}`));
+	const stop = Date.now();
+	console.log(
+		color.green(
+			`Ready! Logged in as ${client.user.tag} in ${
+				(stop - client.startupTime) / 1000
+			}s`,
+		),
+	);
 };

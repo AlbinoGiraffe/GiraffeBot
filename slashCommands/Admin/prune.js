@@ -14,20 +14,26 @@ module.exports = {
 		),
 	run: async (client, interaction) => {
 		const num = interaction.options.getInteger('number');
-		if (num <= 1 || num > 100) {
+		if (num <= 1 || num >= 100) {
 			return interaction.reply({
 				content: 'Enter a number between 1 and 99',
 				ephemeral: true,
 			});
 		}
-		await interaction.channel.bulkDelete(num, true).catch((error) => {
-			console.log(color.red(error));
-			interaction.reply({ content: 'Error pruning channel!', ephemeral: true });
-		});
-
-		return interaction.reply({
-			content: `Done deleting ${num} messages.`,
-			ephemeral: true,
-		});
+		await interaction.channel
+			.bulkDelete(num, true)
+			.then(() =>
+				interaction.reply({
+					content: `Done deleting ${num} messages.`,
+					ephemeral: true,
+				}),
+			)
+			.catch((error) => {
+				console.log(color.red(error));
+				interaction.reply({
+					content: 'Error pruning channel!',
+					ephemeral: true,
+				});
+			});
 	},
 };
