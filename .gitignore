@@ -105,5 +105,3 @@ dist
 
 # Bot specific files
 config.json
-.eslintrc.json
-.prettierrc.json
