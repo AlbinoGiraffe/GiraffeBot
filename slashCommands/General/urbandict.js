@@ -4,7 +4,7 @@ const ud = require('urban-dictionary');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('ud')
+		.setName('urban')
 		.setDescription('Look up words on Urban Dictionary')
 		.addStringOption((option) =>
 			option
