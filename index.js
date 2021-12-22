@@ -2,6 +2,7 @@
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
+const color = require('colors/safe');
 
 // Create a new client instance
 const client = new Client({
@@ -14,21 +15,38 @@ const client = new Client({
 	],
 });
 
-// register and read slash command files
+// command and event handling
+
+let numSlashCommands = 0;
+let numCommands = 0;
+let numEvents = 0;
+
 client.commands = new Collection();
 client.slashCommands = new Collection();
+client.slash = [];
+client.slashPerms = new Collection();
+client.adminSlashCommands = [];
 
-const slashCommandFiles = fs
-	.readdirSync('./commands/slash')
-	.filter((file) => file.endsWith('.js'));
+// read and register slash command files
+fs.readdirSync('./slashCommands').forEach((dir) => {
+	if (fs.lstatSync(`./slashcommands/${dir}`).isDirectory()) {
+		console.log(`Loading from /${dir}...`);
+		const slashCommands = fs
+			.readdirSync(`./slashCommands/${dir}/`)
+			.filter((file) => file.endsWith('.js'));
+		for (const file of slashCommands) {
+			const command = require(`./slashCommands/${dir}/${file}`);
 
-for (const file of slashCommandFiles) {
-	const command = require(`./commands/slash/${file}`);
-	// Set a new item in the Collection
-	// With the key as the command name and the value as the exported module
-	console.log(`Loading ${file}`);
-	client.slashCommands.set(command.data.name, command);
-}
+			if (dir == 'Admin') {
+				client.adminSlashCommands.push(command.data.name);
+			}
+			console.log(`- ${file}`);
+			numSlashCommands++;
+			client.slashCommands.set(command.data.name, command);
+			client.slash.push(command.data.toJSON());
+		}
+	}
+});
 
 // register and read event handlers
 const eventFiles = fs
@@ -37,12 +55,12 @@ const eventFiles = fs
 
 for (const file of eventFiles) {
 	try {
-		console.log(`Loading ${file}`);
 		const event = require(`./events/${file}`);
 		const eventName = file.split('.')[0];
 		client.on(eventName, event.bind(null, client));
+		numEvents++;
 	} catch (error) {
-		console.log(`Error loading ${file} - ${error}`);
+		console.log(color.red(`Error loading ${file} - ${error}`));
 	}
 }
 
@@ -53,9 +71,16 @@ const commandFiles = fs
 
 for (const file of commandFiles) {
 	const command = require(`./commands/${file}`);
-	console.log(`Loading ${command.name}`);
 	client.commands.set(command.name, command);
+	numCommands++;
 }
+console.log(
+	color.yellow(
+		`Loaded ${numSlashCommands} slash commands`,
+		`\nLoaded ${numCommands} normal commands`,
+		`\nLoaded ${numEvents} event handlers`,
+	),
+);
 
 // Login to Discord with your client's token
 client.login(token);

@@ -1,11 +1,22 @@
-module.exports = (client, interaction) => {
-	console.log(
-		`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`,
-	);
+const color = require('colors/safe');
 
-	if (!interaction.isCommand()) return;
+module.exports = (client, interaction) => {
+	if (!interaction.isCommand()) {
+		console.log(
+			color.blue(
+				`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction.`,
+			),
+		);
+		return;
+	}
+
 	const command = interaction.client.slashCommands.get(interaction.commandName);
 	if (!command) return;
+	console.log(
+		color.blue(
+			`${interaction.user.tag} in #${interaction.channel.name} triggered an interaction (${interaction.commandName}).`,
+		),
+	);
 
 	try {
 		command.run(client, interaction);

@@ -2,10 +2,10 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('clear')
-		.setDescription('Clear bot messages'),
+		.setName('role')
+		.setDescription('Role management')
+		.setDefaultPermission(false),
 	async execute(interaction) {
 		return;
-		// await interaction.reply('https://github.com/AlbinoGiraffe/GiraffeBot');
 	},
 };

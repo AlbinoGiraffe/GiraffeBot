@@ -3,14 +3,18 @@ const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 const { token, clientId, guildId, globalCommands } = require('./config.json');
 
+const slashDirs = ['Admin', 'General'];
 const commands = [];
 const commandFiles = fs
-	.readdirSync('./commands/slash')
+	.readdirSync('./slashCommands')
 	.filter((file) => file.endsWith('.js'));
 
 for (const file of commandFiles) {
-	const command = require(`./commands/slash/${file}`);
-	commands.push(command.data.toJSON());
+	for (const dir of slashDirs) {
+		const command = require(`./slashCommands/${dir}/${file}`);
+		console.log(`Loaded ${file}`);
+		commands.push(command.data.toJSON());
+	}
 }
 
 const rest = new REST({ version: '9' }).setToken(token);
@@ -26,7 +30,6 @@ const rest = new REST({ version: '9' }).setToken(token);
 				body: commands,
 			});
 		}
-
 		console.log('Successfully reloaded application (/) commands.');
 	} catch (error) {
 		console.error(error);
