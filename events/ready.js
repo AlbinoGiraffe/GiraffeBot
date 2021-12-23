@@ -12,49 +12,7 @@ let count = 0;
 
 module.exports = async (client) => {
 	if (!client.application?.owner) client.application?.fetch();
-	await updatePermissions(client);
-	// if (!config.globalCommands) {
-	// 	client.guilds.cache
-	// 		.map((g) => g)
-	// 		.forEach((guild) => {
-	// 			try {
-	// 				count++;
-	// 				guild.commands.set(client.slash).catch((e) => console.log(e));
-	// 			} catch (e) {
-	// 				console.log(String(e));
-	// 			}
-	// 		});
-	// 	console.log(color.yellow(`Set commands for ${count} guilds`));
-	// }
 
-	// Setting Permisssions
-	// count = 0;
-
-	// const guildCommands = await client.guilds.cache
-	// 	.get(config.guildId)
-	// 	?.commands.fetch();
-
-	// if (guildCommands) {
-	// 	guildCommands.forEach((c) => {
-	// 		if (client.adminSlashCommands.includes(c.name)) {
-	// 			c.permissions.add({ permissions: adminPermissions });
-	// 		}
-	// 		count++;
-	// 	});
-	// }
-	// console.log(color.yellow(`Set permissions for ${count} admin commands`));
-
-	// const stop = Date.now();
-	// console.log(
-	// 	color.green(
-	// 		`Ready! Logged in as ${client.user.tag} in ${
-	// 			(stop - client.startupTime) / 1000
-	// 		}s`,
-	// 	),
-	// );
-};
-
-async function updatePermissions(client) {
 	if (!config.globalCommands) {
 		client.guilds.cache
 			.map((g) => g)
@@ -69,7 +27,6 @@ async function updatePermissions(client) {
 									if (client.adminSlashCommands.includes(c.name)) {
 										c.permissions.add({ permissions: adminPermissions });
 									}
-									count++;
 								});
 							}
 						})
@@ -79,6 +36,15 @@ async function updatePermissions(client) {
 					console.log(String(e));
 				}
 			});
-		console.log(color.yellow(`Set commands for ${count} guilds`));
+		console.log(color.yellow(`Set commands/permissions for ${count} guilds`));
+
+		const stop = Date.now();
+		console.log(
+			color.green(
+				`Ready! Logged in as ${client.user.tag} in ${
+					(stop - client.startupTime) / 1000
+				}s`,
+			),
+		);
 	}
-}
+};
