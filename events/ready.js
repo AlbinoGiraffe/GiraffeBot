@@ -11,12 +11,69 @@ const adminPermissions = [
 let count = 0;
 
 module.exports = async (client) => {
+	if (!client.application?.owner) client.application?.fetch();
+	await updatePermissions(client);
+	// if (!config.globalCommands) {
+	// 	client.guilds.cache
+	// 		.map((g) => g)
+	// 		.forEach((guild) => {
+	// 			try {
+	// 				count++;
+	// 				guild.commands.set(client.slash).catch((e) => console.log(e));
+	// 			} catch (e) {
+	// 				console.log(String(e));
+	// 			}
+	// 		});
+	// 	console.log(color.yellow(`Set commands for ${count} guilds`));
+	// }
+
+	// Setting Permisssions
+	// count = 0;
+
+	// const guildCommands = await client.guilds.cache
+	// 	.get(config.guildId)
+	// 	?.commands.fetch();
+
+	// if (guildCommands) {
+	// 	guildCommands.forEach((c) => {
+	// 		if (client.adminSlashCommands.includes(c.name)) {
+	// 			c.permissions.add({ permissions: adminPermissions });
+	// 		}
+	// 		count++;
+	// 	});
+	// }
+	// console.log(color.yellow(`Set permissions for ${count} admin commands`));
+
+	// const stop = Date.now();
+	// console.log(
+	// 	color.green(
+	// 		`Ready! Logged in as ${client.user.tag} in ${
+	// 			(stop - client.startupTime) / 1000
+	// 		}s`,
+	// 	),
+	// );
+};
+
+async function updatePermissions(client) {
 	if (!config.globalCommands) {
 		client.guilds.cache
 			.map((g) => g)
 			.forEach((guild) => {
 				try {
 					count++;
+					guild?.commands
+						.fetch()
+						.then((guildCommands) => {
+							if (guildCommands) {
+								guildCommands.forEach((c) => {
+									if (client.adminSlashCommands.includes(c.name)) {
+										c.permissions.add({ permissions: adminPermissions });
+									}
+									count++;
+								});
+							}
+						})
+						.catch((e) => console.log(e));
 					guild.commands.set(client.slash).catch((e) => console.log(e));
 				} catch (e) {
 					console.log(String(e));
@@ -24,31 +81,4 @@ module.exports = async (client) => {
 			});
 		console.log(color.yellow(`Set commands for ${count} guilds`));
 	}
-
-	// Setting Permisssions
-	count = 0;
-	if (!client.application?.owner) client.application?.fetch();
-
-	const guildCommands = await client.guilds.cache
-		.get(config.guildId)
-		?.commands.fetch();
-
-	if (guildCommands) {
-		guildCommands.forEach((c) => {
-			if (client.adminSlashCommands.includes(c.name)) {
-				c.permissions.add({ permissions: adminPermissions });
-			}
-			count++;
-		});
-	}
-	console.log(color.yellow(`Set permissions for ${count} admin commands`));
-
-	const stop = Date.now();
-	console.log(
-		color.green(
-			`Ready! Logged in as ${client.user.tag} in ${
-				(stop - client.startupTime) / 1000
-			}s`,
-		),
-	);
-};
+}
