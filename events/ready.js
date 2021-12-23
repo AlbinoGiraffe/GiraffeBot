@@ -11,6 +11,10 @@ const adminPermissions = [
 let count = 0;
 
 module.exports = async (client) => {
+	// Syncing DB
+	client.Snipe.sync();
+	console.log(color.yellow('Database synced'));
+
 	if (!client.application?.owner) client.application?.fetch();
 
 	if (!config.globalCommands) {

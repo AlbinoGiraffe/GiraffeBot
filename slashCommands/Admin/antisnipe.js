@@ -2,10 +2,10 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
 	data: new SlashCommandBuilder()
-		.setName('role')
-		.setDescription('Role management')
+		.setName('as')
+		.setDescription('Cancel a snipe')
 		.setDefaultPermission(false),
-	run: async (client, interaction) => {
+	run: (client, interaction) => {
 		return;
 	},
 };

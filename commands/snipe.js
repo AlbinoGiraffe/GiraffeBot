@@ -1,8 +1,14 @@
-const { githubLink } = require('../config.json');
-
 module.exports = {
 	name: 's',
 	run: (client, message) => {
-		message.channel.send(githubLink);
+		client.Snipe.findOne({ where: { channelId: message.channel.id } }).then(
+			(token) => {
+				if (token === null) {
+					message.channel.send(`No message to snipe!`);
+				} else {
+					message.channel.send(`Sniped: ${token.content}`);
+				}
+			},
+		);
 	},
 };

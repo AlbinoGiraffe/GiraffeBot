@@ -37,4 +37,9 @@ module.exports = {
 
 		return collection;
 	},
+	entryExists: function (client, message) {
+		return client.Snipe.findOne({
+			where: { channelId: message.channel.id },
+		}).then((token) => token !== null);
+	},
 };

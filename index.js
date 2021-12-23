@@ -1,8 +1,9 @@
 // Require the necessary discord.js classes
 const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
-const { token } = require('./config.json');
+const config = require('./config.json');
 const color = require('colors/safe');
+const { Sequelize } = require('sequelize');
 
 // Create a new client instance
 const client = new Client({
@@ -15,8 +16,26 @@ const client = new Client({
 	],
 });
 
-// command and event handling
+// create database
+const sequelize = new Sequelize('sqlite', config.dbUser, config.dbPass, {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	storage: 'database.sqlite',
+});
 
+client.Snipe = sequelize.define('Snipe', {
+	channelId: {
+		type: Sequelize.INTEGER,
+		unique: true,
+	},
+	content: Sequelize.STRING,
+	author: Sequelize.STRING,
+	date: Sequelize.STRING,
+	mid: Sequelize.INTEGER,
+});
+
+// command and event handling
 let numSlashCommands = 0;
 let numAdminSlashCommands = 0;
 let numCommands = 0;
@@ -85,4 +104,4 @@ console.log(
 );
 
 // Login to Discord with your client's token
-client.login(token);
+client.login(config.token);
