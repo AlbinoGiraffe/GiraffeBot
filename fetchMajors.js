@@ -1,6 +1,25 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const url = 'https://registrar.ucsc.edu/enrollment/majors-list.html';
+const config = require('./config.json');
+const Sequelize = require('sequelize');
+
+const db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
+	host: 'localhost',
+	dialect: 'sqlite',
+	logging: false,
+	storage: 'database.sqlite',
+});
+
+db.majors = db.define('Major', {
+	major: {
+		type: Sequelize.STRING,
+		unique: true,
+	},
+	code: Sequelize.STRING,
+});
+
+db.majors.sync({ force: true });
 
 axios
 	.get(url)
@@ -30,5 +49,11 @@ const getData = (html) => {
 
 	data.forEach((element, i) => {
 		console.log(`'${element.major.m}' - '${element.major.c}' - ${i}`);
+		db.majors
+			.create({
+				major: element.major.m,
+				code: element.major.c,
+			})
+			.catch(console.error);
 	});
 };
