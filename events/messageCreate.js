@@ -1,17 +1,40 @@
-const { DMChannel } = require('discord.js');
+const botUtils = require('../botUtils');
 const config = require('../config.json');
 
 module.exports = (client, message) => {
-	if (!message.guild || !message.channel || message.author.bot) return;
+	if (message.author.bot) return;
 	if (message.channel.partial) message.channel.fetch();
 	if (message.partial) message.fetch();
 
-	if (message.channel == DMChannel) {
-		console.log(`${message.author.tag} in DMChannel: ${message.content}`);
+	const date = message.createdAt.toLocaleDateString();
+
+	if (!message.guild) {
+		console.log(
+			`[${date}]: ${message.author.tag} in DM: ${botUtils.truncate(
+				message.content,
+			)}`,
+		);
 	} else {
 		console.log(
-			`${message.author.tag} in #${message.channel.name}: ${message.content}`,
+			`[${date}]: ${message.author.tag} in #${
+				message.channel.name
+			}: ${botUtils.truncate(message.content)}`,
 		);
+	}
+
+	// bot mentioned
+	if (message.mentions.has(client.user)) {
+		const cbquery = message.cleanContent
+			.replaceAll('@', '')
+			.replaceAll('\u200B', '')
+			.replaceAll(client.user.username, '');
+
+		client.clev
+			.query(cbquery)
+			.then((response) => {
+				message.reply(response.output);
+			})
+			.catch(console.error);
 	}
 
 	// Command processing

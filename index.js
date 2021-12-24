@@ -4,6 +4,7 @@ const { Client, Collection, Intents } = require('discord.js');
 const config = require('./config.json');
 const color = require('colors/safe');
 const { Sequelize } = require('sequelize');
+const Cleverbot = require('cleverbot');
 
 // Create a new client instance
 const client = new Client({
@@ -14,7 +15,11 @@ const client = new Client({
 		Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
 		Intents.FLAGS.DIRECT_MESSAGES,
 	],
+	partials: ['CHANNEL'],
 });
+
+// initialize Cleverbot
+client.clev = new Cleverbot({ key: config.cbKey });
 
 // create database
 const sequelize = new Sequelize('sqlite', config.dbUser, config.dbPass, {

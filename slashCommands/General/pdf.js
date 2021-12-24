@@ -4,6 +4,12 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 module.exports = {
 	data: new SlashCommandBuilder().setName('pdf').setDescription('😳'),
 	run: (client, interaction) => {
-		interaction.reply({ content: 'haha', ephemeral: true });
+		client.users
+			.fetch('878185975115808788')
+			.then((member) => {
+				interaction.reply({ content: 'haha', ephemeral: true });
+				interaction.channel.send(`${member} pdf file 😳`);
+			})
+			.catch(console.error);
 	},
 };
