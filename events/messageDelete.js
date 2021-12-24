@@ -9,7 +9,7 @@ module.exports = (client, message) => {
 	botUtils.entryExists(client, message).then((exists) => {
 		console.log(exists);
 		if (!exists) {
-			client.Snipe.create({
+			client.db.Snipe.create({
 				channelId: message.channel.id,
 				content: message.content,
 				author: message.author.user,
@@ -21,7 +21,7 @@ module.exports = (client, message) => {
 				})
 				.catch((e) => console.log(e));
 		} else {
-			client.Snipe.update(
+			client.db.Snipe.update(
 				{
 					content: message.content,
 					author: message.author.user,
@@ -35,7 +35,7 @@ module.exports = (client, message) => {
 					// delete it after 5 seconds
 					setTimeout(
 						() =>
-							client.Snipe.destroy({
+							client.db.Snipe.destroy({
 								where: { channelId: message.channel.id },
 							}).then(() => message.channel.send('Snipe destroyed')),
 						5000,

@@ -3,8 +3,8 @@ const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const config = require('./config.json');
 const color = require('colors/safe');
-const { Sequelize } = require('sequelize');
 const Cleverbot = require('cleverbot');
+const { Sequelize } = require('sequelize');
 
 // Create a new client instance
 const client = new Client({
@@ -18,18 +18,15 @@ const client = new Client({
 	partials: ['CHANNEL'],
 });
 
-// initialize Cleverbot
-client.clev = new Cleverbot({ key: config.cbKey });
-
 // create database
-const sequelize = new Sequelize('sqlite', config.dbUser, config.dbPass, {
+client.db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
 	host: 'localhost',
 	dialect: 'sqlite',
 	logging: false,
 	storage: 'database.sqlite',
 });
 
-client.Snipe = sequelize.define('Snipe', {
+client.db.Snipe = client.db.define('Snipes', {
 	channelId: {
 		type: Sequelize.INTEGER,
 		unique: true,
@@ -39,6 +36,25 @@ client.Snipe = sequelize.define('Snipe', {
 	date: Sequelize.STRING,
 	mid: Sequelize.INTEGER,
 });
+
+client.db.GuildConfig = client.db.define('GuildConfigs', {
+	guildId: {
+		type: Sequelize.INTEGER,
+		unique: true,
+	},
+	prefix: Sequelize.STRING,
+	adminRoles: Sequelize.STRING,
+	modRoles: Sequelize.STRING,
+	ownerId: Sequelize.INTEGER,
+});
+
+// Syncing DB
+client.db.Snipe.sync({ force: true });
+client.db.GuildConfig.sync();
+console.log(color.yellow('Database synced'));
+
+// initialize Cleverbot
+client.clev = new Cleverbot({ key: config.cbKey });
 
 // command and event handling
 let numSlashCommands = 0;

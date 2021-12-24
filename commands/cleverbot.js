@@ -1,5 +1,6 @@
 module.exports = {
 	name: 'gb',
+	description: 'Talk to me!',
 	run: (client, message) => {
 		const cbquery = message.cleanContent
 			.replace(/.gb /, '')

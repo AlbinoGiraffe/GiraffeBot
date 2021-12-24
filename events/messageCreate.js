@@ -22,6 +22,17 @@ module.exports = (client, message) => {
 		);
 	}
 
+	if (message.content == 'prefix') {
+		client.db.GuildConfig.findOne({
+			where: { guildId: message.guild.id },
+		})
+			.then((token) =>
+				message
+					.reply(`My prefix on this server is: ${token.prefix}`)
+					.catch(console.error),
+			)
+			.catch(console.error);
+	}
 	// bot mentioned
 	if (message.mentions.has(client.user)) {
 		const cbquery = message.cleanContent
@@ -38,12 +49,30 @@ module.exports = (client, message) => {
 	}
 
 	// Command processing
-	if (!message.content.startsWith(`${config.prefix}`)) return;
+	client.db.GuildConfig.findOne({
+		where: { guildId: message.guild.id },
+	})
+		.then((token) => {
+			if (token.prefix) {
+				const currentPrefix = token.prefix;
+				if (
+					!message.content.startsWith(`${currentPrefix}`) ||
+					!message.content.startsWith(`${config.prefix}`)
+				) {
+					return;
+				}
 
-	const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
-	const command = args.shift().toLowerCase();
-	const cmd = client.commands.get(command);
+				const args = message.content
+					.slice(currentPrefix.length)
+					.trim()
+					.split(/ +/g);
+				const command = args.shift().toLowerCase();
+				const cmd = client.commands.get(command);
 
-	if (!cmd) return;
-	cmd.run(client, message, args);
+				if (!cmd) return;
+				cmd.run(client, message, args);
+			}
+			return;
+		})
+		.catch(console.error);
 };
