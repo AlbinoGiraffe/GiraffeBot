@@ -105,5 +105,4 @@ dist
 
 # Bot specific files
 config.json
-.db
-.sqlite
+database.sqlite
