@@ -24,6 +24,20 @@ module.exports = async (client, message) => {
 		);
 	}
 
+	if (message.content.toLowerCase() == 'what') {
+		if (message.reference) {
+			const toEmphasize = await message.channel.messages.fetch(
+				message.reference.messageid,
+			);
+			message.reply(`*${toEmphasize.content}*`);
+		} else {
+			message.channel.messages.fetch({ limit: 2 }).then((m) => {
+				message.channel.send(`*${m.last().content}*`);
+			});
+		}
+		return;
+	}
+
 	if (message.guild) {
 		client.db.GuildConfig.findOne({
 			where: { guildId: message.guild.id },

@@ -28,25 +28,35 @@ client.db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
 
 client.db.Snipe = client.db.define('Snipes', {
 	channelId: {
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 		unique: true,
 	},
 	content: Sequelize.STRING,
 	author: Sequelize.STRING,
 	date: Sequelize.STRING,
-	mid: Sequelize.INTEGER,
+	mid: Sequelize.STRING,
 });
 
 client.db.GuildConfig = client.db.define('GuildConfigs', {
 	guildId: {
-		type: Sequelize.INTEGER,
+		type: Sequelize.STRING,
 		unique: true,
 	},
 	prefix: Sequelize.STRING,
-	selectorId: Sequelize.INTEGER,
+	selectorId: Sequelize.STRING,
 	adminRoles: Sequelize.STRING,
 	modRoles: Sequelize.STRING,
-	ownerId: Sequelize.INTEGER,
+	ownerId: Sequelize.STRING,
+	starBoardChannelId: Sequelize.STRING,
+
+	starThreshold: {
+		type: Sequelize.INTEGER,
+		defaultValue: config.defaultReactionThreshold,
+	},
+	pinThreshold: {
+		type: Sequelize.INTEGER,
+		defaultValue: config.defaultReactionThreshold,
+	},
 });
 
 client.db.Majors = client.db.define('Major', {
@@ -62,14 +72,23 @@ client.db.GlobalConfig = client.db.define('Global', {
 	ignoredChannels: { type: Sequelize.STRING },
 });
 
+client.db.Starboard = client.db.define('StarboardConfigs', {
+	guildId: Sequelize.STRING,
+	boardId: Sequelize.STRING,
+	messageId: { type: Sequelize.STRING, unique: true },
+});
+
 // Syncing DB
 
 // clear snipes at startup
 client.db.Snipe.sync({ force: true });
 client.db.GuildConfig.sync();
 client.db.GlobalConfig.sync();
+client.db.Starboard.sync();
 
 console.log(color.yellow('Database synced'));
+
+//
 
 // initialize Cleverbot
 client.clev = new Cleverbot({ key: config.cbKey });

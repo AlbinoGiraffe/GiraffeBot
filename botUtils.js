@@ -68,4 +68,20 @@ module.exports = {
 		if (!token.selectorId) return null;
 		if (token.selectorId == message.channel.id) return true;
 	},
+	dateTime: function () {
+		const now = new Date();
+		return (
+			now.getDate() +
+			'/' +
+			(now.getMonth() + 1) +
+			'/' +
+			now.getFullYear() +
+			' @ ' +
+			now.getHours() +
+			':' +
+			now.getMinutes() +
+			':' +
+			now.getSeconds()
+		);
+	},
 };
