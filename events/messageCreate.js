@@ -66,7 +66,7 @@ module.exports = async (client, message) => {
 									.createDM()
 									.then((m) => m.send(`Removed the \`${role.name}\` role!`))
 									.catch(console.error);
-								console.log(`Gave ${message.author.tag} '${role.name}'`);
+								console.log(`Removed ${message.author.tag} '${role.name}'`);
 							}
 						} else {
 							message.author
