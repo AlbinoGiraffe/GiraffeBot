@@ -19,6 +19,8 @@
   "dependencies": {
     "@discordjs/builders": "^0.9.0",
     "@discordjs/rest": "^0.1.0-canary.0",
+    "axios": "^0.24.0",
+    "cheerio": "^1.0.0-rc.10",
     "cleverbot": "^1.0.1",
     "colors": "^1.4.0",
     "discord-api-types": "^0.25.2",
