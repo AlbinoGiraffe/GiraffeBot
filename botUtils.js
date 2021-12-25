@@ -38,7 +38,7 @@ module.exports = {
 		return collection;
 	},
 	entryExists: function (client, message) {
-		return client.Snipe.findOne({
+		return client.db.Snipe.findOne({
 			where: { channelId: message.channel.id },
 		}).then((token) => token !== null);
 	},
@@ -47,5 +47,25 @@ module.exports = {
 			return str;
 		}
 		return str.slice(0, num) + '...';
+	},
+	getIgnoreList: async function (client) {
+		return await client.db.GlobalConfig.findAll({ where: {} }).then((e) => {
+			let arr = [];
+			e.forEach((g) => {
+				arr = arr.concat(JSON.parse(g.ignoredChannels));
+			});
+			return arr;
+		});
+	},
+	isSelectorChannel: async function (client, message) {
+		if (!message.guild) return true;
+
+		const token = await client.db.GuildConfig.findOne({
+			where: { guildId: message.guild.id },
+		});
+
+		if (!token) return null;
+		if (!token.selectorId) return null;
+		if (token.selectorId == message.channel.id) return true;
 	},
 };

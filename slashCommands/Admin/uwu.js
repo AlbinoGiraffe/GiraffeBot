@@ -13,6 +13,8 @@ module.exports = {
 	run: async (client, interaction) => {
 		const msg = interaction.options.getString('text');
 		interaction.channel.send(uwu.uwuifySentence(msg));
-		interaction.reply({ content: 'uwuified!', ephemeral: true });
+		interaction
+			.reply({ content: 'uwuified!', ephemeral: true })
+			.catch(console.error);
 	},
 };

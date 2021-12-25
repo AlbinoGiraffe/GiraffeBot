@@ -7,7 +7,9 @@ module.exports = {
 		client.users
 			.fetch('878185975115808788')
 			.then((member) => {
-				interaction.reply({ content: 'haha', ephemeral: true });
+				interaction
+					.reply({ content: 'haha', ephemeral: true })
+					.catch(console.error);
 				interaction.channel.send(`${member} pdf file 😳`);
 			})
 			.catch(console.error);

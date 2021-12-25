@@ -43,14 +43,32 @@ client.db.GuildConfig = client.db.define('GuildConfigs', {
 		unique: true,
 	},
 	prefix: Sequelize.STRING,
+	selectorId: Sequelize.INTEGER,
 	adminRoles: Sequelize.STRING,
 	modRoles: Sequelize.STRING,
 	ownerId: Sequelize.INTEGER,
 });
 
+client.db.Majors = client.db.define('Major', {
+	major: {
+		type: Sequelize.STRING,
+		unique: true,
+	},
+	code: Sequelize.STRING,
+});
+
+client.db.GlobalConfig = client.db.define('Global', {
+	guildId: { type: Sequelize.INTEGER, unique: true },
+	ignoredChannels: { type: Sequelize.STRING },
+});
+
 // Syncing DB
+
+// clear snipes at startup
 client.db.Snipe.sync({ force: true });
 client.db.GuildConfig.sync();
+client.db.GlobalConfig.sync();
+
 console.log(color.yellow('Database synced'));
 
 // initialize Cleverbot

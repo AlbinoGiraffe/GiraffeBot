@@ -22,9 +22,11 @@ module.exports = (client, interaction) => {
 		command.run(client, interaction);
 	} catch (error) {
 		console.error(error);
-		interaction.reply({
-			content: 'There was an error while executing this command!',
-			ephemeral: true,
-		});
+		interaction
+			.reply({
+				content: 'There was an error while executing this command!',
+				ephemeral: true,
+			})
+			.catch(console.error);
 	}
 };

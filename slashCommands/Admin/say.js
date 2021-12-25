@@ -28,7 +28,9 @@ module.exports = {
 		} else {
 			interaction.channel.send(`${msg}`);
 		}
-		interaction.reply({ content: 'Sent', ephemeral: true });
+		interaction
+			.reply({ content: 'Sent', ephemeral: true })
+			.catch(console.error);
 		return;
 	},
 };

@@ -14,10 +14,12 @@ module.exports = {
 	run: (client, interaction) => {
 		const newPrefix = interaction.options.getString('prefix');
 		if (newPrefix.length > 1) {
-			return interaction.reply({
-				content: 'Prefix must be one character!',
-				ephemeral: true,
-			});
+			return interaction
+				.reply({
+					content: 'Prefix must be one character!',
+					ephemeral: true,
+				})
+				.catch(console.error);
 		}
 
 		client.db.GuildConfig.findOne({
@@ -32,7 +34,9 @@ module.exports = {
 						{ where: { guildId: interaction.guild.id } },
 					);
 				}
-				interaction.reply(`Prefix updated to ${newPrefix}`);
+				interaction
+					.reply(`Prefix updated to ${newPrefix}`)
+					.catch(console.error);
 			})
 			.catch(console.error);
 	},

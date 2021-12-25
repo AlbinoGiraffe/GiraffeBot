@@ -11,12 +11,16 @@ module.exports = {
 			.createDM()
 			.then((channel) => channel.send(inviteLink))
 			.catch((e) => {
-				interaction.reply({ content: 'Failed to DM link!', ephemeral: true });
+				interaction
+					.reply({ content: 'Failed to DM link!', ephemeral: true })
+					.catch(console.error);
 				console.log(e);
 			});
-		interaction.reply({
-			content: "I DM'd you my invite link!",
-			ephemeral: true,
-		});
+		interaction
+			.reply({
+				content: "I DM'd you my invite link!",
+				ephemeral: true,
+			})
+			.catch(console.error);
 	},
 };

@@ -13,7 +13,7 @@ module.exports = {
 				.setRequired(true),
 		),
 	run: async (client, interaction) => {
-		await interaction.deferReply();
+		await interaction.deferReply().catch(console.error);
 		urbanDefine(interaction);
 	},
 };

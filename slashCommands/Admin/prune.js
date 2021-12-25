@@ -1,5 +1,4 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const color = require('colors/safe');
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -15,18 +14,22 @@ module.exports = {
 	run: async (client, interaction) => {
 		const num = interaction.options.getInteger('number');
 		if (num <= 1 || num >= 100) {
-			return interaction.reply({
-				content: 'Enter a number between 1 and 99',
-				ephemeral: true,
-			});
+			return interaction
+				.reply({
+					content: 'Enter a number between 1 and 99',
+					ephemeral: true,
+				})
+				.catch(console.error);
 		}
 		await interaction.channel
 			.bulkDelete(num, true)
 			.then(() =>
-				interaction.reply({
-					content: `Done deleting ${num} messages.`,
-					ephemeral: true,
-				}),
+				interaction
+					.reply({
+						content: `Done deleting ${num} messages.`,
+						ephemeral: true,
+					})
+					.catch(console.error),
 			)
 			.catch(() => {
 				interaction.reply({

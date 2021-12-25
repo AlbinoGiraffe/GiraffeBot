@@ -1,7 +1,7 @@
 const botUtils = require('../botUtils');
 const config = require('../config.json');
 
-module.exports = (client, message) => {
+module.exports = async (client, message) => {
 	if (message.author.bot) return;
 	if (message.channel.partial) message.channel.fetch();
 	if (message.partial) message.fetch();
@@ -14,7 +14,9 @@ module.exports = (client, message) => {
 				message.content,
 			)}`,
 		);
-	} else {
+	}
+
+	if (!client.ignoreList.includes(message.channel.id) && message.guild) {
 		console.log(
 			`[${date}]: ${message.author.tag} in #${
 				message.channel.name
@@ -22,19 +24,100 @@ module.exports = (client, message) => {
 		);
 	}
 
-	if (message.content == 'prefix') {
+	if (message.guild) {
 		client.db.GuildConfig.findOne({
 			where: { guildId: message.guild.id },
 		})
-			.then((token) =>
-				message
-					.reply(`My prefix on this server is: ${token.prefix}`)
-					.catch(console.error),
-			)
+			.then((token) => {
+				if (message.content == 'prefix') {
+					message
+						.reply(`My prefix on this server is: ${token.prefix}`)
+						.catch(console.error);
+					return;
+				}
+
+				// role selector
+				if (message.channel.id == token.selectorId) {
+					let remove = false;
+					let mquery = message.content;
+					if (message.content.startsWith('rm')) {
+						remove = true;
+						mquery = message.content.replace('rm ', '');
+					}
+					client.db.Majors.findOne({
+						where: { code: mquery.toUpperCase() },
+					}).then((major) => {
+						if (major) {
+							message.guild.roles.fetch();
+							const role = message.guild.roles.cache.find(
+								(r) => r.name == major.major,
+							);
+
+							if (!remove) {
+								message.member.roles.add(role).catch(console.error);
+								message.author
+									.createDM()
+									.then((m) => m.send(`Gave you the \`${role.name}\` role!`))
+									.catch(console.error);
+								console.log(`Gave ${message.author.tag} '${role.name}'`);
+							} else {
+								message.member.roles.remove(role).catch(console.error);
+								message.author
+									.createDM()
+									.then((m) => m.send(`Removed the \`${role.name}\` role!`))
+									.catch(console.error);
+								console.log(`Gave ${message.author.tag} '${role.name}'`);
+							}
+						} else {
+							message.author
+								.createDM()
+								.then((m) =>
+									m.send(
+										`Invalid major code! Use \`!codes\` to see a list of available codes.`,
+									),
+								)
+								.catch(console.error);
+						}
+
+						if (message.author.id != config.adminId) {
+							message.delete().catch(console.error);
+						}
+					});
+				}
+			})
 			.catch(console.error);
 	}
-	// bot mentioned
-	if (message.mentions.has(client.user)) {
+
+	// Command processing
+	let gid = null;
+	if (message.guild) {
+		gid = message.guild.id;
+	}
+
+	const token = await client.db.GuildConfig.findOne({
+		where: { guildId: gid },
+	});
+
+	let currentPrefix = config.prefix;
+	if (token?.prefix) {
+		currentPrefix = token.prefix;
+	}
+
+	if (message.content.startsWith(`${currentPrefix}`)) {
+		const args = message.content
+			.slice(currentPrefix.length)
+			.trim()
+			.split(/ +/g);
+		const command = args.shift().toLowerCase();
+		const cmd = client.commands.get(command);
+
+		if (!cmd) return;
+		cmd.run(client, message, args);
+		return;
+	}
+
+	// bot mentioned or dm
+	if (message.mentions.has(client.user) || !message.guild) {
 		const cbquery = message.cleanContent
 			.replaceAll('@', '')
 			.replaceAll('\u200B', '')
@@ -47,32 +130,4 @@ module.exports = (client, message) => {
 			})
 			.catch(console.error);
 	}
-
-	// Command processing
-	client.db.GuildConfig.findOne({
-		where: { guildId: message.guild.id },
-	})
-		.then((token) => {
-			if (token.prefix) {
-				const currentPrefix = token.prefix;
-				if (
-					!message.content.startsWith(`${currentPrefix}`) ||
-					!message.content.startsWith(`${config.prefix}`)
-				) {
-					return;
-				}
-
-				const args = message.content
-					.slice(currentPrefix.length)
-					.trim()
-					.split(/ +/g);
-				const command = args.shift().toLowerCase();
-				const cmd = client.commands.get(command);
-
-				if (!cmd) return;
-				cmd.run(client, message, args);
-			}
-			return;
-		})
-		.catch(console.error);
 };

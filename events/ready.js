@@ -1,4 +1,5 @@
 const color = require('colors/safe');
+const botUtils = require('../botUtils');
 const config = require('../config.json');
 
 const adminPermissions = [
@@ -8,10 +9,12 @@ const adminPermissions = [
 		permission: true,
 	},
 ];
-let count = 0;
 
 module.exports = async (client) => {
+	let count = 0;
 	if (!client.application?.owner) client.application?.fetch();
+
+	client.ignoreList = await botUtils.getIgnoreList(client);
 
 	if (!config.globalCommands) {
 		client.guilds.cache

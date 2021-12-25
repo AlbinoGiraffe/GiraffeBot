@@ -35,25 +35,42 @@ const getData = (html) => {
 	$(`table tbody tr`).each((i, ele) => {
 		data.push({
 			major: {
-				m: $(ele).children('td:nth-child(1)').text().replaceAll('\n', ''),
-				c: $(ele).children('td:nth-child(2)').text().replaceAll('\n', ''),
+				m: $(ele)
+					.children('td:nth-child(1)')
+					.text()
+					.replaceAll('\n', '')
+					.replaceAll(/ B\..\.+/g, ''),
+				c: $(ele)
+					.children('td:nth-child(2)')
+					.text()
+					.replaceAll('\n', '')
+					.replace(/B.$/, ''),
 			},
 		});
 	});
 
 	data.forEach((element, i) => {
-		if (element.major.m == '' || element.major.c == '') {
+		if (element.major.m == '' || element.major.m == 'Combined Majors') {
+			data.splice(i, 1);
+		}
+		if (element.major.c == '') {
 			data.splice(i, 1);
 		}
 	});
 
 	data.forEach((element, i) => {
 		console.log(`'${element.major.m}' - '${element.major.c}' - ${i}`);
-		db.majors
-			.create({
-				major: element.major.m,
-				code: element.major.c,
-			})
-			.catch(console.error);
+		try {
+			db.majors
+				.create({
+					major: element.major.m,
+					code: element.major.c,
+				})
+				.catch((e) =>
+					console.log(`${element.major.m} - ${element.major.c} - ${e.name}`),
+				);
+		} catch (e) {
+			console.log(e.name);
+		}
 	});
 };

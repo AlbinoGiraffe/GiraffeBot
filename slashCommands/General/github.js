@@ -6,6 +6,6 @@ module.exports = {
 		.setName('github')
 		.setDescription('Get my github link'),
 	run: (client, interaction) => {
-		interaction.reply(githubLink);
+		interaction.reply(githubLink).catch(console.error);
 	},
 };

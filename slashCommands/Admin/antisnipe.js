@@ -11,7 +11,9 @@ module.exports = {
 			if (token) {
 				client.Snipe.destroy({ where: { channelId: interaction.channel.id } });
 			}
-			interaction.reply({ content: 'Snipe cancelled', ephemeral: true });
+			interaction
+				.reply({ content: 'Snipe cancelled', ephemeral: true })
+				.catch(console.error);
 		});
 	},
 };

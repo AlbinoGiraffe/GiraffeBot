@@ -5,6 +5,6 @@ module.exports = {
 		.setName('ping')
 		.setDescription('Ping the bot'),
 	run: (client, interaction) => {
-		interaction.reply(`Pong! (${client.ws.ping}ms)`);
+		interaction.reply(`Pong! (${client.ws.ping}ms)`).catch(console.error);
 	},
 };
