@@ -19,7 +19,7 @@ module.exports = (client, message) => {
 			client.db.Snipe.create({
 				channelId: message.channel.id,
 				content: message.content,
-				author: message.author.user,
+				author: message.author.tag,
 				date: message.createdAt.toLocaleDateString(),
 				mid: message.id,
 			})

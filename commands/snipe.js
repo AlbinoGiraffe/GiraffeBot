@@ -1,3 +1,5 @@
+const { MessageEmbed } = require('discord.js');
+
 module.exports = {
 	name: 's',
 	run: (client, message) => {
@@ -6,9 +8,20 @@ module.exports = {
 				if (token === null) {
 					message.channel.send(`No message to snipe!`);
 				} else {
-					message.channel.send(`Sniped: ${token.content}`);
+					message.channel
+						.send({ embeds: [genEmbed(client, token, message)] })
+						.catch();
 				}
 			},
 		);
 	},
 };
+
+function genEmbed(client, token, message) {
+	const out = new MessageEmbed()
+		.setColor('0xe74c3c')
+		.setTitle(`Deleted message from ${token.author}`)
+		.addField('Message: ', token.content)
+		.setFooter(`id: ${token.mid} | ${token.date} | #${message.channel.name}`);
+	return out;
+}
