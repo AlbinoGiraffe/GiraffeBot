@@ -13,7 +13,7 @@ module.exports = {
 		),
 	run: async (client, interaction) => {
 		const num = interaction.options.getInteger('number');
-		if (num <= 1 || num >= 100) {
+		if (num < 1 || num >= 100) {
 			return interaction
 				.reply({
 					content: 'Enter a number between 1 and 99',
