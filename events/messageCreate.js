@@ -135,6 +135,7 @@ module.exports = async (client, message) => {
 	if (message.mentions.has(client.user) || !message.guild) {
 		const cbquery = message.cleanContent
 			.replaceAll('@', '')
+			.replaceAll('’', "'")
 			.replaceAll('\u200B', '')
 			.replaceAll(client.user.username, '');
 
