@@ -27,8 +27,8 @@ module.exports = async (client, message) => {
 	// emphasize - what
 	if (message.content.toLowerCase() == 'what') {
 		if (message.reference) {
-			const toEmphasize = await message.channel.messages.fetch(
-				message.reference.messageId,
+			const toEmphasize = botUtils.cleanInput(
+				await message.channel.messages.fetch(message.reference.messageId),
 			);
 			message.reply(`*${toEmphasize.content}*`);
 		} else {

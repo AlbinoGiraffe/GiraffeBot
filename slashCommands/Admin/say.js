@@ -21,6 +21,10 @@ module.exports = {
 		const num = interaction.options.getInteger('repeat');
 		const msg = BotUtils.cleanInput(interaction.options.getString('input'));
 
+		if (msg.length() > 2000) {
+			return interaction.reply('Message too long (2000 characters)');
+		}
+
 		if (num) {
 			for (let i = 0; i < num; i++) {
 				setTimeout(() => interaction.channel.send(msg), 5000);

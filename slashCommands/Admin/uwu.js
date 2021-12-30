@@ -11,8 +11,12 @@ module.exports = {
 			option.setName('text').setDescription('Text to uwuify').setRequired(true),
 		),
 	run: async (client, interaction) => {
-		const msg = interaction.options.getString('text');
-		interaction.channel.send(uwu.uwuifySentence(msg));
+		const msg = uwu.uwuifySentence(interaction.options.getString('text'));
+		if (msg.length() > 2000) {
+			return interaction.reply('Message too long (2000 characters)');
+		}
+
+		interaction.channel.send(msg);
 		interaction
 			.reply({ content: 'uwuified!', ephemeral: true })
 			.catch(console.error);
