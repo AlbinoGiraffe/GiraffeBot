@@ -33,7 +33,7 @@ module.exports = async (client, message) => {
 			message.reply(`*${toEmphasize.content}*`);
 		} else {
 			message.channel.messages.fetch({ limit: 2 }).then((m) => {
-				message.channel.send(`*${m.last().content}*`);
+				message.channel.send(`*${botUtils.cleanInput(m.last().content)}*`);
 			});
 		}
 		return;
