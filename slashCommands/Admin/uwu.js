@@ -12,7 +12,8 @@ module.exports = {
 		),
 	run: async (client, interaction) => {
 		const msg = uwu.uwuifySentence(interaction.options.getString('text'));
-		if (msg.length() > 2000) {
+
+		if (msg.length > 2000) {
 			return interaction.reply('Message too long (2000 characters)');
 		}
 
