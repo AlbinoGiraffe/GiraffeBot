@@ -107,6 +107,17 @@ module.exports = {
 						.setDescription('Role to delete')
 						.setRequired(true),
 				),
+		)
+		.addSubcommand((cmd) =>
+			cmd
+				.setName('find')
+				.setDescription('find a role')
+				.addStringOption((option) =>
+					option
+						.setName('query')
+						.setDescription('name or id of role')
+						.setRequired(true),
+				),
 		),
 	run: async (client, interaction) => {
 		const group = interaction.options.getSubcommandGroup(false);
@@ -118,35 +129,12 @@ module.exports = {
 			}
 
 			if (cmd == 'all') {
-				const guildCache = await interaction.guild.roles.fetch();
-				const guildRoles = await guildCache.sort((a, b) => b > a);
-
+				const guildRoles = await interaction.guild.roles.fetch();
 				const role_list = splitRoles(Array.from(guildRoles.values()), 15);
 				const num_roles = guildRoles.size - 1;
 				const pg = interaction.options.getInteger('page');
 
 				await interaction.deferReply();
-
-				// console.log(`${guildRoles.size} - ${role_list.length}`);
-				// guildRoles.forEach((r) => {
-				// 	console.log(r.name);
-				// });
-
-				// guildRoles.forEach((v, k) => {
-				// 	console.log(`${k} - ${v.name}`);
-				// });
-				// return;
-
-				// console.log(role_list);
-				// let i = 1;
-				// role_list.forEach((p) => {
-				// 	console.log(`Page ${i} - ${p}`);
-				// 	p.forEach((r) => {
-				// 		console.log(r.name);
-				// 	});
-				// 	i++;
-				// });
-				// return;
 
 				let n = 0;
 				const rs = role_list.length;
@@ -169,7 +157,7 @@ module.exports = {
 				}
 
 				const embd = new MessageEmbed().setDescription(
-					`**${num_roles} Roles (Page ${n + 1}${rs}):**\n${msg}`,
+					`**${num_roles} Roles (Page ${n + 1}/${rs}):**\n${msg}`,
 				);
 				return interaction.editReply({ embeds: [embd] });
 			}
@@ -185,6 +173,7 @@ module.exports = {
 				});
 			}
 
+			// Support list of role names/ids
 			if (cmd == 'add') {
 				interaction.editReply('Not implemented');
 			}
@@ -207,6 +196,7 @@ module.exports = {
 		if (group == 'edit') {
 			const role = interaction.options.getRole('role');
 
+			// support list of names/ids?
 			if (cmd == 'color') {
 				const newColor = interaction.options.getString('color');
 				role
@@ -285,6 +275,7 @@ module.exports = {
 			}
 		}
 
+		// support list of names/ids
 		if (cmd == 'delete') {
 			const role = interaction.options.getRole('role');
 			role
@@ -303,11 +294,14 @@ module.exports = {
 					interaction.editReply({ embeds: [embed] });
 				});
 		}
+
+		if (cmd == 'find') {
+			const roleQuery = interaction.options.getString('query');
+			findRoles(await interaction.guild.roles.fetch(), roleQuery);
+		}
 		return;
 	},
 };
-
-// edit [color, name], create, delete, list [all], add, remove
 
 function splitRoles(arr, len) {
 	const chunks = [];
@@ -332,7 +326,12 @@ function genRoleList(role_list, n) {
 	return msg;
 }
 
-function findRole(client, roleName) {
+function findRoles(guildRoles, roleQuery) {
+	console.log(
+		guildRoles.filter(
+			(r) => r.name == roleQuery || r.id == parseInt(roleQuery),
+		),
+	);
 	return;
 }
 
