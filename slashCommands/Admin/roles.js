@@ -118,12 +118,35 @@ module.exports = {
 			}
 
 			if (cmd == 'all') {
-				const guildRoles = await interaction.guild.roles.fetch();
-				const role_list = splitRoles(guildRoles, 15);
+				const guildCache = await interaction.guild.roles.fetch();
+				const guildRoles = await guildCache.sort((a, b) => b > a);
+
+				const role_list = splitRoles(Array.from(guildRoles.values()), 15);
 				const num_roles = guildRoles.size - 1;
 				const pg = interaction.options.getInteger('page');
 
-				console.log(`${guildRoles.size} - ${role_list.length}`);
+				await interaction.deferReply();
+
+				// console.log(`${guildRoles.size} - ${role_list.length}`);
+				// guildRoles.forEach((r) => {
+				// 	console.log(r.name);
+				// });
+
+				// guildRoles.forEach((v, k) => {
+				// 	console.log(`${k} - ${v.name}`);
+				// });
+				// return;
+
+				// console.log(role_list);
+				// let i = 1;
+				// role_list.forEach((p) => {
+				// 	console.log(`Page ${i} - ${p}`);
+				// 	p.forEach((r) => {
+				// 		console.log(r.name);
+				// 	});
+				// 	i++;
+				// });
+				// return;
 
 				let n = 0;
 				const rs = role_list.length;
@@ -148,7 +171,7 @@ module.exports = {
 				const embd = new MessageEmbed().setDescription(
 					`**${num_roles} Roles (Page ${n + 1}${rs}):**\n${msg}`,
 				);
-				interaction.editReply({ embeds: [embd] });
+				return interaction.editReply({ embeds: [embd] });
 			}
 
 			// Admin commands
@@ -286,35 +309,26 @@ module.exports = {
 
 // edit [color, name], create, delete, list [all], add, remove
 
-function splitRoles(lst, n) {
-	const perChunk = n;
+function splitRoles(arr, len) {
+	const chunks = [];
+	const n = arr.length;
+	let i = 0;
 
-	const inputArray = lst;
+	while (i < n) {
+		chunks.push(arr.slice(i, (i += len)));
+	}
 
-	return inputArray.reduce((resultArray, item, index) => {
-		const chunkIndex = Math.floor(index / perChunk);
-
-		if (!resultArray[chunkIndex]) {
-			resultArray[chunkIndex] = [];
-		}
-
-		resultArray[chunkIndex].push(item);
-
-		return resultArray;
-	}, []);
+	return chunks;
 }
 
 function genRoleList(role_list, n) {
-	console.log(role_list[n]);
-	return [];
-
 	let msg = '```';
 	role_list[n].forEach((r) => {
-		if (!(r.position == 0)``) {
-			msg = msg + '"' + r.name + '"\n';
+		if (!(r.position == 0)) {
+			msg = msg + `"${r.name}" - ${r.position}\n`;
 		}
-		msg = msg + '```';
 	});
+	msg = msg + '```';
 	return msg;
 }
 
