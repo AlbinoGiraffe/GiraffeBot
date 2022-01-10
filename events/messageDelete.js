@@ -13,7 +13,7 @@ module.exports = (client, message) => {
 		),
 	);
 
-	// create or update entry
+	// Create snipe entry
 	botUtils.entryExists(client, message).then((exists) => {
 		if (!exists) {
 			client.db.Snipe.create({
@@ -25,7 +25,11 @@ module.exports = (client, message) => {
 			})
 				.then(() => {
 					console.log(
-						color.blue(`Snipe entry added for #${message.channel.name}`),
+						color.blue(
+							`[${new Date().toLocaleDateString()}]: Snipe entry added for #${
+								message.channel.name
+							}`,
+						),
 					);
 					setTimeout(
 						() =>
@@ -34,34 +38,13 @@ module.exports = (client, message) => {
 							}).then(() =>
 								console.log(
 									color.blue(
-										`Snipe entry deleted for #${message.channel.name}`,
+										`[${new Date().toLocaleDateString()}]: Snipe entry deleted for #${
+											message.channel.name
+										}`,
 									),
 								),
 							),
-						5000,
-					);
-				})
-				.catch((e) => console.log(e));
-		} else {
-			client.db.Snipe.update(
-				{
-					content: message.content,
-					author: message.author.user,
-					date: message.createdAt.toLocaleDateString(),
-					mid: message.id,
-				},
-				{ where: { channelId: message.channel.id } },
-			)
-				.then(() => {
-					// delete it after 5 seconds
-					setTimeout(
-						() =>
-							client.db.Snipe.destroy({
-								where: { channelId: message.channel.id },
-							}).then(() =>
-								console.log(`Snipe destroyed for #${message.channel.name}`),
-							),
-						5000,
+						8000,
 					);
 				})
 				.catch((e) => console.log(e));

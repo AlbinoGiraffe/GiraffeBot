@@ -43,7 +43,7 @@ module.exports = {
 					{ where: { guildId: interaction.guild.id } },
 				);
 			}
-			updateIgnoreList(client);
+			updateIgnoreList(client, interaction.channel);
 			interaction
 				.reply({
 					content: `${interaction.channel} logging updated.`,
@@ -54,8 +54,8 @@ module.exports = {
 	},
 };
 
-async function updateIgnoreList(client) {
+async function updateIgnoreList(client, channel) {
 	// update ignore list
 	client.ignoreList = await botUtils.getIgnoreList(client);
-	console.log('Log ignores updated.');
+	console.log(`Log ignores updated for ${channel.name}`);
 }

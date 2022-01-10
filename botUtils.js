@@ -84,4 +84,11 @@ module.exports = {
 			now.getSeconds()
 		);
 	},
+	findRoles: function (guildRoles, roleQuery) {
+		return guildRoles.filter(
+			(r) =>
+				r.name.toUpperCase() == roleQuery.toUpperCase() ||
+				r.id == parseInt(roleQuery),
+		);
+	},
 };

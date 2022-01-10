@@ -26,6 +26,7 @@ module.exports = async (client) => {
 					.then((token) => {
 						if (!token) {
 							client.db.GuildConfig.create({
+								guildName: guild.name,
 								guildId: guild.id,
 								prefix: config.prefix,
 								adminRoles: '',

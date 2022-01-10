@@ -38,6 +38,7 @@ client.db.Snipe = client.db.define('Snipes', {
 });
 
 client.db.GuildConfig = client.db.define('GuildConfigs', {
+	guildName: Sequelize.STRING,
 	guildId: {
 		type: Sequelize.STRING,
 		unique: true,
@@ -48,6 +49,7 @@ client.db.GuildConfig = client.db.define('GuildConfigs', {
 	modRoles: Sequelize.STRING,
 	ownerId: Sequelize.STRING,
 	starBoardChannelId: Sequelize.STRING,
+	assignRoles: Sequelize.STRING,
 
 	starThreshold: {
 		type: Sequelize.INTEGER,
@@ -82,9 +84,7 @@ client.db.Starboard = client.db.define('StarboardConfigs', {
 
 // clear snipes at startup
 client.db.Snipe.sync({ force: true });
-client.db.GuildConfig.sync();
-client.db.GlobalConfig.sync();
-client.db.Starboard.sync();
+client.db.sync();
 
 console.log(color.yellow('Database synced'));
 

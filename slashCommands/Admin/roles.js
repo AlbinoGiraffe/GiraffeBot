@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 const { MessageEmbed } = require('discord.js');
+const botUtils = require('../../botUtils');
 const config = require('../../config.json');
 
 module.exports = {
@@ -124,6 +125,8 @@ module.exports = {
 		const cmd = interaction.options.getSubcommand();
 
 		if (group == 'list') {
+			await interaction.deferReply();
+
 			if (cmd == 'assignable') {
 				interaction.editReply('Not implemented');
 			}
@@ -133,8 +136,6 @@ module.exports = {
 				const role_list = splitRoles(Array.from(guildRoles.values()), 15);
 				const num_roles = guildRoles.size - 1;
 				const pg = interaction.options.getInteger('page');
-
-				await interaction.deferReply();
 
 				let n = 0;
 				const rs = role_list.length;
@@ -175,11 +176,48 @@ module.exports = {
 
 			// Support list of role names/ids
 			if (cmd == 'add') {
-				interaction.editReply('Not implemented');
+				const role = interaction.options.getRole('role');
+
+				client.db.GuildConfig.findOne({
+					where: { guildId: interaction.guild.id },
+				}).then((tok) => {
+					let roleList = JSON.parse(tok.assignRoles);
+					if (!roleList) roleList = [];
+
+					if (roleList.includes(role.id)) {
+						return interaction.editReply('Role already in list!');
+					}
+
+					roleList.push(role.id);
+					client.db.GuildConfig.update(
+						{ assignRoles: JSON.stringify(roleList) },
+						{ where: { guildId: interaction.guild.id } },
+					).then(interaction.editReply('Role added'));
+				});
+				return;
 			}
 
 			if (cmd == 'remove') {
-				interaction.editReply('Not implemented');
+				const role = interaction.options.getRole('role');
+
+				client.db.GuildConfig.findOne({
+					where: { guildId: interaction.guild.id },
+				}).then((tok) => {
+					let roleList = JSON.parse(tok.assignRoles);
+					if (!roleList) roleList = [];
+
+					if (roleList.includes(role.id)) {
+						roleList.pop(role.id);
+
+						client.db.GuildConfig.update(
+							{ assignRoles: JSON.stringify(roleList) },
+							{ where: { guildId: interaction.guild.id } },
+						).then(interaction.editReply('Role removed from list!'));
+					} else {
+						interaction.editReply('Role not in assignable list!');
+					}
+				});
+				return;
 			}
 		}
 
@@ -297,7 +335,21 @@ module.exports = {
 
 		if (cmd == 'find') {
 			const roleQuery = interaction.options.getString('query');
-			findRoles(await interaction.guild.roles.fetch(), roleQuery);
+			const result = botUtils.findRoles(
+				await interaction.guild.roles.fetch(),
+				roleQuery,
+			);
+
+			let msg = '```';
+			result.forEach((r) => {
+				msg = msg + `${r.name} - ${r.id}\n`;
+			});
+			msg = msg + '```';
+
+			const embd = new MessageEmbed().setDescription(
+				`**Roles matching query:**\n${msg}`,
+			);
+			interaction.editReply({ embeds: [embd] });
 		}
 		return;
 	},
@@ -324,15 +376,6 @@ function genRoleList(role_list, n) {
 	});
 	msg = msg + '```';
 	return msg;
-}
-
-function findRoles(guildRoles, roleQuery) {
-	console.log(
-		guildRoles.filter(
-			(r) => r.name == roleQuery || r.id == parseInt(roleQuery),
-		),
-	);
-	return;
 }
 
 function listDuplicateRoles(roleList) {
