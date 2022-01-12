@@ -1,5 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const botUtils = require('../../botUtils');
+// const botUtils = require('../../botUtils');
+
+// TODO: get list, force
 
 module.exports = {
 	data: new SlashCommandBuilder()
@@ -31,6 +33,17 @@ module.exports = {
 								.setRequired(true),
 						),
 				)
+				.addSubcommand((lastCounter) =>
+					lastCounter
+						.setName('lastcounter')
+						.setDescription('Set last counter role')
+						.addRoleOption((role) =>
+							role
+								.setName('role')
+								.setDescription('Role to add')
+								.setRequired(true),
+						),
+				)
 				.addSubcommand((channel) =>
 					channel.setName('channel').setDescription('Set counting channel'),
 				),
@@ -49,6 +62,11 @@ module.exports = {
 						.setName('countingmute')
 						.setDescription('Get counting mute role'),
 				)
+				.addSubcommand((lastCounter) =>
+					lastCounter
+						.setName('lastcounter')
+						.setDescription('Get last counter role'),
+				)
 				.addSubcommand((channel) =>
 					channel.setName('channel').setDescription('Get counting channel'),
 				),
@@ -58,7 +76,15 @@ module.exports = {
 		)
 		// add integer option (required)
 		.addSubcommand((force) =>
-			force.setName('force').setDescription('Override counting number'),
+			force
+				.setName('force')
+				.setDescription('Override counting number')
+				.addStringOption((option) =>
+					option
+						.setName('number')
+						.setDescription('number for override')
+						.setRequired(true),
+				),
 		)
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
@@ -96,6 +122,18 @@ module.exports = {
 				);
 				interaction.reply({
 					content: `Highest Counter set to ${role}`,
+					ephemeral: true,
+				});
+			}
+
+			if (cmd == 'lastcounter') {
+				const role = interaction.options.getRole('role');
+				client.db.Count.update(
+					{ lastCounter: role.id },
+					{ where: { guildId: interaction.guild.id } },
+				);
+				interaction.reply({
+					content: `Last Counter set to ${role}`,
 					ephemeral: true,
 				});
 			}
@@ -168,7 +206,22 @@ module.exports = {
 
 				const role = await interaction.guild.roles.fetch(tok.countingMute);
 				interaction.reply({
-					content: `Highest Counter set to ${role}`,
+					content: `Counting mute set to ${role}`,
+					ephemeral: true,
+				});
+			}
+
+			if (cmd == 'lastCounter') {
+				if (!tok.lastCounter) {
+					return interaction.reply({
+						content: `Last counter not set!`,
+						ephemeral: true,
+					});
+				}
+
+				const role = await interaction.guild.roles.fetch(tok.lastCounter);
+				interaction.reply({
+					content: `Last counter set to ${role}`,
 					ephemeral: true,
 				});
 			}
@@ -179,6 +232,19 @@ module.exports = {
 		}
 
 		if (cmd == 'force') {
+			const num = interaction.options.getString('number');
+			const forcedNum = num.match(/(\d+)$/)[1];
+			// await updateNumber(forcedNum, null, msg);
+			// await msg.react('✅');
+			// setTimeout(() => {
+			//   LAST_FIVE_MESSAGES[lastFiveIndex++] = msg;
+			//   lastFiveIndex %= 5;
+
+			//   msg
+			// 	.delete()
+			// 	.catch(err => console.error('Error deleting !force message', err));
+			// }, 2000);
+
 			interaction.reply('not implemented');
 		}
 	},

@@ -1,9 +1,16 @@
 const config = require('./config.json');
 const Sequelize = require('sequelize');
 const { Client, Intents } = require('discord.js');
+const fs = require('fs');
 
 const client = new Client({
-	intents: [Intents.FLAGS.GUILDS],
+	intents: [
+		Intents.FLAGS.GUILDS,
+		Intents.FLAGS.GUILD_MEMBERS,
+		Intents.FLAGS.GUILD_MESSAGES,
+		Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
+		Intents.FLAGS.DIRECT_MESSAGES,
+	],
 });
 
 const db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
@@ -21,9 +28,20 @@ db.majors = db.define('Major', {
 	code: Sequelize.STRING,
 });
 
-db.majors.sync();
+db.Count = db.define('CountingConfigs', {
+	guildId: Sequelize.STRING,
+	channelId: Sequelize.STRING,
+	highestCounter: Sequelize.STRING,
+	countingMute: Sequelize.STRING,
+	lastCounter: Sequelize.STRING,
+	totalCount: Sequelize.STRING,
+	lastNumber: Sequelize.STRING,
+	lastMember: Sequelize.STRING,
+});
 
-client.once('ready', (c) => {
+db.sync();
+
+client.once('ready', async (c) => {
 	// c.guilds.fetch(config.guildId).then((g) => {
 	// 	console.log(`Fetched ${g.name}`);
 	// 	g.roles.fetch().then((r) => {
@@ -34,15 +52,41 @@ client.once('ready', (c) => {
 	// 		} else {
 	// 			console.log('No duplicates :)');
 	// 		}
-
 	// 		updateRoles(c.guild);
 	// 	});
 	// });
 
-	c.guilds.fetch('877050310181416961').then((g) => {
-		const everyone = g.roles.everyone;
-		console.log(`${everyone.position} - `);
+	// setInterval(getRoles, 3000);
+
+	// console.log('update roles');
+	// const g = await client.guilds.fetch('877050310181416961');
+	// const t = await db.Count.findOne({ where: { guildId: g.id } });
+
+	// if (!t) return;
+	// if (!t.channelId || !t.countingMute) return;
+
+	// await g.members.fetch();
+
+	// const roleID = t.countingMute;
+	// g.roles.fetch(roleID).then((r) => {
+	// 	// console.log(r);
+	// 	console.log(`Got ${r.members.size} members with that role.`);
+	// });
+
+	const count = await db.Count.findOne({
+		where: { guildId: '877050310181416961' },
 	});
+
+	if (count) {
+		db.Count.update(
+			{
+				totalCount: JSON.stringify(
+					JSON.parse(fs.readFileSync('./count.json', 'utf-8')),
+				),
+			},
+			{ where: { guildId: '877050310181416961' } },
+		);
+	}
 });
 
 function findDuplicates(r) {
@@ -87,6 +131,22 @@ function updateRoles(g) {
 			}
 		});
 		console.log('done');
+	});
+}
+
+function getRoles() {
+	console.log('update roles');
+	client.guilds.fetch('877050310181416961').then((g) => {
+		db.Count.findOne({ where: { guildId: g.id } }).then((t) => {
+			if (!t) return;
+			if (!t.channelId || !t.countingMute) return;
+			g.members.fetch().then(() => {
+				const roleID = t.countingMute;
+				g.roles.fetch(roleID).then((r) => {
+					console.log(`Got ${r.size} members with that role.`);
+				});
+			});
+		});
 	});
 }
 client.login(config.token);

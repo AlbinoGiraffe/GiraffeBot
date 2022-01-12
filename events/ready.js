@@ -51,8 +51,23 @@ module.exports = async (client) => {
 							.catch(console.error);
 					})
 					.catch((e) => console.log(e));
+
 				guild.commands.set(client.slash).catch((e) => console.log(e));
+
+				// Clear counting mute users
+				client.db.Count.findOne({ where: { guildId: guild.id } }).then((t) => {
+					if (!t) return;
+					if (!t.channelId || !t.countingMute) return;
+					guild.members.fetch().then(() => {
+						guild.roles.fetch(t.countingMute).then((r) => {
+							for (const m of r.members) {
+								m.roles.remove(r);
+							}
+						});
+					});
+				});
 			});
+		console.log(color.yellow('Removed counting mute roles'));
 		// set slash commands
 	}
 	console.log(

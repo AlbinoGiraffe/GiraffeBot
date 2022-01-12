@@ -84,15 +84,18 @@ client.db.Count = client.db.define('CountingConfigs', {
 	guildId: Sequelize.STRING,
 	channelId: Sequelize.STRING,
 	highestCounter: Sequelize.STRING,
-	coutingMute: Sequelize.STRING,
+	countingMute: Sequelize.STRING,
 	lastCounter: Sequelize.STRING,
 	totalCount: Sequelize.STRING,
+	lastNumber: Sequelize.STRING,
+	lastMember: Sequelize.STRING,
 });
 
 // Syncing DB
 
 // clear snipes at startup
 client.db.Snipe.sync({ force: true });
+// client.db.Count.sync({ alter: true });
 client.db.sync();
 
 console.log(color.yellow('Database synced'));
