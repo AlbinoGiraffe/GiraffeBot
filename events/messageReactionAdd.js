@@ -1,8 +1,18 @@
 const color = require('colors/safe');
-const { MessageEmbed, Permissions } = require('discord.js');
+const { MessageEmbed, Permissions, ThreadChannel } = require('discord.js');
 const config = require('../config.json');
 
 module.exports = async (client, reaction) => {
+	// resolve partial
+	if (reaction.partial) {
+		try {
+			await reaction.fetch();
+		} catch (error) {
+			console.error('Something went wrong when fetching the message:', error);
+			return;
+		}
+	}
+
 	const token = client.db.GuildConfig.findOne({
 		where: { guildId: reaction.message.guild.id },
 	});
@@ -11,8 +21,6 @@ module.exports = async (client, reaction) => {
 	if (!token) {
 		thresh = config.defaultReactionThreshold;
 	}
-
-	// FIX THRESH TO ONLY CONFIG IF EMPTY
 
 	thresh = await getThresh(client, reaction, 'pin');
 	if (reaction.emoji.toString() == '📌' && reaction.count > thresh) {
@@ -102,7 +110,9 @@ async function getThresh(client, reaction, op) {
 		where: { guildId: reaction.message.guild.id },
 	});
 
-	if (!token) return config.defaultReactionThreshold;
+	if (!token) {
+		return config.defaultReactionThreshold;
+	}
 
 	if (op == 'star') {
 		return token.starThreshold;

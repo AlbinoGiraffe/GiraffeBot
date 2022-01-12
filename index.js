@@ -15,7 +15,7 @@ const client = new Client({
 		Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
 		Intents.FLAGS.DIRECT_MESSAGES,
 	],
-	partials: ['CHANNEL'],
+	partials: ['CHANNEL', 'MESSAGE', 'REACTION'],
 });
 
 // create database
@@ -78,6 +78,15 @@ client.db.Starboard = client.db.define('StarboardConfigs', {
 	guildId: Sequelize.STRING,
 	boardId: Sequelize.STRING,
 	messageId: { type: Sequelize.STRING, unique: true },
+});
+
+client.db.Count = client.db.define('CountingConfigs', {
+	guildId: Sequelize.STRING,
+	channelId: Sequelize.STRING,
+	highestCounter: Sequelize.STRING,
+	coutingMute: Sequelize.STRING,
+	lastCounter: Sequelize.STRING,
+	totalCount: Sequelize.STRING,
 });
 
 // Syncing DB
@@ -161,5 +170,5 @@ console.log(
 	),
 );
 
-// Login to Discord with your client's token
+// Login to Discord
 client.login(config.token);

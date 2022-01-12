@@ -1,7 +1,7 @@
 const color = require('colors/safe');
 const botUtils = require('../botUtils');
 
-module.exports = (client, message) => {
+module.exports = async (client, message) => {
 	if (message.author.bot || !message.guild) return;
 	if (client.ignoreList.includes(message.channel.id)) return;
 

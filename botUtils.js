@@ -42,7 +42,7 @@ module.exports = {
 			where: { channelId: message.channel.id },
 		}).then((token) => token !== null);
 	},
-	truncate: function (str, num = 50) {
+	truncate: function (str, num = 1000) {
 		if (str.length <= num) {
 			return str;
 		}

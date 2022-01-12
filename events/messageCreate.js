@@ -1,3 +1,4 @@
+const color = require('colors/safe');
 const botUtils = require('../botUtils');
 const config = require('../config.json');
 
@@ -103,14 +104,12 @@ module.exports = async (client, message) => {
 			.catch(console.error);
 	}
 
-	// Command processing
-	let gid = null;
-	if (message.guild) {
-		gid = message.guild.id;
-	}
-
 	// bot mentioned or dm
 	if (message.mentions.has(client.user) || !message.guild) {
+		if (message.content.includes('help')) {
+			return client.commands.get('help').run(client, message);
+		}
+
 		const cbquery = message.cleanContent
 			.replaceAll('@', '')
 			.replaceAll('’', "'")
@@ -124,6 +123,12 @@ module.exports = async (client, message) => {
 			})
 			.catch(console.error);
 		return;
+	}
+
+	// Command processing
+	let gid = null;
+	if (message.guild) {
+		gid = message.guild.id;
 	}
 
 	const token = await client.db.GuildConfig.findOne({
@@ -145,12 +150,17 @@ module.exports = async (client, message) => {
 
 		if (!cmd) return;
 		cmd.run(client, message, args);
+		console.log(
+			color.blue(
+				`${message.guild.name}: ${message.author.tag} ran a command (${cmd.name}) in #${message.channel.name}`,
+			),
+		);
 		return;
 	}
 
 	// nice
 	const re = new RegExp('420|69|4.20');
-	if (re.test(message.content)) {
+	if (re.test(message.content.replaceAll(/<@!*.*>/g, ''))) {
 		message.reply('nice');
 	}
 };

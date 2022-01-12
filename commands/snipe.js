@@ -2,6 +2,8 @@ const { MessageEmbed } = require('discord.js');
 
 module.exports = {
 	name: 's',
+	description: 'Snipe a deleted message',
+	help: 'Usage: `s`',
 	run: (client, message) => {
 		client.db.Snipe.findOne({ where: { channelId: message.channel.id } }).then(
 			(token) => {

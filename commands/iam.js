@@ -5,6 +5,7 @@ const botUtils = require('../botUtils');
 module.exports = {
 	name: 'iam',
 	description: 'Give yourself a role',
+	help: 'Usage: `iam [role name]`',
 	run: async (client, message, args) => {
 		// find role
 		const roles = botUtils.findRoles(
