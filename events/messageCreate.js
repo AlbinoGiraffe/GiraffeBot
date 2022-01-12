@@ -6,8 +6,8 @@ module.exports = async (client, message) => {
 	if (message.channel.partial) message.channel.fetch();
 	if (message.partial) message.fetch();
 
+	// logging
 	const date = message.createdAt.toLocaleDateString();
-
 	if (!message.guild) {
 		console.log(
 			`[${date}]: ${message.author.tag} in DM: ${botUtils.truncate(
@@ -109,6 +109,23 @@ module.exports = async (client, message) => {
 		gid = message.guild.id;
 	}
 
+	// bot mentioned or dm
+	if (message.mentions.has(client.user) || !message.guild) {
+		const cbquery = message.cleanContent
+			.replaceAll('@', '')
+			.replaceAll('’', "'")
+			.replaceAll('\u200B', '')
+			.replaceAll(client.user.username, '');
+
+		client.clev
+			.query(cbquery)
+			.then((response) => {
+				message.reply(response.output);
+			})
+			.catch(console.error);
+		return;
+	}
+
 	const token = await client.db.GuildConfig.findOne({
 		where: { guildId: gid },
 	});
@@ -131,19 +148,9 @@ module.exports = async (client, message) => {
 		return;
 	}
 
-	// bot mentioned or dm
-	if (message.mentions.has(client.user) || !message.guild) {
-		const cbquery = message.cleanContent
-			.replaceAll('@', '')
-			.replaceAll('’', "'")
-			.replaceAll('\u200B', '')
-			.replaceAll(client.user.username, '');
-
-		client.clev
-			.query(cbquery)
-			.then((response) => {
-				message.reply(response.output);
-			})
-			.catch(console.error);
+	// nice
+	const re = new RegExp('420|69|4.20');
+	if (re.test(message.content)) {
+		message.reply('nice');
 	}
 };

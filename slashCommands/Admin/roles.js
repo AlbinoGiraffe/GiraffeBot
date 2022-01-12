@@ -125,13 +125,18 @@ module.exports = {
 		const cmd = interaction.options.getSubcommand();
 
 		if (group == 'list') {
-			await interaction.deferReply();
-
 			if (cmd == 'assignable') {
+				await interaction.deferReply();
+
+				// get id list
+				// for each id, fetch the role
+				// add to msg
+				// embed
 				interaction.editReply('Not implemented');
 			}
 
 			if (cmd == 'all') {
+				await interaction.deferReply();
 				const guildRoles = await interaction.guild.roles.fetch();
 				const role_list = splitRoles(Array.from(guildRoles.values()), 15);
 				const num_roles = guildRoles.size - 1;
@@ -219,6 +224,8 @@ module.exports = {
 				});
 				return;
 			}
+
+			return;
 		}
 
 		// Admin commands
@@ -371,13 +378,13 @@ function genRoleList(role_list, n) {
 	let msg = '```';
 	role_list[n].forEach((r) => {
 		if (!(r.position == 0)) {
-			msg = msg + `"${r.name}" - ${r.position}\n`;
+			msg = msg + `"${r.name}"\n`;
 		}
 	});
 	msg = msg + '```';
 	return msg;
 }
 
-function listDuplicateRoles(roleList) {
-	return;
-}
+// function listDuplicateRoles(roleList) {
+// 	return;
+// }

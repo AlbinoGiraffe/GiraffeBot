@@ -1,14 +1,47 @@
 const color = require('colors/safe');
+const { MessageEmbed } = require('discord.js');
+const botUtils = require('../botUtils');
 
 module.exports = {
 	name: 'iam',
 	description: 'Give yourself a role',
-	run: (client, message, args) => {
+	run: async (client, message, args) => {
 		// find role
-		// get list from db
-		// check if role id in list
-		// assign role if assignable
+		const roles = botUtils.findRoles(
+			await message.guild.roles.fetch(),
+			args.join(' '),
+		);
 
-		message.reply('done').catch((e) => console.log(color.red(e)));
+		if (roles.size == 0) {
+			return message
+				.reply('Role not found!')
+				.catch((e) => console.log(color.red(e.name)));
+		}
+
+		// get list from db
+		client.db.GuildConfig.findOne({
+			where: { guildId: message.guild.id },
+		}).then((tok) => {
+			if (tok) {
+				const assignable = JSON.parse(tok.assignRoles);
+				const r = roles.find((e) => assignable.includes(e.id));
+				if (r) {
+					message.member.roles
+						.add(r)
+						.then(() => {
+							const embd = new MessageEmbed()
+								.setColor(r.color)
+								.setDescription(`Gave you the ${r} role!`);
+							message.reply({ embeds: [embd] });
+						})
+						.catch((e) => {
+							console.log(color.red(e.name));
+							message.reply(`Error giving role!`);
+						});
+				} else {
+					message.reply(`You can't have that role!`);
+				}
+			}
+		});
 	},
 };
