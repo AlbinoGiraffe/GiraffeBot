@@ -1,4 +1,5 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
+const { MessageEmbed } = require('discord.js');
 // const botUtils = require('../../botUtils');
 
 // TODO: get list, force
@@ -105,7 +106,7 @@ module.exports = {
 			if (cmd == 'highestcounter') {
 				const role = interaction.options.getRole('role');
 				client.db.Count.update(
-					{ highestCounter: role.id },
+					{ highestCounterRole: role.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
 				interaction.reply({
@@ -129,7 +130,7 @@ module.exports = {
 			if (cmd == 'lastcounter') {
 				const role = interaction.options.getRole('role');
 				client.db.Count.update(
-					{ lastCounter: role.id },
+					{ lastCounterRole: role.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
 				interaction.reply({
@@ -182,14 +183,16 @@ module.exports = {
 			}
 
 			if (cmd == 'highestcounter') {
-				if (!tok.highestCounter) {
+				if (!tok.highestCounterRole) {
 					return interaction.reply({
 						content: `Highest counter not set!`,
 						ephemeral: true,
 					});
 				}
 
-				const role = await interaction.guild.roles.fetch(tok.highestCounter);
+				const role = await interaction.guild.roles.fetch(
+					tok.highestCounterRole,
+				);
 				interaction.reply({
 					content: `Highest Counter set to ${role}`,
 					ephemeral: true,
@@ -219,7 +222,7 @@ module.exports = {
 					});
 				}
 
-				const role = await interaction.guild.roles.fetch(tok.lastCounter);
+				const role = await interaction.guild.roles.fetch(tok.lastCounterRole);
 				interaction.reply({
 					content: `Last counter set to ${role}`,
 					ephemeral: true,
@@ -228,24 +231,62 @@ module.exports = {
 		}
 
 		if (cmd == 'list') {
-			interaction.reply('not implemented');
+			const tok = await client.db.Count.findOne({
+				where: { guildId: interaction.guild.id },
+			});
+
+			if (!tok) {
+				const embd = new MessageEmbed().setDescription(
+					'Counting not set up in this server!',
+				);
+				return interaction.reply({ embeds: [embd], ephemeral: true });
+			}
+
+			let highestCounter = await interaction.guild.members
+				.fetch(tok.lastMember)
+				.catch(console.error);
+			let lastMember = await interaction.guild.members
+				.fetch(tok.lastMember)
+				.catch(console.error);
+
+			if (!highestCounter || highestCounter.size > 0) {
+				highestCounter = null;
+			}
+			if (!lastMember || lastMember.size > 0) {
+				lastMember = null;
+			}
+
+			let totals = JSON.parse(tok.totalCount);
+			if (!highestCounter) {
+				totals = '?';
+			} else {
+				totals = totals[highestCounter.id];
+			}
+
+			const msg =
+				`Last Number: ${tok.lastNumber}\n` +
+				`Highest Counter: ${highestCounter} - ${totals}\n` +
+				`Last Member: ${lastMember}`;
+			const embd = new MessageEmbed()
+				.setTitle(`Counting stats for ${interaction.guild.name}`)
+				.setDescription(msg);
+
+			interaction.reply({ embeds: [embd], ephemeral: true });
 		}
 
 		if (cmd == 'force') {
 			const num = interaction.options.getString('number');
 			const forcedNum = num.match(/(\d+)$/)[1];
-			// await updateNumber(forcedNum, null, msg);
-			// await msg.react('✅');
-			// setTimeout(() => {
-			//   LAST_FIVE_MESSAGES[lastFiveIndex++] = msg;
-			//   lastFiveIndex %= 5;
 
-			//   msg
-			// 	.delete()
-			// 	.catch(err => console.error('Error deleting !force message', err));
-			// }, 2000);
+			client.db.Count.update(
+				{ lastNumber: forcedNum },
+				{ where: { guildId: interaction.guild.id } },
+			).catch(console.error);
 
-			interaction.reply('not implemented');
+			interaction.reply({
+				content: `Count set to ${forcedNum}`,
+				ephemeral: true,
+			});
 		}
 	},
 };

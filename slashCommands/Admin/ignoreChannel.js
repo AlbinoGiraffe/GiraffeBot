@@ -24,11 +24,15 @@ module.exports = {
 
 		const cmd = interaction.options.getSubcommand();
 
-		const config = await client.db.GlobalConfig.findOne({
+		const config = await client.db.GuildConfig.findOne({
 			where: { guildId: interaction.guild.id },
 		});
-		let channels = [];
 
+		if (!config) {
+			return interaction.editReply('Error setting ignores!');
+		}
+
+		let channels = [];
 		if (config.ignoredChannels) {
 			channels = JSON.parse(config.ignoredChannels);
 		}
@@ -50,11 +54,13 @@ module.exports = {
 		if (cmd == 'add') {
 			if (!channels.includes(interaction.channel.id)) {
 				channels.push(interaction.channel.id);
-				client.db.GlobalConfig.update(
+
+				client.db.GuildConfig.update(
 					{ ignoredChannels: JSON.stringify(channels) },
 					{ where: { guildId: interaction.guild.id } },
 				).then(await updateIgnoreList(client, interaction.channel));
 
+				console.log(`Ignored #${interaction.channel.name} for logging.`);
 				interaction.editReply(`Ignored ${interaction.channel} for logging.`);
 			} else {
 				interaction.editReply('Channel already ignored!');
@@ -73,7 +79,7 @@ module.exports = {
 
 		if (cmd == 'clear') {
 			channels = [];
-			client.db.GlobalConfig.update(
+			client.db.GuildConfig.update(
 				{ ignoredChannels: JSON.stringify(channels) },
 				{ where: { guildId: interaction.guild.id } },
 			).then(await updateIgnoreList(client, interaction.channel));

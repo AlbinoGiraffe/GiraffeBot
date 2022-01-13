@@ -49,7 +49,7 @@ module.exports = {
 		return str.slice(0, num) + '...';
 	},
 	getIgnoreList: async function (client) {
-		return await client.db.GlobalConfig.findAll({ where: {} }).then((e) => {
+		return await client.db.GuildConfig.findAll({ where: {} }).then((e) => {
 			let arr = [];
 			e.forEach((g) => {
 				arr = arr.concat(JSON.parse(g.ignoredChannels));

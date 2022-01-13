@@ -2,6 +2,7 @@ const config = require('./config.json');
 const Sequelize = require('sequelize');
 const { Client, Intents } = require('discord.js');
 const fs = require('fs');
+const { devNull } = require('os');
 
 const client = new Client({
 	intents: [
@@ -28,66 +29,51 @@ db.majors = db.define('Major', {
 	code: Sequelize.STRING,
 });
 
+db.GuildConfig = db.define('GuildConfigs', {
+	guildName: Sequelize.STRING,
+	guildId: {
+		type: Sequelize.STRING,
+		unique: true,
+	},
+	prefix: Sequelize.STRING,
+	selectorId: Sequelize.STRING,
+	adminRoles: Sequelize.STRING,
+	modRoles: Sequelize.STRING,
+	ownerId: Sequelize.STRING,
+	starBoardChannelId: Sequelize.STRING,
+	assignRoles: Sequelize.STRING,
+	ignoredChannels: Sequelize.STRING,
+
+	starThreshold: {
+		type: Sequelize.INTEGER,
+		defaultValue: config.defaultReactionThreshold,
+	},
+	pinThreshold: {
+		type: Sequelize.INTEGER,
+		defaultValue: config.defaultReactionThreshold,
+	},
+});
+
 db.Count = db.define('CountingConfigs', {
 	guildId: Sequelize.STRING,
 	channelId: Sequelize.STRING,
 	highestCounter: Sequelize.STRING,
+	highestCounterRole: Sequelize.STRING,
 	countingMute: Sequelize.STRING,
-	lastCounter: Sequelize.STRING,
+	lastCounterRole: Sequelize.STRING,
 	totalCount: Sequelize.STRING,
 	lastNumber: Sequelize.STRING,
 	lastMember: Sequelize.STRING,
 });
 
+db.GlobalConfig = db.define('Global', {
+	guildId: { type: Sequelize.STRING, unique: true },
+	ignoredChannels: { type: Sequelize.STRING },
+});
+
 db.sync();
 
-client.once('ready', async (c) => {
-	// c.guilds.fetch(config.guildId).then((g) => {
-	// 	console.log(`Fetched ${g.name}`);
-	// 	g.roles.fetch().then((r) => {
-	// 		console.log('roles fetched');
-	// 		const dup = findDuplicates(r);
-	// 		if (dup) {
-	// 			console.log(dup);
-	// 		} else {
-	// 			console.log('No duplicates :)');
-	// 		}
-	// 		updateRoles(c.guild);
-	// 	});
-	// });
-
-	// setInterval(getRoles, 3000);
-
-	// console.log('update roles');
-	// const g = await client.guilds.fetch('877050310181416961');
-	// const t = await db.Count.findOne({ where: { guildId: g.id } });
-
-	// if (!t) return;
-	// if (!t.channelId || !t.countingMute) return;
-
-	// await g.members.fetch();
-
-	// const roleID = t.countingMute;
-	// g.roles.fetch(roleID).then((r) => {
-	// 	// console.log(r);
-	// 	console.log(`Got ${r.members.size} members with that role.`);
-	// });
-
-	const count = await db.Count.findOne({
-		where: { guildId: '877050310181416961' },
-	});
-
-	if (count) {
-		db.Count.update(
-			{
-				totalCount: JSON.stringify(
-					JSON.parse(fs.readFileSync('./count.json', 'utf-8')),
-				),
-			},
-			{ where: { guildId: '877050310181416961' } },
-		);
-	}
-});
+client.once('ready', async (c) => {});
 
 function findDuplicates(r) {
 	let count = 0;

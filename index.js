@@ -50,6 +50,7 @@ client.db.GuildConfig = client.db.define('GuildConfigs', {
 	ownerId: Sequelize.STRING,
 	starBoardChannelId: Sequelize.STRING,
 	assignRoles: Sequelize.STRING,
+	ignoredChannels: Sequelize.STRING,
 
 	starThreshold: {
 		type: Sequelize.INTEGER,
@@ -69,11 +70,6 @@ client.db.Majors = client.db.define('Major', {
 	code: Sequelize.STRING,
 });
 
-client.db.GlobalConfig = client.db.define('Global', {
-	guildId: { type: Sequelize.INTEGER, unique: true },
-	ignoredChannels: { type: Sequelize.STRING },
-});
-
 client.db.Starboard = client.db.define('StarboardConfigs', {
 	guildId: Sequelize.STRING,
 	boardId: Sequelize.STRING,
@@ -84,10 +80,11 @@ client.db.Count = client.db.define('CountingConfigs', {
 	guildId: Sequelize.STRING,
 	channelId: Sequelize.STRING,
 	highestCounter: Sequelize.STRING,
+	highestCounterRole: Sequelize.STRING,
 	countingMute: Sequelize.STRING,
-	lastCounter: Sequelize.STRING,
+	lastCounterRole: Sequelize.STRING,
 	totalCount: Sequelize.STRING,
-	lastNumber: Sequelize.STRING,
+	lastNumber: { type: Sequelize.STRING, default: 0 },
 	lastMember: Sequelize.STRING,
 });
 

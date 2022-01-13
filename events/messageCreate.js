@@ -1,16 +1,18 @@
 const color = require('colors/safe');
-const Discord = require('discord.js');
 const botUtils = require('../botUtils');
 const config = require('../config.json');
 
 // counting variables
-let lastMember = Discord.GuildMember;
 let lastNumber = null;
-let TOTAL_COUNTS = [];
-let highestCounter = Discord.GuildMember;
+let TOTAL_COUNTS = {};
 let HIGHEST_COUNTER_ROLE = null;
 let LAST_COUNTER_ROLE = null;
+let COUNTING_MUTE_ROLE = null;
 let lastMessageTimeout = null;
+
+// counting members
+let highestCounter = null;
+let lastMember = null;
 
 module.exports = async (client, message) => {
 	if (message.author.bot) return;
@@ -39,10 +41,11 @@ module.exports = async (client, message) => {
 	// emphasize - what
 	if (message.content.toLowerCase() == 'what') {
 		if (message.reference) {
-			const toEmphasize = botUtils.cleanInput(
-				await message.channel.messages.fetch(message.reference.messageId),
+			const msg = await message.channel.messages.fetch(
+				message.reference.messageId,
 			);
-			message.reply(`*${toEmphasize.content}*`);
+			const toEmphasize = botUtils.cleanInput(msg.content);
+			message.reply(`*${toEmphasize}*`).catch(console.error);
 		} else {
 			message.channel.messages.fetch({ limit: 2 }).then((m) => {
 				message.channel.send(`*${botUtils.cleanInput(m.last().content)}*`);
@@ -177,7 +180,6 @@ module.exports = async (client, message) => {
 };
 
 async function processCounter(client, message) {
-	return;
 	const count = await client.db.Count.findOne({
 		where: { guildId: message.guild.id },
 	});
@@ -186,11 +188,25 @@ async function processCounter(client, message) {
 	if (!count.channelId) return;
 	if (!(message.channel.id == count.channelId)) return;
 
-	TOTAL_COUNTS = JSON.parse(count.totalCounts);
-	HIGHEST_COUNTER_ROLE = message.guild.roles.fetch(count.highestCounter);
-	LAST_COUNTER_ROLE = message.guild.roles.fetch(count.lastCounter);
+	lastMember = await message.guild.members.fetch(count.lastMember);
+	highestCounter = await message.guild.members.fetch(count.highestCounter);
 
-	const re = new RegExp('^[1-9]\\d*');
+	if (!highestCounter || highestCounter.size > 0) {
+		highestCounter = null;
+	}
+	if (!lastMember || lastMember.size > 0) {
+		lastMember = null;
+	}
+
+	lastNumber = parseInt(count.lastNumber);
+	TOTAL_COUNTS = JSON.parse(count.totalCount);
+	HIGHEST_COUNTER_ROLE = await message.guild.roles.fetch(
+		count.highestCounterRole,
+	);
+	LAST_COUNTER_ROLE = await message.guild.roles.fetch(count.lastCounterRole);
+	COUNTING_MUTE_ROLE = await message.guild.roles.fetch(count.countingMute);
+
+	const re = /^([1-9]\d*)/;
 	if (!re.test(message.content)) {
 		// await reactDeleteMute(msg, 5000, ['🔢', '❓', '🚫']);
 		message.delete();
@@ -203,15 +219,15 @@ async function processCounter(client, message) {
 
 	const num = message.content.match(/^([1-9]\d*)/)[1];
 
-	if (count.lastNumber !== null && num !== (count.lastNumber + 1).toString()) {
+	if (lastNumber !== null && num !== (parseInt(lastNumber) + 1).toString()) {
 		message.delete();
 		return;
 	}
 
-	// if (lastMember === message.member) {
-	// 	message.delete();
-	// 	return;
-	// }
+	if (lastMember === message.member) {
+		message.delete();
+		return;
+	}
 
 	await updateNumber(
 		lastNumber ? lastNumber + 1 : parseInt(num, 10),
@@ -219,27 +235,32 @@ async function processCounter(client, message) {
 		message,
 	);
 
+	console.log(message.member.id);
 	// Increase counter for user
-	if (!TOTAL_COUNTS[message.member.user.id]) {
-		TOTAL_COUNTS[message.member.user.id] = 0;
+	if (!TOTAL_COUNTS[message.member.id]) {
+		TOTAL_COUNTS[message.member.id] = 0;
 	}
-	TOTAL_COUNTS[message.member.user.id]++;
+	TOTAL_COUNTS[message.member.id]++;
+
+	console.log(
+		`Count for ${message.member.name} - ${TOTAL_COUNTS[message.member.id]}`,
+	);
 
 	// Change role holder if needed
-	if (
-		!highestCounter ||
-		TOTAL_COUNTS[message.member.user.id] > TOTAL_COUNTS[highestCounter.user.id]
-	) {
-		if (highestCounter) {
-			await highestCounter.roles.remove(HIGHEST_COUNTER_ROLE);
+	if (highestCounter) {
+		if (TOTAL_COUNTS[message.member.id] > TOTAL_COUNTS[highestCounter.id]) {
+			await highestCounter.roles
+				.remove(HIGHEST_COUNTER_ROLE)
+				.catch(console.error);
+			highestCounter = message.member;
 		}
+	} else {
 		highestCounter = message.member;
-		await highestCounter.roles.add(HIGHEST_COUNTER_ROLE);
 	}
+	await highestCounter.roles.add(HIGHEST_COUNTER_ROLE).catch(console.error);
+
 	// Update role name if needed
 	await updateHighestCounterRole();
-	// Save TOTAL_COUNTS every 5 messages
-	if (lastNumber % 5 === 0) saveFile(client, message.guild);
 
 	if (lastMessageTimeout) clearTimeout(lastMessageTimeout);
 	lastMessageTimeout = setTimeout(() => {
@@ -259,6 +280,8 @@ async function processCounter(client, message) {
 
 		lastMessageTimeout = null;
 	}, 15 * 60 * 1000);
+
+	updateDB(client, message.guild);
 }
 
 async function updateNumber(num, member, msg) {
@@ -270,20 +293,20 @@ async function updateNumber(num, member, msg) {
 }
 
 // let currentlySaving = false;
-function saveFile(client, guild) {
-	// if (currentlySaving) return;
-	// currentlySaving = true;
-	// fs.writeFile(COUNTER_FILE, JSON.stringify(TOTAL_COUNTS), () => {
-	// 	currentlySaving = false;
-	// });
+function updateDB(client, guild) {
 	client.db.Count.update(
-		{ totalCounts: JSON.stringify(TOTAL_COUNTS) },
+		{
+			highestCounter: highestCounter.id,
+			totalCounts: JSON.stringify(TOTAL_COUNTS),
+			lastNumber: lastNumber,
+			lastMember: lastMember.id,
+		},
 		{ where: { guildId: guild.id } },
 	);
 }
 
 async function updateHighestCounterRole() {
-	const highestCount = TOTAL_COUNTS[highestCounter.user.id];
+	const highestCount = TOTAL_COUNTS[highestCounter.id];
 	if (highestCount % 100 === 0) {
 		await HIGHEST_COUNTER_ROLE.setName(
 			`Highest Counter (${(highestCount / 1000).toFixed(1)}k)`,
@@ -291,32 +314,32 @@ async function updateHighestCounterRole() {
 	}
 }
 
-async function reactDeleteMute(msg, length = 0, emojis = []) {
-	LAST_FIVE_MESSAGES[lastFiveIndex++] = msg;
-	lastFiveIndex %= 5;
+// async function reactDeleteMute(msg, length = 0, emojis = []) {
+// 	LAST_FIVE_MESSAGES[lastFiveIndex++] = msg;
+// 	lastFiveIndex %= 5;
 
-	for (let i = 0; i < emojis.length; i++) {
-		setTimeout(() => {
-			msg
-				.react(emojis[i])
-				.catch((err) =>
-					console.error('Error sending reactDeleteMute reactions', err),
-				);
-		}, i * 1200);
-	}
+// 	for (let i = 0; i < emojis.length; i++) {
+// 		setTimeout(() => {
+// 			msg
+// 				.react(emojis[i])
+// 				.catch((err) =>
+// 					console.error('Error sending reactDeleteMute reactions', err),
+// 				);
+// 		}, i * 1200);
+// 	}
 
-	setTimeout(() => {
-		if (!msg.deleted) msg.delete().catch((err) => console.error(err));
-	}, Math.max(500, emojis.length * 1200));
+// 	setTimeout(() => {
+// 		if (!msg.deleted) msg.delete().catch((err) => console.error(err));
+// 	}, Math.max(500, emojis.length * 1200));
 
-	if (length) {
-		await msg.member.roles.add(COUNTING_MUTE_ROLE);
-		setTimeout(() => {
-			msg.member.roles
-				.remove(COUNTING_MUTE_ROLE)
-				.catch((err) =>
-					console.error('Error removing counting mute role', err),
-				);
-		}, length);
-	}
-}
+// 	if (length) {
+// 		await msg.member.roles.add(COUNTING_MUTE_ROLE);
+// 		setTimeout(() => {
+// 			msg.member.roles
+// 				.remove(COUNTING_MUTE_ROLE)
+// 				.catch((err) =>
+// 					console.error('Error removing counting mute role', err),
+// 				);
+// 		}, length);
+// 	}
+// }
