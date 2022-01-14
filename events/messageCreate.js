@@ -208,12 +208,10 @@ async function processCounter(client, message) {
 
 	const re = /^([1-9]\d*)/;
 	if (!re.test(message.content)) {
-		// await reactDeleteMute(msg, 5000, ['🔢', '❓', '🚫']);
-		message.delete();
+		await reactDeleteMute(message, 5000, ['🔢', '❓', '🚫']);
 		return;
 	} else if (message.content.length > 60) {
-		// await reactDeleteMute(msg, 5000, ['6⃣', '0⃣', '🚫']);
-		message.delete();
+		await reactDeleteMute(message, 5000, ['6️⃣', '0️⃣', '🚫']);
 		return;
 	}
 
@@ -235,16 +233,15 @@ async function processCounter(client, message) {
 		message,
 	);
 
-	console.log(message.member.id);
 	// Increase counter for user
 	if (!TOTAL_COUNTS[message.member.id]) {
 		TOTAL_COUNTS[message.member.id] = 0;
 	}
 	TOTAL_COUNTS[message.member.id]++;
 
-	console.log(
-		`Count for ${message.member.name} - ${TOTAL_COUNTS[message.member.id]}`,
-	);
+	// console.log(
+	// 	`Count for ${message.author.tag} - ${TOTAL_COUNTS[message.member.id]}`,
+	// );
 
 	// Change role holder if needed
 	if (highestCounter) {
@@ -314,32 +311,29 @@ async function updateHighestCounterRole() {
 	}
 }
 
-// async function reactDeleteMute(msg, length = 0, emojis = []) {
-// 	LAST_FIVE_MESSAGES[lastFiveIndex++] = msg;
-// 	lastFiveIndex %= 5;
+async function reactDeleteMute(msg, length = 0, emojis = []) {
+	for (let i = 0; i < emojis.length; i++) {
+		setTimeout(() => {
+			msg
+				.react(emojis[i])
+				.catch((err) =>
+					console.error('Error sending reactDeleteMute reactions', err),
+				);
+		}, i * 1200);
+	}
 
-// 	for (let i = 0; i < emojis.length; i++) {
-// 		setTimeout(() => {
-// 			msg
-// 				.react(emojis[i])
-// 				.catch((err) =>
-// 					console.error('Error sending reactDeleteMute reactions', err),
-// 				);
-// 		}, i * 1200);
-// 	}
+	setTimeout(() => {
+		if (!msg.deleted) msg.delete().catch((err) => console.error(err));
+	}, Math.max(500, emojis.length * 1200));
 
-// 	setTimeout(() => {
-// 		if (!msg.deleted) msg.delete().catch((err) => console.error(err));
-// 	}, Math.max(500, emojis.length * 1200));
-
-// 	if (length) {
-// 		await msg.member.roles.add(COUNTING_MUTE_ROLE);
-// 		setTimeout(() => {
-// 			msg.member.roles
-// 				.remove(COUNTING_MUTE_ROLE)
-// 				.catch((err) =>
-// 					console.error('Error removing counting mute role', err),
-// 				);
-// 		}, length);
-// 	}
-// }
+	if (length) {
+		await msg.member.roles.add(COUNTING_MUTE_ROLE);
+		setTimeout(() => {
+			msg.member.roles
+				.remove(COUNTING_MUTE_ROLE)
+				.catch((err) =>
+					console.error('Error removing counting mute role', err),
+				);
+		}, length);
+	}
+}

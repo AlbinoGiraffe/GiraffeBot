@@ -103,13 +103,15 @@ module.exports = {
 		);
 
 		if (group == 'set') {
+			await interaction.deferReply({ ephemeral: true });
+
 			if (cmd == 'highestcounter') {
 				const role = interaction.options.getRole('role');
 				client.db.Count.update(
 					{ highestCounterRole: role.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
-				interaction.reply({
+				interaction.editReply({
 					content: `Highest Counter set to ${role}`,
 					ephemeral: true,
 				});
@@ -121,7 +123,7 @@ module.exports = {
 					{ countingMute: role.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
-				interaction.reply({
+				interaction.editReply({
 					content: `Highest Counter set to ${role}`,
 					ephemeral: true,
 				});
@@ -133,7 +135,7 @@ module.exports = {
 					{ lastCounterRole: role.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
-				interaction.reply({
+				interaction.editReply({
 					content: `Last Counter set to ${role}`,
 					ephemeral: true,
 				});
@@ -145,7 +147,7 @@ module.exports = {
 					{ channelId: channel.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
-				interaction.reply({
+				interaction.editReply({
 					content: `Counting set to ${channel}`,
 					ephemeral: true,
 				});
@@ -153,13 +155,15 @@ module.exports = {
 		}
 
 		if (group == 'get') {
+			await interaction.deferReply({ ephemeral: true });
+
 			const tok = await client.db.Count.findOne({
 				where: { guildId: interaction.guild.id },
 			});
 
 			if (cmd == 'channel') {
 				if (!tok.channelId) {
-					return interaction.reply({
+					return interaction.editReply({
 						content: 'Counting channel not set!',
 						ephemeral: true,
 					});
@@ -168,14 +172,14 @@ module.exports = {
 				interaction.guild.channels
 					.fetch(tok.channelId)
 					.then((channel) => {
-						interaction.reply({
+						interaction.editReply({
 							content: `Counting channel set to ${channel}`,
 							ephemeral: true,
 						});
 					})
 					.catch((e) => {
 						console.log(e.name);
-						interaction.reply({
+						interaction.editReply({
 							content: 'Error getting channel!',
 							ephemeral: true,
 						});
@@ -184,7 +188,7 @@ module.exports = {
 
 			if (cmd == 'highestcounter') {
 				if (!tok.highestCounterRole) {
-					return interaction.reply({
+					return interaction.editReply({
 						content: `Highest counter not set!`,
 						ephemeral: true,
 					});
@@ -193,7 +197,7 @@ module.exports = {
 				const role = await interaction.guild.roles.fetch(
 					tok.highestCounterRole,
 				);
-				interaction.reply({
+				interaction.editReply({
 					content: `Highest Counter set to ${role}`,
 					ephemeral: true,
 				});
@@ -201,14 +205,14 @@ module.exports = {
 
 			if (cmd == 'countingmute') {
 				if (!tok.countingMute) {
-					return interaction.reply({
+					return interaction.editReply({
 						content: `Counting mute not set!`,
 						ephemeral: true,
 					});
 				}
 
 				const role = await interaction.guild.roles.fetch(tok.countingMute);
-				interaction.reply({
+				interaction.editReply({
 					content: `Counting mute set to ${role}`,
 					ephemeral: true,
 				});
@@ -216,14 +220,14 @@ module.exports = {
 
 			if (cmd == 'lastCounter') {
 				if (!tok.lastCounter) {
-					return interaction.reply({
+					return interaction.editReply({
 						content: `Last counter not set!`,
 						ephemeral: true,
 					});
 				}
 
 				const role = await interaction.guild.roles.fetch(tok.lastCounterRole);
-				interaction.reply({
+				interaction.editReply({
 					content: `Last counter set to ${role}`,
 					ephemeral: true,
 				});
@@ -231,6 +235,8 @@ module.exports = {
 		}
 
 		if (cmd == 'list') {
+			await interaction.deferReply();
+
 			const tok = await client.db.Count.findOne({
 				where: { guildId: interaction.guild.id },
 			});
@@ -239,11 +245,11 @@ module.exports = {
 				const embd = new MessageEmbed().setDescription(
 					'Counting not set up in this server!',
 				);
-				return interaction.reply({ embeds: [embd], ephemeral: true });
+				return interaction.editReply({ embeds: [embd], ephemeral: true });
 			}
 
 			let highestCounter = await interaction.guild.members
-				.fetch(tok.lastMember)
+				.fetch(tok.highestCounter)
 				.catch(console.error);
 			let lastMember = await interaction.guild.members
 				.fetch(tok.lastMember)
@@ -271,7 +277,9 @@ module.exports = {
 				.setTitle(`Counting stats for ${interaction.guild.name}`)
 				.setDescription(msg);
 
-			interaction.reply({ embeds: [embd], ephemeral: true });
+			interaction
+				.editReply({ embeds: [embd], ephemeral: true })
+				.catch(console.error);
 		}
 
 		if (cmd == 'force') {
@@ -283,7 +291,7 @@ module.exports = {
 				{ where: { guildId: interaction.guild.id } },
 			).catch(console.error);
 
-			interaction.reply({
+			interaction.editReply({
 				content: `Count set to ${forcedNum}`,
 				ephemeral: true,
 			});

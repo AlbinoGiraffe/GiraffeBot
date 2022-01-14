@@ -1,6 +1,6 @@
 const config = require('./config.json');
 const Sequelize = require('sequelize');
-const { Client, Intents } = require('discord.js');
+const { Client, Intents, MessageSelectMenu } = require('discord.js');
 const fs = require('fs');
 const { devNull } = require('os');
 
@@ -72,6 +72,19 @@ db.GlobalConfig = db.define('Global', {
 });
 
 db.sync();
+
+const a = ['a', 'b', 'c', 'd', 'e', 'f', 'g'];
+const b = ['dp', 'an1', 'an2', 'an3', 'an4'];
+let m = '';
+
+for (const x of a) {
+	m = m + `.${x}(C${x.toUpperCase()}), `;
+}
+
+for (const x of b) {
+	m = m + `.${x}(${x}), `;
+}
+console.log(m);
 
 client.once('ready', async (c) => {});
 

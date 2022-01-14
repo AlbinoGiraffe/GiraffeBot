@@ -58,11 +58,13 @@ module.exports = async (client) => {
 				client.db.Count.findOne({ where: { guildId: guild.id } }).then((t) => {
 					if (!t) return;
 					if (!t.channelId || !t.countingMute) return;
+
 					guild.members.fetch().then(() => {
 						guild.roles.fetch(t.countingMute).then((r) => {
-							for (const m of r.members) {
+							// console.log(r.members);
+							r.members.forEach((m) => {
 								m.roles.remove(r);
-							}
+							});
 						});
 					});
 				});
