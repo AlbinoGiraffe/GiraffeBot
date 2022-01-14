@@ -1,6 +1,7 @@
 const color = require('colors/safe');
 const botUtils = require('../botUtils');
 const config = require('../config.json');
+const countUtils = require('../countUtils');
 
 // counting variables
 let lastNumber = null;
@@ -10,7 +11,7 @@ let LAST_COUNTER_ROLE = null;
 let COUNTING_MUTE_ROLE = null;
 let lastMessageTimeout = null;
 
-// counting members
+// role members
 let highestCounter = null;
 let lastMember = null;
 
@@ -208,10 +209,20 @@ async function processCounter(client, message) {
 
 	const re = /^([1-9]\d*)/;
 	if (!re.test(message.content)) {
-		await reactDeleteMute(message, 5000, ['🔢', '❓', '🚫']);
+		await countUtils.reactDeleteMute(
+			message,
+			5000,
+			['🔢', '❓', '🚫'],
+			COUNTING_MUTE_ROLE,
+		);
 		return;
 	} else if (message.content.length > 60) {
-		await reactDeleteMute(message, 5000, ['6️⃣', '0️⃣', '🚫']);
+		await countUtils.reactDeleteMute(
+			message,
+			5000,
+			['6️⃣', '0️⃣', '🚫'],
+			COUNTING_MUTE_ROLE,
+		);
 		return;
 	}
 
@@ -239,10 +250,6 @@ async function processCounter(client, message) {
 	}
 	TOTAL_COUNTS[message.member.id]++;
 
-	// console.log(
-	// 	`Count for ${message.author.tag} - ${TOTAL_COUNTS[message.member.id]}`,
-	// );
-
 	// Change role holder if needed
 	if (highestCounter) {
 		if (TOTAL_COUNTS[message.member.id] > TOTAL_COUNTS[highestCounter.id]) {
@@ -257,7 +264,11 @@ async function processCounter(client, message) {
 	await highestCounter.roles.add(HIGHEST_COUNTER_ROLE).catch(console.error);
 
 	// Update role name if needed
-	await updateHighestCounterRole();
+	await countUtils.updateHighestCounterRole(
+		TOTAL_COUNTS,
+		highestCounter,
+		HIGHEST_COUNTER_ROLE,
+	);
 
 	if (lastMessageTimeout) clearTimeout(lastMessageTimeout);
 	lastMessageTimeout = setTimeout(() => {
@@ -300,40 +311,4 @@ function updateDB(client, guild) {
 		},
 		{ where: { guildId: guild.id } },
 	);
-}
-
-async function updateHighestCounterRole() {
-	const highestCount = TOTAL_COUNTS[highestCounter.id];
-	if (highestCount % 100 === 0) {
-		await HIGHEST_COUNTER_ROLE.setName(
-			`Highest Counter (${(highestCount / 1000).toFixed(1)}k)`,
-		);
-	}
-}
-
-async function reactDeleteMute(msg, length = 0, emojis = []) {
-	for (let i = 0; i < emojis.length; i++) {
-		setTimeout(() => {
-			msg
-				.react(emojis[i])
-				.catch((err) =>
-					console.error('Error sending reactDeleteMute reactions', err),
-				);
-		}, i * 1200);
-	}
-
-	setTimeout(() => {
-		if (!msg.deleted) msg.delete().catch((err) => console.error(err));
-	}, Math.max(500, emojis.length * 1200));
-
-	if (length) {
-		await msg.member.roles.add(COUNTING_MUTE_ROLE);
-		setTimeout(() => {
-			msg.member.roles
-				.remove(COUNTING_MUTE_ROLE)
-				.catch((err) =>
-					console.error('Error removing counting mute role', err),
-				);
-		}, length);
-	}
 }

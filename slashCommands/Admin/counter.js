@@ -87,6 +87,9 @@ module.exports = {
 						.setRequired(true),
 				),
 		)
+		.addSubcommand((reset) =>
+			reset.setName('reset').setDescription('Reset counting on this server'),
+		)
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
 		const group = interaction.options.getSubcommandGroup(false);
@@ -255,11 +258,32 @@ module.exports = {
 				.fetch(tok.lastMember)
 				.catch(console.error);
 
+			let highestCounterRole = await interaction.guild.roles
+				.fetch(tok.highestCounterRole)
+				.catch(console.error);
+
+			let lastCounterRole = await interaction.guild.roles
+				.fetch(tok.lastCounterRole)
+				.catch(console.error);
+
+			let countingMuteRole = await interaction.guild.roles
+				.fetch(tok.countingMute)
+				.catch(console.error);
+
 			if (!highestCounter || highestCounter.size > 0) {
 				highestCounter = null;
 			}
 			if (!lastMember || lastMember.size > 0) {
 				lastMember = null;
+			}
+			if (!highestCounterRole || highestCounterRole.size > 0) {
+				highestCounterRole = null;
+			}
+			if (!lastCounterRole || lastCounterRole.size > 0) {
+				lastCounterRole = null;
+			}
+			if (!countingMuteRole || countingMuteRole.size > 0) {
+				countingMuteRole = null;
 			}
 
 			let totals = JSON.parse(tok.totalCount);
@@ -272,7 +296,11 @@ module.exports = {
 			const msg =
 				`Last Number: ${tok.lastNumber}\n` +
 				`Highest Counter: ${highestCounter} - ${totals}\n` +
-				`Last Member: ${lastMember}`;
+				`Last Member: ${lastMember}\n` +
+				`**Roles:**\n` +
+				`Last Counter: ${lastCounterRole}\n` +
+				`Highest Counter: ${highestCounterRole}\n` +
+				`Counting Mute: ${countingMuteRole}\n`;
 			const embd = new MessageEmbed()
 				.setTitle(`Counting stats for ${interaction.guild.name}`)
 				.setDescription(msg);
@@ -283,6 +311,7 @@ module.exports = {
 		}
 
 		if (cmd == 'force') {
+			await interaction.deferReply({ ephemeral: true });
 			const num = interaction.options.getString('number');
 			const forcedNum = num.match(/(\d+)$/)[1];
 
@@ -293,6 +322,27 @@ module.exports = {
 
 			interaction.editReply({
 				content: `Count set to ${forcedNum}`,
+				ephemeral: true,
+			});
+		}
+
+		if (cmd == 'reset') {
+			await interaction.deferReply({ ephemeral: true });
+
+			client.db.Count.update(
+				{
+					channelId: null,
+					highestCounter: null,
+					countingMute: null,
+					totalCount: null,
+					lastMember: null,
+					lastNumber: 0,
+				},
+				{ where: { guildId: interaction.guild.id } },
+			).catch(console.error);
+
+			interaction.editReply({
+				content: `Count reset for ${interaction.guild.name}`,
 				ephemeral: true,
 			});
 		}

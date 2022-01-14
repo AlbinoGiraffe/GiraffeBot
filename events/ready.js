@@ -59,6 +59,23 @@ module.exports = async (client) => {
 					if (!t) return;
 					if (!t.channelId || !t.countingMute) return;
 
+					guild.channels.fetch(t.channelId).then((c) => {
+						c.messages.fetch({ limit: 1 }).then((m) => {
+							const msg = m.first();
+							const numMatch = msg.content.match(/^([1-9]\d*)/);
+
+							if (numMatch && parseInt(numMatch[1]) != t.lastNumber) {
+								console.log(
+									`Last number updated for ${guild.name} [${t.lastNumber} => ${numMatch[1]}]`,
+								);
+								client.db.Count.update(
+									{ lastNumber: numMatch[1], lastMember: msg.author.id },
+									{ where: { guildId: guild.id } },
+								);
+							}
+						});
+					});
+
 					guild.members.fetch().then(() => {
 						guild.roles.fetch(t.countingMute).then((r) => {
 							// console.log(r.members);
