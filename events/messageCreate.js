@@ -185,7 +185,7 @@ module.exports = async (client, message) => {
 
 	// nice
 	const re = new RegExp('420|69|4.20');
-	if (re.test(message.content.replaceAll(/<@!*.*>/g, ''))) {
+	if (re.test(message.content.replaceAll(/<.!*.*>/g, ''))) {
 		message.reply('nice');
 	}
 };
