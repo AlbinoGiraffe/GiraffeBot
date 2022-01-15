@@ -35,7 +35,7 @@ client.once('ready', (c) => {
 				console.log('No duplicates :)');
 			}
 
-			updateRoles(c.guild);
+			updateRoles(g);
 		});
 	});
 });
@@ -68,18 +68,21 @@ function updateRoles(g) {
 	db.majors.findAll().then((ma) => {
 		ma.forEach((m) => {
 			const roleName = m.major;
-			const cd = g?.roles.cache.find(
-				(x) => x.name.toLowerCase() == roleName.toLowerCase(),
-			);
+			g.roles.fetch().then((r) => {
+				const cd = r.find(
+					(x) => x.name.toLowerCase() == roleName.toLowerCase(),
+				);
 
-			if (!cd) {
-				g?.roles
-					.create({ name: roleName })
-					.then((r) => console.log(`Created ${r.name}`))
-					.catch(console.error);
-			} else {
-				console.log(`${roleName} already in server`);
-			}
+				if (!cd) {
+					g?.roles
+						.create({ name: roleName })
+						.then((r) => console.log(`Created ${r.name}`))
+						.catch(console.error);
+				} else {
+					cd.edit({ name: roleName });
+					console.log(`${roleName} already in server, edited`);
+				}
+			});
 		});
 		console.log('done');
 	});
