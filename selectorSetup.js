@@ -74,9 +74,9 @@ function updateRoles(g) {
 				);
 
 				if (!cd) {
-					g?.roles
+					g.roles
 						.create({ name: roleName })
-						.then((r) => console.log(`Created ${r.name}`))
+						.then((rc) => console.log(`Created ${rc.name}`))
 						.catch(console.error);
 				} else {
 					cd.edit({ name: roleName });
