@@ -127,12 +127,65 @@ module.exports = {
 		if (group == 'list') {
 			if (cmd == 'assignable') {
 				await interaction.deferReply();
+				const tok = await client.db.GuildConfig.findOne({
+					where: { guildId: interaction.guild.id },
+				});
 
+				if (!tok || !tok.assignRoles) {
+					const embed = new MessageEmbed()
+						.setColor('RED')
+						.setDescription(`Guild has no assignable roles!`);
+					return interaction.editReply({ embeds: [embed] });
+				}
+
+				let role_list = [];
+				const assign_list = JSON.parse(tok.assignRoles);
+				for (const r of assign_list) {
+					const role = await interaction.guild.roles.fetch(r);
+					if (role) {
+						role_list.push(role);
+					}
+				}
+
+				const num_roles = role_list.length;
+				const pg = interaction.options.getInteger('page');
+				role_list = splitRoles(role_list, 15);
+
+				if (!num_roles) {
+					const embed = new MessageEmbed()
+						.setColor('RED')
+						.setDescription(`Guild has no assignable roles!`);
+					return interaction.editReply({ embeds: [embed] });
+				}
+
+				let n = 0;
+				const rs = role_list.length;
+				n = pg - 1;
+
+				if (n > rs) {
+					n = rs - 1;
+				}
+				if (n < 0) {
+					n = 0;
+				}
+
+				const msg = await genRoleList(role_list, n);
+
+				if (num_roles == 0) {
+					const embed = new MessageEmbed()
+						.setColor('RED')
+						.setDescription(`Guild has no roles!`);
+					return interaction.editReply({ embeds: [embed] });
+				}
+
+				const embd = new MessageEmbed().setDescription(
+					`**${num_roles} Roles (Page ${n + 1}/${rs}):**\n${msg}`,
+				);
+				return interaction.editReply({ embeds: [embd] });
 				// get id list
 				// for each id, fetch the role
 				// add to msg
 				// embed
-				interaction.editReply('Not implemented');
 			}
 
 			if (cmd == 'all') {
@@ -155,15 +208,13 @@ module.exports = {
 
 				const msg = await genRoleList(role_list, n);
 
-				if (num_roles == 0) {
-					const embed = new MessageEmbed()
-						.setColor('RED')
-						.setDescription(`Guild has no roles!`);
-					return interaction.editReply({ embeds: [embed] });
-				}
+				// embd = discord.Embed(
+				//     description="".format(num_roles, n + 1, rs, msg))
 
 				const embd = new MessageEmbed().setDescription(
-					`**${num_roles} Roles (Page ${n + 1}/${rs}):**\n${msg}`,
+					`**${num_roles} Roles that can be self-assigned: (Page ${
+						n + 1
+					}/${rs})**\n${msg}`,
 				);
 				return interaction.editReply({ embeds: [embd] });
 			}
@@ -224,7 +275,6 @@ module.exports = {
 				});
 				return;
 			}
-
 			return;
 		}
 
@@ -279,6 +329,7 @@ module.exports = {
 						interaction.editReply({ embeds: [embed] });
 					});
 			}
+			return;
 		}
 
 		if (cmd == 'create') {

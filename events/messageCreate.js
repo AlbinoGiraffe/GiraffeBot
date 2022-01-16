@@ -191,6 +191,8 @@ module.exports = async (client, message) => {
 };
 
 async function processCounter(client, message) {
+	if (!message.guild) return;
+
 	const count = await client.db.Count.findOne({
 		where: { guildId: message.guild.id },
 	});
