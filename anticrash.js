@@ -1,21 +1,20 @@
 const config = require('./config.json');
 
 module.exports = (client) => {
-	dmOwner('test', 'test', 'test');
 	process.on('unhandledRejection', (reason, p) => {
 		console.log('[antiCrash] :: Unhandled Rejection/Catch');
 		console.log(reason, p);
-		dmOwner(reason, p);
+		dmOwner(client, reason, p);
 	});
 	process.on('uncaughtException', (err, origin) => {
 		console.log('[antiCrash] :: Uncaught Exception/Catch');
 		console.log(err, origin);
-		dmOwner(err, origin);
+		dmOwner(client, err, origin);
 	});
 	process.on('uncaughtExceptionMonitor', (err, origin) => {
 		console.log('[antiCrash] :: Uncaught Exception/Catch (MONITOR)');
 		console.log(err, origin);
-		dmOwner(err, origin);
+		dmOwner(client, err, origin);
 	});
 	process.on('multipleResolves', (type, promise, reason) => {
 		console.log('[antiCrash] :: Multiple Resolves');
@@ -25,7 +24,7 @@ module.exports = (client) => {
 };
 
 function dmOwner(client, err, p, r = '') {
-	client.user.fetch(config.adminId).then((c) => {
+	client.users.fetch(config.adminId).then((c) => {
 		c.send(`ERROR:\n${err}\n${p}\n${r}`);
 	});
 }
