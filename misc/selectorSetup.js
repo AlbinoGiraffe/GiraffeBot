@@ -1,4 +1,4 @@
-const config = require('./config.json');
+const config = require('../config.json');
 const Sequelize = require('sequelize');
 const { Client, Intents } = require('discord.js');
 

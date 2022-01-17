@@ -1,7 +1,7 @@
 const axios = require('axios');
 const cheerio = require('cheerio');
 const url = 'https://registrar.ucsc.edu/enrollment/majors-list.html';
-const config = require('./config.json');
+const config = require('../config.json');
 const Sequelize = require('sequelize');
 
 const db = new Sequelize('sqlite', config.dbUser, config.dbPass, {

@@ -97,8 +97,6 @@ client.db.sync();
 
 console.log(color.yellow('Database synced'));
 
-//
-
 // initialize Cleverbot
 client.clev = new Cleverbot({ key: config.cbKey });
 
@@ -162,6 +160,10 @@ for (const file of commandFiles) {
 	client.commands.set(command.name, command);
 	numCommands++;
 }
+
+// load anticrash
+require('./anticrash');
+
 console.log(
 	color.yellow(
 		`Loaded ${numSlashCommands} slash commands (${numAdminSlashCommands} admin),`,
