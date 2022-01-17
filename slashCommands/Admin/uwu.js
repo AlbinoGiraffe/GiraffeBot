@@ -3,6 +3,7 @@ const Uwuifier = require('uwuifier');
 const uwu = new Uwuifier();
 
 module.exports = {
+	moderator: true,
 	data: new SlashCommandBuilder()
 		.setName('uwu')
 		.setDescription('Uwuify text')

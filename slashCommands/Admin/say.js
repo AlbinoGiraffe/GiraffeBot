@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require('@discordjs/builders');
 const BotUtils = require('../../botUtils');
 
 module.exports = {
+	moderator: true,
 	data: new SlashCommandBuilder()
 		.setName('say')
 		.setDescription('Make me say something')

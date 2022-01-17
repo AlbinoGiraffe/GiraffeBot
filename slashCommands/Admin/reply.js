@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
+	moderator: true,
 	data: new SlashCommandBuilder()
 		.setName('reply')
 		.setDescription('Make bot reply to a message')

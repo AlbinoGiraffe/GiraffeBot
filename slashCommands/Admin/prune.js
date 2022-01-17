@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
 
 module.exports = {
+	moderator: true,
 	data: new SlashCommandBuilder()
 		.setName('prune')
 		.setDescription('Bulk delete messages')

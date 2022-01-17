@@ -4,6 +4,7 @@ const botUtils = require('../../botUtils');
 const config = require('../../config.json');
 
 module.exports = {
+	moderator: true,
 	data: new SlashCommandBuilder()
 		.setName('role')
 		.setDescription('Role management')
@@ -60,7 +61,7 @@ module.exports = {
 						.addStringOption((option) =>
 							option
 								.setName('list')
-								.setDescription('list of role names to add'),
+								.setDescription('list of role names/ids to add'),
 						),
 				)
 				.addSubcommand((remove) =>
@@ -68,10 +69,12 @@ module.exports = {
 						.setName('remove')
 						.setDescription('make role unassignable')
 						.addRoleOption((option) =>
+							option.setName('role').setDescription('role to add'),
+						)
+						.addStringOption((option) =>
 							option
-								.setName('role')
-								.setDescription('role to add')
-								.setRequired(true),
+								.setName('list')
+								.setDescription('list of role names/ids to remove'),
 						),
 				)
 				.addSubcommand((list) =>
@@ -132,6 +135,9 @@ module.exports = {
 						.setDescription('name or id of role')
 						.setRequired(true),
 				),
+		)
+		.addSubcommand((cmd) =>
+			cmd.setName('reset').setDescription('reset role list'),
 		),
 	run: async (client, interaction) => {
 		const group = interaction.options.getSubcommandGroup(false);
@@ -281,7 +287,6 @@ module.exports = {
 
 				if (list) {
 					const roleNames = list.match(/(?<=")(?:\\.|[^"\\])*[^,\s](?=")/g);
-					// console.log(roleNames);
 					const duplicates = [];
 					const noMatch = [];
 					const inList = [];
@@ -293,32 +298,32 @@ module.exports = {
 							await interaction.guild.roles.fetch(),
 							name,
 						);
-						console.log(name);
-						r.forEach((m) => {
-							console.log(`- ${m.name}`);
-						});
 
 						if (r.size == 1) {
 							const newRole = r.first();
-							// add it
-							client.db.GuildConfig.findOne({
+
+							const tok = await client.db.GuildConfig.findOne({
 								where: { guildId: interaction.guild.id },
-							}).then((tok) => {
-								let roleList = JSON.parse(tok.assignRoles);
-								if (!roleList) roleList = [];
-
-								if (roleList.includes(newRole.id)) {
-									inList.push(newRole);
-								} else {
-									roleList.push(newRole.id);
-									added.push(newRole);
-								}
-
-								client.db.GuildConfig.update(
-									{ assignRoles: JSON.stringify(roleList) },
-									{ where: { guildId: interaction.guild.id } },
-								);
 							});
+
+							if (!tok) {
+								return interaction.editReply('No config in this server!');
+							}
+
+							let roleList = JSON.parse(tok.assignRoles);
+							if (!roleList) roleList = [];
+
+							if (roleList.includes(newRole.id)) {
+								inList.push(newRole);
+							} else {
+								roleList.push(newRole.id);
+								added.push(newRole);
+							}
+
+							client.db.GuildConfig.update(
+								{ assignRoles: JSON.stringify(roleList) },
+								{ where: { guildId: interaction.guild.id } },
+							);
 							count++;
 						}
 
@@ -343,8 +348,6 @@ module.exports = {
 							});
 							dupes += '\n';
 						});
-						console.log(dupes);
-						console.log(duplicates.length);
 						embd.addField(`${duplicates.length} roles with duplicates.`, dupes);
 					}
 
@@ -379,25 +382,137 @@ module.exports = {
 			// support list of names
 			if (cmd == 'remove') {
 				const role = interaction.options.getRole('role');
+				const list = interaction.options.getString('list');
 
-				client.db.GuildConfig.findOne({
-					where: { guildId: interaction.guild.id },
-				}).then((tok) => {
-					let roleList = JSON.parse(tok.assignRoles);
-					if (!roleList) roleList = [];
+				if (!(list || role)) {
+					const embed = new MessageEmbed().setDescription(
+						`Supply either a role or role list!`,
+					);
+					return interaction.editReply({ embeds: [embed] });
+				}
 
-					if (roleList.includes(role.id)) {
-						roleList.pop(role.id);
+				if (role) {
+					client.db.GuildConfig.findOne({
+						where: { guildId: interaction.guild.id },
+					}).then((tok) => {
+						let roleList = JSON.parse(tok.assignRoles);
+						if (!roleList) roleList = [];
 
-						client.db.GuildConfig.update(
-							{ assignRoles: JSON.stringify(roleList) },
-							{ where: { guildId: interaction.guild.id } },
-						).then(interaction.editReply('Role removed from list!'));
-					} else {
-						interaction.editReply('Role not in assignable list!');
+						const index = roleList.indexOf(role.id);
+						if (index > -1) {
+							roleList.splice(index, 1);
+
+							client.db.GuildConfig.update(
+								{ assignRoles: JSON.stringify(roleList) },
+								{ where: { guildId: interaction.guild.id } },
+							).then(interaction.editReply('Role removed from list!'));
+						} else {
+							interaction.editReply('Role not in assignable list!');
+						}
+					});
+				}
+
+				if (list) {
+					const roleNames = list.match(/(?<=")(?:\\.|[^"\\])*[^,\s](?=")/g);
+					const duplicates = [];
+					const noMatch = [];
+					const notInList = [];
+					const removed = [];
+					let count = 0;
+
+					for (const name of roleNames) {
+						const r = botUtils.findRoles(
+							await interaction.guild.roles.fetch(),
+							name,
+						);
+
+						if (r.size == 1) {
+							const newRole = r.first();
+
+							const tok = await client.db.GuildConfig.findOne({
+								where: { guildId: interaction.guild.id },
+							});
+
+							if (!tok) {
+								return interaction.editReply('No config in this server!');
+							}
+
+							let roleList = JSON.parse(tok.assignRoles);
+							if (!roleList) roleList = [];
+
+							const index = roleList.indexOf(newRole.id);
+
+							if (index > -1) {
+								roleList.splice(index, 1);
+								removed.push(newRole);
+								count++;
+							} else {
+								notInList.push(newRole);
+							}
+
+							await client.db.GuildConfig.update(
+								{ assignRoles: JSON.stringify(roleList) },
+								{ where: { guildId: interaction.guild.id } },
+							);
+						}
+
+						if (r.size > 1) {
+							duplicates.push(r);
+						}
+
+						if (r.size == 0) {
+							noMatch.push(name);
+						}
 					}
-				});
-				return;
+
+					const embd = new MessageEmbed().setTitle(
+						`${count} roles removed from list`,
+					);
+
+					if (duplicates.length > 0) {
+						let dupes = '';
+						duplicates.forEach((d) => {
+							d.forEach((k) => {
+								dupes += `${k} - ${k.id}\n`;
+							});
+							dupes += '\n';
+						});
+						console.log(dupes);
+						console.log(duplicates.length);
+						embd.addField(`${duplicates.length} roles with duplicates.`, dupes);
+					}
+
+					if (notInList.length > 0) {
+						let listmsg = '';
+						notInList.forEach((k) => {
+							listmsg += `${k} `;
+						});
+						embd.addField(
+							`${notInList.length} roles weren't in the list.`,
+							listmsg,
+						);
+					}
+
+					if (noMatch.length > 0) {
+						let listmsg = '';
+						noMatch.forEach((k) => {
+							listmsg += `${k} `;
+						});
+						embd.addField(`${noMatch.length} didn't match any roles.`, listmsg);
+					}
+
+					if (removed.length > 0) {
+						let listmsg = '';
+						removed.forEach((k) => {
+							listmsg += `${k} `;
+						});
+						embd.addField(
+							`${removed.length} roles removed from list.`,
+							listmsg,
+						);
+					}
+					interaction.editReply({ embeds: [embd] });
+				}
 			}
 			return;
 		}
@@ -456,7 +571,6 @@ module.exports = {
 			return;
 		}
 
-		// support list of names
 		if (cmd == 'create') {
 			const roleName = interaction.options.getString('name');
 			const roleColor = interaction.options.getString('color');
@@ -496,7 +610,6 @@ module.exports = {
 			}
 		}
 
-		// support list of names/ids
 		if (cmd == 'delete') {
 			const role = interaction.options.getRole('role');
 			role
@@ -533,6 +646,14 @@ module.exports = {
 				`**Roles matching query:**\n${msg}`,
 			);
 			interaction.editReply({ embeds: [embd] });
+		}
+
+		if (cmd == 'reset') {
+			await client.db.GuildConfig.update(
+				{ assignRoles: null },
+				{ where: { guildId: interaction.guild.id } },
+			);
+			interaction.editReply('Roles succesfully reset');
 		}
 		return;
 	},

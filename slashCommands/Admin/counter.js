@@ -5,6 +5,7 @@ const { MessageEmbed } = require('discord.js');
 // TODO: get list, force
 
 module.exports = {
+	moderator: true,
 	data: new SlashCommandBuilder()
 		.setName('count')
 		.setDescription('Counting management')

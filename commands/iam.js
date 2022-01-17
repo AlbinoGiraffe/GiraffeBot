@@ -25,6 +25,12 @@ module.exports = {
 		}).then((tok) => {
 			if (tok) {
 				const assignable = JSON.parse(tok.assignRoles);
+
+				if (!assignable) {
+					console.log(`No assignable roles for ${message.guild.name}!`);
+					return message.reply('Error getting roles');
+				}
+
 				const r = roles.find((e) => assignable.includes(e.id));
 				if (r) {
 					message.member.roles
