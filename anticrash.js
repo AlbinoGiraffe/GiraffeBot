@@ -1,6 +1,7 @@
 const config = require('./config.json');
 
 module.exports = (client) => {
+	dmOwner('test', 'test', 'test');
 	process.on('unhandledRejection', (reason, p) => {
 		console.log('[antiCrash] :: Unhandled Rejection/Catch');
 		console.log(reason, p);
