@@ -14,12 +14,12 @@ const { Client, Intents } = require('discord.js');
 
 const bot = new Client({ intents: [Intents.FLAGS.GUILDS] });
 
-const db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
-	host: 'localhost',
-	dialect: 'sqlite',
-	logging: false,
-	storage: 'database.sqlite',
-});
+// const db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
+// 	host: 'localhost',
+// 	dialect: 'sqlite',
+// 	logging: false,
+// 	storage: 'database.sqlite',
+// });
 
 // db.majors = db.define('Major', {
 // 	major: {
@@ -137,5 +137,3 @@ bot.once('ready', async (client) => {
 // 		});
 // 	});
 // }
-// client.login('MzE0NjExMDQ0NTQ0OTM3OTk3.Ycdmdw.VgEohEOKDPAgg4bbC-7QEelaamQ');
-bot.login('MzE0NjExMDQ0NTQ0OTM3OTk3.Ycdmdw.VgEohEOKDPAgg4bbC-7QEelaamQ');
