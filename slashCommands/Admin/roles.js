@@ -55,10 +55,12 @@ module.exports = {
 						.setName('add')
 						.setDescription('make role assignable')
 						.addRoleOption((option) =>
+							option.setName('role').setDescription('role to add'),
+						)
+						.addStringOption((option) =>
 							option
-								.setName('role')
-								.setDescription('role to add')
-								.setRequired(true),
+								.setName('list')
+								.setDescription('list of role names to add'),
 						),
 				)
 				.addSubcommand((remove) =>
@@ -73,7 +75,15 @@ module.exports = {
 						),
 				)
 				.addSubcommand((list) =>
-					list.setName('assignable').setDescription('list assignable roles'),
+					list
+						.setName('assignable')
+						.setDescription('list assignable roles')
+						.addIntegerOption((option) =>
+							option.setName('page').setDescription('Page number'),
+						)
+						.addBooleanOption((option) =>
+							option.setName('csv').setDescription('List as CSV'),
+						),
 				)
 				.addSubcommand((listall) =>
 					listall
@@ -81,6 +91,9 @@ module.exports = {
 						.setDescription('list all roles on server')
 						.addIntegerOption((option) =>
 							option.setName('page').setDescription('Page number'),
+						)
+						.addBooleanOption((option) =>
+							option.setName('csv').setDescription('List as CSV'),
 						),
 				),
 		)
@@ -147,8 +160,15 @@ module.exports = {
 					}
 				}
 
+				let separator = '\n';
 				const num_roles = role_list.length;
 				const pg = interaction.options.getInteger('page');
+				const csv = interaction.options.getBoolean('csv');
+
+				if (csv) {
+					separator = ', ';
+				}
+
 				role_list = splitRoles(role_list, 15);
 
 				if (!num_roles) {
@@ -169,7 +189,7 @@ module.exports = {
 					n = 0;
 				}
 
-				const msg = await genRoleList(role_list, n);
+				const msg = await genRoleList(role_list, n, separator);
 
 				if (num_roles == 0) {
 					const embed = new MessageEmbed()
@@ -182,10 +202,6 @@ module.exports = {
 					`**${num_roles} Roles (Page ${n + 1}/${rs}):**\n${msg}`,
 				);
 				return interaction.editReply({ embeds: [embd] });
-				// get id list
-				// for each id, fetch the role
-				// add to msg
-				// embed
 			}
 
 			if (cmd == 'all') {
@@ -194,6 +210,11 @@ module.exports = {
 				const role_list = splitRoles(Array.from(guildRoles.values()), 15);
 				const num_roles = guildRoles.size - 1;
 				const pg = interaction.options.getInteger('page');
+				const csv = interaction.options.getBoolean('csv');
+				let separator = '\n';
+				if (csv) {
+					separator = ', ';
+				}
 
 				let n = 0;
 				const rs = role_list.length;
@@ -206,13 +227,10 @@ module.exports = {
 					if (pg == 0) n = 0;
 				}
 
-				const msg = await genRoleList(role_list, n);
-
-				// embd = discord.Embed(
-				//     description="".format(num_roles, n + 1, rs, msg))
+				const msg = await genRoleList(role_list, n, separator);
 
 				const embd = new MessageEmbed().setDescription(
-					`**${num_roles} Roles that can be self-assigned: (Page ${
+					`**${num_roles} Roles in ${interaction.guild.name}: (Page ${
 						n + 1
 					}/${rs})**\n${msg}`,
 				);
@@ -233,26 +251,132 @@ module.exports = {
 			// Support list of role names/ids
 			if (cmd == 'add') {
 				const role = interaction.options.getRole('role');
+				const list = interaction.options.getString('list');
 
-				client.db.GuildConfig.findOne({
-					where: { guildId: interaction.guild.id },
-				}).then((tok) => {
-					let roleList = JSON.parse(tok.assignRoles);
-					if (!roleList) roleList = [];
+				if (!(list || role)) {
+					const embed = new MessageEmbed().setDescription(
+						`Supply either a role or role list!`,
+					);
+					return interaction.editReply({ embeds: [embed] });
+				}
 
-					if (roleList.includes(role.id)) {
-						return interaction.editReply('Role already in list!');
+				if (role) {
+					client.db.GuildConfig.findOne({
+						where: { guildId: interaction.guild.id },
+					}).then((tok) => {
+						let roleList = JSON.parse(tok.assignRoles);
+						if (!roleList) roleList = [];
+
+						if (roleList.includes(role.id)) {
+							return interaction.editReply('Role already in list!');
+						}
+
+						roleList.push(role.id);
+						client.db.GuildConfig.update(
+							{ assignRoles: JSON.stringify(roleList) },
+							{ where: { guildId: interaction.guild.id } },
+						).then(interaction.editReply('Role added'));
+					});
+				}
+
+				if (list) {
+					const roleNames = list.match(/(?<=")(?:\\.|[^"\\])*[^,\s](?=")/g);
+					// console.log(roleNames);
+					const duplicates = [];
+					const noMatch = [];
+					const inList = [];
+					const added = [];
+					let count = 0;
+
+					for (const name of roleNames) {
+						const r = botUtils.findRoles(
+							await interaction.guild.roles.fetch(),
+							name,
+						);
+						console.log(name);
+						r.forEach((m) => {
+							console.log(`- ${m.name}`);
+						});
+
+						if (r.size == 1) {
+							const newRole = r.first();
+							// add it
+							client.db.GuildConfig.findOne({
+								where: { guildId: interaction.guild.id },
+							}).then((tok) => {
+								let roleList = JSON.parse(tok.assignRoles);
+								if (!roleList) roleList = [];
+
+								if (roleList.includes(newRole.id)) {
+									inList.push(newRole);
+								} else {
+									roleList.push(newRole.id);
+									added.push(newRole);
+								}
+
+								client.db.GuildConfig.update(
+									{ assignRoles: JSON.stringify(roleList) },
+									{ where: { guildId: interaction.guild.id } },
+								);
+							});
+							count++;
+						}
+
+						if (r.size > 1) {
+							duplicates.push(r);
+						}
+
+						if (r.size == 0) {
+							noMatch.push(name);
+						}
 					}
 
-					roleList.push(role.id);
-					client.db.GuildConfig.update(
-						{ assignRoles: JSON.stringify(roleList) },
-						{ where: { guildId: interaction.guild.id } },
-					).then(interaction.editReply('Role added'));
-				});
+					const embd = new MessageEmbed().setTitle(
+						`${count} roles added to list`,
+					);
+
+					if (duplicates.length > 0) {
+						let dupes = '';
+						duplicates.forEach((d) => {
+							d.forEach((k) => {
+								dupes += `${k} - ${k.id}\n`;
+							});
+							dupes += '\n';
+						});
+						console.log(dupes);
+						console.log(duplicates.length);
+						embd.addField(`${duplicates.length} roles with duplicates.`, dupes);
+					}
+
+					if (inList.length > 0) {
+						let listmsg = '';
+						inList.forEach((k) => {
+							listmsg += `${k} `;
+						});
+						embd.addField(`${inList.length} roles already in list.`, listmsg);
+					}
+
+					if (noMatch.length > 0) {
+						let listmsg = '';
+						noMatch.forEach((k) => {
+							listmsg += `${k} `;
+						});
+						embd.addField(`${noMatch.length} didn't match any roles.`, listmsg);
+					}
+
+					if (added.length > 0) {
+						let listmsg = '';
+						added.forEach((k) => {
+							listmsg += `${k} `;
+						});
+						embd.addField(`${added.length} roles added to list.`, listmsg);
+					}
+					interaction.editReply({ embeds: [embd] });
+				}
 				return;
 			}
 
+			// support list of names
 			if (cmd == 'remove') {
 				const role = interaction.options.getRole('role');
 
@@ -332,6 +456,7 @@ module.exports = {
 			return;
 		}
 
+		// support list of names
 		if (cmd == 'create') {
 			const roleName = interaction.options.getString('name');
 			const roleColor = interaction.options.getString('color');
@@ -425,17 +550,17 @@ function splitRoles(arr, len) {
 	return chunks;
 }
 
-function genRoleList(role_list, n) {
+function genRoleList(role_list, n, separator) {
 	let msg = '```';
 	role_list[n].forEach((r) => {
 		if (!(r.position == 0)) {
-			msg = msg + `"${r.name}"\n`;
+			if (!(role_list[n].at(-1) == r)) {
+				msg = msg + `"${r.name}"${separator}`;
+			} else {
+				msg = msg + `"${r.name}"`;
+			}
 		}
 	});
 	msg = msg + '```';
 	return msg;
 }
-
-// function listDuplicateRoles(roleList) {
-// 	return;
-// }

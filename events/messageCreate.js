@@ -32,11 +32,12 @@ module.exports = async (client, message) => {
 	}
 
 	if (!client.ignoreList.includes(message.channel.id) && message.guild) {
-		console.log(
-			`[${date}]: ${message.author.tag} in #${
-				message.channel.name
-			}: ${botUtils.truncate(message.content)}`,
+		const decorator = `[${date}]: ${message.author.tag} in #${message.channel.name}: `;
+		const msg = `${botUtils.truncate(message.content)}`.replaceAll(
+			'\n',
+			`\n${' '.repeat(decorator.length)}`,
 		);
+		console.log(decorator + msg);
 	}
 
 	// emphasize - what
