@@ -10,7 +10,7 @@ module.exports = {
 		// find role
 		const roles = botUtils.findRoles(
 			await message.guild.roles.fetch(),
-			args.join(' '),
+			args.join(' ').replaceAll('"', ''),
 		);
 		// remove role from user
 		message.member.roles
