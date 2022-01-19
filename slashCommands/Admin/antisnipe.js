@@ -7,6 +7,10 @@ module.exports = {
 		.setDescription('Cancel a snipe')
 		.setDefaultPermission(false),
 	run: (client, interaction) => {
+		if (!interaction.guild) {
+			return interaction.reply("Command can't run in DM!");
+		}
+
 		botUtils.entryExists(client, interaction).then((token) => {
 			if (token) {
 				client.Snipe.destroy({ where: { channelId: interaction.channel.id } });

@@ -20,6 +20,10 @@ module.exports = {
 		)
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
+		if (!interaction.guild) {
+			return interaction.reply("Command can't run in DM!");
+		}
+
 		await interaction.deferReply({ ephemeral: true });
 
 		const cmd = interaction.options.getSubcommand();

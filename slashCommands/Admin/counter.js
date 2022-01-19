@@ -93,6 +93,10 @@ module.exports = {
 		)
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
+		if (!interaction.guild) {
+			return interaction.reply("Command can't run in DM!");
+		}
+
 		const group = interaction.options.getSubcommandGroup(false);
 		const cmd = interaction.options.getSubcommand();
 

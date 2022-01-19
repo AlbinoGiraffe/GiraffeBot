@@ -5,21 +5,25 @@ module.exports = (client) => {
 		console.log('[antiCrash] :: Unhandled Rejection/Catch');
 		console.log(reason, p);
 		dmOwner(client, reason, p);
+		process.exit(1);
 	});
 	process.on('uncaughtException', (err, origin) => {
 		console.log('[antiCrash] :: Uncaught Exception/Catch');
 		console.log(err, origin);
 		dmOwner(client, err, origin);
+		process.exit(1);
 	});
 	process.on('uncaughtExceptionMonitor', (err, origin) => {
 		console.log('[antiCrash] :: Uncaught Exception/Catch (MONITOR)');
 		console.log(err, origin);
 		dmOwner(client, err, origin);
+		process.exit(1);
 	});
 	process.on('multipleResolves', (type, promise, reason) => {
 		console.log('[antiCrash] :: Multiple Resolves');
 		console.log(type, promise, reason);
 		dmOwner(client, type, promise, reason);
+		process.exit(1);
 	});
 };
 

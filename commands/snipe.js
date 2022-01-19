@@ -24,6 +24,8 @@ function genEmbed(client, token, message) {
 		.setColor('0xe74c3c')
 		.setTitle(`Deleted message from ${token.author}`)
 		.addField('Message: ', token.content)
-		.setFooter(`id: ${token.mid} | ${token.date} | #${message.channel.name}`);
+		.setFooter({
+			text: `id: ${token.mid} | ${token.date} | #${message.channel.name}`,
+		});
 	return out;
 }

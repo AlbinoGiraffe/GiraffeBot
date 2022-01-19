@@ -35,7 +35,7 @@ function sendEmbed(interaction, result, error) {
 			.setColor('0xe74c3c')
 			.setTitle(`${result.word}`)
 			.setDescription(`${result.definition}`)
-			.setFooter(`Example: ${result.example}`);
+			.setFooter({ text: `Example: ${result.example}` });
 		interaction.editReply({ embeds: [embed] });
 	} else {
 		const embed = new MessageEmbed()

@@ -1,6 +1,10 @@
+const { REST } = require('@discordjs/rest');
+const { Routes } = require('discord-api-types/v9');
+
 const color = require('colors/safe');
 const botUtils = require('../botUtils');
 const config = require('../config.json');
+const fs = require('fs');
 
 const adminPermissions = [
 	{
@@ -10,14 +14,18 @@ const adminPermissions = [
 	},
 ];
 
+const rest = new REST({ version: '9' }).setToken(config.token);
+
 module.exports = async (client) => {
+	// load anticrash
+	require('../anticrash');
+	console.log('Loaded anti-crash');
+
 	if (!client.application?.owner) client.application?.fetch();
 
 	client.ignoreList = await botUtils.getIgnoreList(client);
 
-	if (!config.globalCommands) {
-		await setup(client);
-	}
+	await setup(client);
 
 	console.log(
 		color.yellow(
@@ -102,4 +110,29 @@ async function setup(client) {
 		});
 	}
 	console.log(color.yellow('Removed counting mute roles'));
+
+	// set global commands if enabled
+	if (config.globalCommands) {
+		try {
+			console.log('Setting global commands.');
+
+			await rest.put(Routes.applicationCommands(client.user.id), {
+				body: client.slash,
+			});
+
+			console.log('Successfully set global commands.');
+		} catch (error) {
+			console.error(error);
+		}
+
+		config.globalCommands = false;
+		fs.writeFile(
+			'../config.json',
+			JSON.stringify(config),
+			function writeJSON(err) {
+				if (err) return console.log(err);
+				console.log('config updated');
+			},
+		);
+	}
 }

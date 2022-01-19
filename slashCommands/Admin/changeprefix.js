@@ -12,6 +12,10 @@ module.exports = {
 				.setRequired(true),
 		),
 	run: (client, interaction) => {
+		if (!interaction.guild) {
+			return interaction.reply("Command can't run in DM!");
+		}
+
 		const newPrefix = interaction.options.getString('prefix');
 		if (newPrefix.length > 1) {
 			return interaction

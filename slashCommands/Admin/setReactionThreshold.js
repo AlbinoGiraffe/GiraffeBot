@@ -20,6 +20,10 @@ module.exports = {
 		)
 		.setDefaultPermission(false),
 	run: (client, interaction) => {
+		if (!interaction.guild) {
+			return interaction.reply("Command can't run in DM!");
+		}
+
 		const op = interaction.options.getString('select');
 		const thresh = interaction.options.getInteger('threshold');
 

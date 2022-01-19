@@ -1,5 +1,5 @@
 const color = require('colors/safe');
-const { MessageEmbed, Permissions, ThreadChannel } = require('discord.js');
+const { MessageEmbed, Permissions } = require('discord.js');
 const config = require('../config.json');
 
 module.exports = async (client, reaction) => {
@@ -99,9 +99,9 @@ function getEmbed(reaction) {
 		.setThumbnail(reaction.message.member.user.avatarURL())
 		.setDescription(reaction.message.content)
 		.addField('Jump to Message', `[Click](${reaction.message.url})`)
-		.setFooter(
-			`stars: ${reaction.count} • ${reaction.message.createdAt} • #${reaction.message.channel.name}`,
-		);
+		.setFooter({
+			text: `stars: ${reaction.count} • ${reaction.message.createdAt} • #${reaction.message.channel.name}`,
+		});
 	return out;
 }
 
