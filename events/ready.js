@@ -17,9 +17,9 @@ const adminPermissions = [
 const rest = new REST({ version: '9' }).setToken(config.token);
 
 module.exports = async (client) => {
-	// load anticrash
-	require('../anticrash');
-	console.log('Loaded anti-crash');
+	client.user.setPresence({
+		activities: [{ name: 'GIRAFFEBOT RELEASE 1.0', type: 'PLAYING' }],
+	});
 
 	if (!client.application?.owner) client.application?.fetch();
 
