@@ -99,9 +99,9 @@ function getEmbed(reaction) {
 		.setThumbnail(reaction.message.member.user.avatarURL())
 		.setDescription(reaction.message.content)
 		.addField('Jump to Message', `[Click](${reaction.message.url})`)
-		.setFooter({
-			text: `stars: ${reaction.count} • ${reaction.message.createdAt} • #${reaction.message.channel.name}`,
-		});
+		.setFooter(
+			`stars: ${reaction.count} • ${reaction.message.createdAt} • #${reaction.message.channel.name}`,
+		);
 	return out;
 }
 

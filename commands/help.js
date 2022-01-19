@@ -13,7 +13,7 @@ module.exports = {
 			embd
 				.setTitle(`Help for ${cmd.name}`)
 				.setDescription(cmd.help)
-				.setFooter({ text: "Type 'prefix' to get my command prefix" });
+				.setFooter("Type 'prefix' to get my command prefix");
 		} else {
 			let msg = '```';
 			client.commands.forEach((c) => {
@@ -24,7 +24,7 @@ module.exports = {
 			embd
 				.setTitle('Help:')
 				.setDescription(msg)
-				.setFooter({ text: "Type 'prefix' to get my command prefix" });
+				.setFooter("Type 'prefix' to get my command prefix");
 		}
 
 		message.reply({ embeds: [embd] }).catch((e) => console.log(color.red(e)));
