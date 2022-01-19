@@ -199,7 +199,7 @@ process.on('multipleResolves', (type, promise, reason) => {
 
 function dmOwner(bot, err, p, r = '') {
 	bot.users.fetch(config.adminId).then((c) => {
-		c.send(`ERROR:\n${err}\n${pr}\n${r}`);
+		c.send(`ERROR:\n${err}\n${p}\n${r}`);
 	});
 }
 // Login to Discord
