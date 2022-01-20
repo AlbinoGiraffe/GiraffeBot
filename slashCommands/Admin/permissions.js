@@ -350,8 +350,6 @@ async function updatePermissions(client, interaction) {
 			}
 		})
 		.catch(console.error);
-
-	interaction.guild.commands.set(client.slash).catch((e) => console.log(e));
 }
 
 async function removePermissions(client, interaction, modRoles, adminRoles) {
@@ -372,6 +370,4 @@ async function removePermissions(client, interaction, modRoles, adminRoles) {
 			}
 		})
 		.catch(console.error);
-
-	interaction.guild.commands.set(client.slash).catch((e) => console.log(e));
 }
