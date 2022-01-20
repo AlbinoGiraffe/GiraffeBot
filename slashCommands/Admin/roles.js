@@ -378,7 +378,7 @@ module.exports = {
 						});
 						embd.addField(`${added.length} roles added to list.`, listmsg);
 					}
-					interaction.editReply({ embeds: [embd] });
+					return interaction.editReply({ embeds: [embd] });
 				}
 				return;
 			}
@@ -517,6 +517,7 @@ module.exports = {
 					}
 					interaction.editReply({ embeds: [embd] });
 				}
+				return;
 			}
 			return;
 		}
