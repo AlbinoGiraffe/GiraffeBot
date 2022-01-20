@@ -4,15 +4,6 @@ const { Routes } = require('discord-api-types/v9');
 const color = require('colors/safe');
 const botUtils = require('../botUtils');
 const config = require('../config.json');
-const fs = require('fs');
-
-const adminPermissions = [
-	{
-		id: config.adminId,
-		type: 'USER',
-		permission: true,
-	},
-];
 
 const rest = new REST({ version: '9' }).setToken(config.token);
 
@@ -62,23 +53,14 @@ async function setup(client) {
 		}
 
 		// update permissions
-		await guild.commands
-			.fetch()
-			.then((guildCommands) => {
-				if (guildCommands) {
-					guildCommands.forEach((c) => {
-						if (client.adminSlashCommands.includes(c.name)) {
-							// edit permissions here
-							c.permissions.add({ permissions: adminPermissions });
-						}
-					});
-				}
-			})
-			.catch(console.error);
+		await updatePermissions(client, guild);
 
-		guild.commands.set(client.slash).catch((e) => console.log(e));
+		// set guild commands
+		if (!config.globalCommands) {
+			guild.commands.set(client.slash).catch((e) => console.log(e));
+		}
 
-		// Clear counting mute users
+		// Udate counting number
 		await guild.members.fetch();
 		client.db.Count.findOne({ where: { guildId: guild.id } }).then((t) => {
 			if (!t) return;
@@ -114,25 +96,76 @@ async function setup(client) {
 	// set global commands if enabled
 	if (config.globalCommands) {
 		try {
-			console.log('Setting global commands.');
+			console.log(color.yellow('Setting global commands.'));
 
 			await rest.put(Routes.applicationCommands(client.user.id), {
 				body: client.slash,
 			});
 
-			console.log('Successfully set global commands.');
+			console.log(color.yellow('Successfully set global commands.'));
 		} catch (error) {
 			console.error(error);
 		}
-
-		config.globalCommands = false;
-		fs.writeFile(
-			'../config.json',
-			JSON.stringify(config),
-			function writeJSON(err) {
-				if (err) return console.log(err);
-				console.log('config updated');
-			},
-		);
 	}
+}
+
+async function updatePermissions(client, guild) {
+	const adminPermissions = [
+		{
+			id: config.adminId,
+			type: 'USER',
+			permission: true,
+		},
+	];
+
+	const modPermissions = [
+		{
+			id: config.adminId,
+			type: 'USER',
+			permission: true,
+		},
+	];
+
+	const tok = await client.db.GuildConfig.findOne({
+		where: { guildId: guild.id },
+	});
+
+	if (!tok) return;
+
+	let modList = [];
+	let adminList = [];
+
+	if (tok.modRoles) {
+		modList = JSON.parse(tok.modRoles);
+	}
+
+	if (tok.adminRoles) {
+		adminList = JSON.parse(tok.adminRoles);
+	}
+
+	modList.forEach((cid) => {
+		modPermissions.push({ id: cid, type: 'ROLE', permission: true });
+	});
+
+	adminList.forEach((cid) => {
+		adminPermissions.push({ id: cid, type: 'ROLE', permission: true });
+	});
+
+	// update permissions
+	await guild.commands
+		.fetch()
+		.then((guildCommands) => {
+			if (guildCommands) {
+				guildCommands.forEach((c) => {
+					if (client.adminSlashCommands.includes(c.name)) {
+						c.permissions.add({ permissions: adminPermissions });
+					}
+
+					if (client.modSlashCommands.includes(c.name)) {
+						c.permissions.add({ permissions: modPermissions });
+					}
+				});
+			}
+		})
+		.catch(console.error);
 }
