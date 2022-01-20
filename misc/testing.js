@@ -30,11 +30,11 @@ bot.once('ready', async (client) => {
 	console.log('Deleting guild commands');
 	await client.guilds.fetch().then((guilds) => {
 		guilds.forEach((g) => {
-			console.log(`[${g.name}]`);
 			g.commands?.set([]);
 			rest
 				.get(Routes.applicationGuildCommands(client.user.id, g.id))
 				.then((data) => {
+					console.log(`[${g.name}]`);
 					for (const command of data) {
 						const deleteUrl = `${Routes.applicationGuildCommands(
 							client.user.id,
