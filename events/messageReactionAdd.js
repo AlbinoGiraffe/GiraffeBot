@@ -100,7 +100,11 @@ function getEmbed(reaction) {
 		.setDescription(reaction.message.content)
 		.addField('Jump to Message', `[Click](${reaction.message.url})`)
 		.setFooter(
-			`stars: ${reaction.count} • ${reaction.message.createdAt} • #${reaction.message.channel.name}`,
+			`stars: ${
+				reaction.count
+			} • ${reaction.message.createdAt.toLocaleString()} • #${
+				reaction.message.channel.name
+			}`,
 		);
 	return out;
 }

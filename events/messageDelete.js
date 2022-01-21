@@ -11,9 +11,9 @@ module.exports = async (client, message) => {
 
 	console.log(
 		color.blue(
-			`[${new Date().toLocaleDateString()}]: Deleted - ${
-				message.author.tag
-			} in #${message.channel.name}: ${botUtils.truncate(message.content)}`,
+			`[${new Date().toLocaleString()}]: Deleted - ${message.author.tag} in #${
+				message.channel.name
+			}: ${botUtils.truncate(message.content)}`,
 		),
 	);
 
@@ -24,13 +24,13 @@ module.exports = async (client, message) => {
 				channelId: message.channel.id,
 				content: message.content,
 				author: message.author.tag,
-				date: message.createdAt.toLocaleDateString(),
+				date: message.createdAt.toLocaleString(),
 				mid: message.id,
 			})
 				.then(() => {
 					console.log(
 						color.blue(
-							`[${new Date().toLocaleDateString()}]: Snipe entry added for #${
+							`[${new Date().toLocaleString()}]: Snipe entry added for #${
 								message.channel.name
 							}`,
 						),
@@ -42,7 +42,7 @@ module.exports = async (client, message) => {
 							}).then(() =>
 								console.log(
 									color.blue(
-										`[${new Date().toLocaleDateString()}]: Snipe entry deleted for #${
+										`[${new Date().toLocaleString()}]: Snipe entry deleted for #${
 											message.channel.name
 										}`,
 									),

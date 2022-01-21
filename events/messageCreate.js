@@ -22,7 +22,7 @@ module.exports = async (client, message) => {
 
 	await processCounter(client, message);
 	// logging
-	const date = message.createdAt.toLocaleDateString();
+	const date = message.createdAt.toLocaleString();
 	if (!message.guild) {
 		console.log(
 			`[${date}]: ${message.author.tag} in DM: ${botUtils.truncate(
