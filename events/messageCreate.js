@@ -57,7 +57,6 @@ module.exports = async (client, message) => {
 		return;
 	}
 
-	// Command processing
 	let gid = null;
 	if (message.guild) {
 		gid = message.guild.id;
@@ -131,6 +130,7 @@ module.exports = async (client, message) => {
 		}
 	}
 
+	// Command processing
 	if (message.content.startsWith(`${currentPrefix}`)) {
 		const args = message.content
 			.slice(currentPrefix.length)

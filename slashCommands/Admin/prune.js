@@ -22,7 +22,6 @@ module.exports = {
 				.catch(console.error);
 		}
 
-		await interaction.channel.messages.fetch();
 		await interaction.channel
 			.bulkDelete(num, true)
 			.then(() =>
@@ -31,7 +30,7 @@ module.exports = {
 					.catch(console.error),
 			)
 			.catch(() => {
-				interaction.reply({ content: 'Error pruning channel!' });
+				interaction.editReply({ content: 'Error pruning channel!' });
 			});
 	},
 };
