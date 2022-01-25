@@ -6,12 +6,14 @@ const bot = new Client({ intents: [Intents.FLAGS.GUILDS] });
 const { REST } = require('@discordjs/rest');
 const { Routes } = require('discord-api-types/v9');
 
-const global = false;
+const global = true;
 
 bot.once('ready', async (client) => {
 	console.log(`Logged in as ${client.user.tag}`);
 
 	const rest = new REST({ version: '9' }).setToken(config.token);
+
+	await client.application.fetch();
 
 	if (global) {
 		console.log('Deleting global commands');
@@ -27,14 +29,14 @@ bot.once('ready', async (client) => {
 		});
 	}
 
-	console.log('Deleting guild commands');
+	// console.log('Deleting guild commands');
 	await client.guilds.fetch().then((guilds) => {
 		guilds.forEach((g) => {
 			g.commands?.set([]);
 			rest
 				.get(Routes.applicationGuildCommands(client.user.id, g.id))
 				.then((data) => {
-					console.log(`[${g.name}]`);
+					// console.log(`[${g.name}]`);
 					for (const command of data) {
 						const deleteUrl = `${Routes.applicationGuildCommands(
 							client.user.id,
@@ -42,7 +44,7 @@ bot.once('ready', async (client) => {
 						)}/${command.id}`;
 						rest
 							.delete(deleteUrl)
-							.then(console.log(`Deleted ${command.name}`))
+							// .then(console.log(`Deleted ${command.name}`))
 							.catch(console.error);
 					}
 				});

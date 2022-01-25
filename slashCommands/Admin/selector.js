@@ -17,6 +17,9 @@ module.exports = {
 		.addSubcommand((get) =>
 			get.setName('get').setDescription('get selector channel'),
 		)
+		.addSubcommand((init) =>
+			init.setName('setup').setDescription('set up selector'),
+		)
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
 		if (!interaction.guild) {
@@ -76,5 +79,90 @@ module.exports = {
 				ephemeral: true,
 			});
 		}
+
+		if (cmd == 'setup') {
+			await interaction.deferReply({ ephemeral: true });
+			await setup(client, interaction);
+		}
 	},
 };
+
+async function setup(client, interaction) {
+	console.log(`Setting up selector for ${interaction.guild.name}`);
+
+	client.guilds
+		.fetch(interaction.guild.id)
+		.then((g) => {
+			g.roles
+				.fetch()
+				.then((r) => {
+					console.log('roles fetched');
+					const dup = findDuplicates(r);
+					if (dup) {
+						console.log(dup);
+					} else {
+						console.log('No duplicates :)');
+					}
+					updateRoles(client, g, interaction);
+					interaction.editReply(`Finished setting up!`);
+				})
+				.catch(() => {
+					console.error;
+					interaction.editReply(`Error setting up!`);
+				});
+		})
+		.catch(() => {
+			console.error;
+			interaction.editReply(`Error setting up!`);
+		});
+}
+
+function findDuplicates(r) {
+	let count = 0;
+	const dup = [];
+	r.forEach((v) => {
+		r.forEach((b) => {
+			if (b.name.toLowerCase() == v.name.toLowerCase()) {
+				count++;
+			}
+		});
+		if (count > 1) {
+			dup.push(v.name);
+			console.log(`count for ${v.name}: ${count}`);
+		}
+		count = 0;
+	});
+
+	if (dup.length > 0) {
+		return dup;
+	} else {
+		return null;
+	}
+}
+
+function updateRoles(client, g, interaction) {
+	console.log('Updating roles');
+	client.db.Majors.findAll().then((ma) => {
+		ma.forEach((m) => {
+			const roleName = m.major;
+			g.roles.fetch().then((r) => {
+				const cd = r.find(
+					(x) => x.name.toLowerCase() == roleName.toLowerCase(),
+				);
+
+				if (!cd) {
+					g.roles
+						.create({ name: roleName })
+						.then((rc) => console.log(`Created ${rc.name}`))
+						.catch(() => {
+							console.error;
+							interaction.editReply(`Error setting up!`);
+						});
+				} else {
+					cd.edit({ name: roleName });
+					console.log(`${roleName} already in server, edited`);
+				}
+			});
+		});
+	});
+}
