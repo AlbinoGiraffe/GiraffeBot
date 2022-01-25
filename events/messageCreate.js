@@ -72,24 +72,6 @@ module.exports = async (client, message) => {
 		currentPrefix = token.prefix;
 	}
 
-	if (message.content.startsWith(`${currentPrefix}`)) {
-		const args = message.content
-			.slice(currentPrefix.length)
-			.trim()
-			.split(/ +/g);
-		const command = args.shift().toLowerCase();
-		const cmd = client.commands.get(command);
-
-		if (!cmd) return;
-		cmd.run(client, message, args);
-		console.log(
-			color.blue(
-				`${message.guild.name}: ${message.author.tag} ran a command (${cmd.name}) in #${message.channel.name}`,
-			),
-		);
-		return;
-	}
-
 	// role selector
 	if (token) {
 		if (message.channel.id == token.selectorId) {
@@ -148,6 +130,25 @@ module.exports = async (client, message) => {
 			});
 		}
 	}
+
+	if (message.content.startsWith(`${currentPrefix}`)) {
+		const args = message.content
+			.slice(currentPrefix.length)
+			.trim()
+			.split(/ +/g);
+		const command = args.shift().toLowerCase();
+		const cmd = client.commands.get(command);
+
+		if (!cmd) return;
+		cmd.run(client, message, args);
+		console.log(
+			color.blue(
+				`${message.guild.name}: ${message.author.tag} ran a command (${cmd.name}) in #${message.channel.name}`,
+			),
+		);
+		return;
+	}
+
 	// get bot prefix
 	if (message.content == 'prefix') {
 		message

@@ -22,6 +22,8 @@ module.exports = {
 				})
 				.catch(console.error);
 		}
+
+		await interaction.channel.messages.fetch();
 		await interaction.channel
 			.bulkDelete(num, true)
 			.then(() =>
