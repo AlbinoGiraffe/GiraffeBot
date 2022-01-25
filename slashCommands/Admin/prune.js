@@ -13,13 +13,12 @@ module.exports = {
 				.setRequired(true),
 		),
 	run: async (client, interaction) => {
+		await interaction.deferReply({ ephemeral: true });
+
 		const num = interaction.options.getInteger('number');
 		if (num < 1 || num >= 100) {
 			return interaction
-				.reply({
-					content: 'Enter a number between 1 and 99',
-					ephemeral: true,
-				})
+				.editReply({ content: 'Enter a number between 1 and 99' })
 				.catch(console.error);
 		}
 
@@ -28,17 +27,11 @@ module.exports = {
 			.bulkDelete(num, true)
 			.then(() =>
 				interaction
-					.reply({
-						content: `Done deleting ${num} messages.`,
-						ephemeral: true,
-					})
+					.editReply({ content: `Done deleting ${num} messages.` })
 					.catch(console.error),
 			)
 			.catch(() => {
-				interaction.reply({
-					content: 'Error pruning channel!',
-					ephemeral: true,
-				});
+				interaction.reply({ content: 'Error pruning channel!' });
 			});
 	},
 };
