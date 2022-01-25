@@ -21,6 +21,7 @@ module.exports = async (client, message) => {
 	if (message.partial) message.fetch();
 
 	await processCounter(client, message);
+
 	// logging
 	const date = message.createdAt.toLocaleString();
 	if (!message.guild) {
@@ -61,9 +62,14 @@ module.exports = async (client, message) => {
 			where: { guildId: message.guild.id },
 		})
 			.then((token) => {
+				let currentPrefix = config.prefix;
+				if (token?.prefix) {
+					currentPrefix = token.prefix;
+				}
+
 				if (message.content == 'prefix') {
 					message
-						.reply(`My prefix on this server is: ${token.prefix}`)
+						.reply(`My prefix on this server is: ${currentPrefix}`)
 						.catch(console.error);
 					return;
 				}
@@ -115,7 +121,7 @@ module.exports = async (client, message) => {
 								.createDM()
 								.then((m) =>
 									m.send(
-										`Invalid major code! Use \`!codes\` to see a list of available codes.`,
+										`Invalid major code! Use \`${currentPrefix}codes\` to see a list of available codes.`,
 									),
 								)
 								.catch(console.error);
