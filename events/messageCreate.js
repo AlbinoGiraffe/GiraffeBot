@@ -148,60 +148,62 @@ module.exports = async (client, message) => {
 	}
 
 	// role selector
-	if (message.channel.id == token.selectorId) {
-		let remove = false;
-		let mquery = message.content;
-		if (message.content.startsWith('rm')) {
-			remove = true;
-			mquery = message.content.replace('rm ', '');
+	if (token) {
+		if (message.channel.id == token.selectorId) {
+			let remove = false;
+			let mquery = message.content;
+			if (message.content.startsWith('rm')) {
+				remove = true;
+				mquery = message.content.replace('rm ', '');
+			}
+			client.db.Majors.findOne({
+				where: { code: mquery.toUpperCase() },
+			}).then((major) => {
+				if (major) {
+					message.guild.roles.fetch().then((roles) => {
+						const role = roles.find((r) => r.name == major.major);
+
+						if (!role) {
+							message
+								.reply(`Error setting role!`)
+								.then((msg) => setTimeout(() => msg.delete(), 10 * 1000))
+								.catch(console.error);
+							console.log(`Role doesn't exist for ${major.major} (${mquery})!`);
+							return;
+						}
+
+						if (!remove) {
+							message.member.roles.add(role).catch(console.error);
+							message.author
+								.createDM()
+								.then((m) => m.send(`Gave you the \`${role.name}\` role!`))
+								.catch(console.error);
+							console.log(`Gave ${message.author.tag} '${role.name}'`);
+						} else {
+							message.member.roles.remove(role).catch(console.error);
+							message.author
+								.createDM()
+								.then((m) => m.send(`Removed the \`${role.name}\` role!`))
+								.catch(console.error);
+							console.log(`Removed ${message.author.tag} '${role.name}'`);
+						}
+					});
+				} else {
+					message.author
+						.createDM()
+						.then((m) =>
+							m.send(
+								`Invalid major code! Use \`${currentPrefix}codes\` to see a list of available codes.`,
+							),
+						)
+						.catch(console.error);
+				}
+
+				if (message.author.id != config.adminId) {
+					message.delete().catch(console.error);
+				}
+			});
 		}
-		client.db.Majors.findOne({
-			where: { code: mquery.toUpperCase() },
-		}).then((major) => {
-			if (major) {
-				message.guild.roles.fetch().then((roles) => {
-					const role = roles.find((r) => r.name == major.major);
-
-					if (!role) {
-						message
-							.reply(`Error setting role!`)
-							.then((msg) => setTimeout(() => msg.delete(), 10 * 1000))
-							.catch(console.error);
-						console.log(`Role doesn't exist for ${major.major} (${mquery})!`);
-						return;
-					}
-
-					if (!remove) {
-						message.member.roles.add(role).catch(console.error);
-						message.author
-							.createDM()
-							.then((m) => m.send(`Gave you the \`${role.name}\` role!`))
-							.catch(console.error);
-						console.log(`Gave ${message.author.tag} '${role.name}'`);
-					} else {
-						message.member.roles.remove(role).catch(console.error);
-						message.author
-							.createDM()
-							.then((m) => m.send(`Removed the \`${role.name}\` role!`))
-							.catch(console.error);
-						console.log(`Removed ${message.author.tag} '${role.name}'`);
-					}
-				});
-			} else {
-				message.author
-					.createDM()
-					.then((m) =>
-						m.send(
-							`Invalid major code! Use \`${currentPrefix}codes\` to see a list of available codes.`,
-						),
-					)
-					.catch(console.error);
-			}
-
-			if (message.author.id != config.adminId) {
-				message.delete().catch(console.error);
-			}
-		});
 	}
 	// get bot prefix
 	if (message.content == 'prefix') {
