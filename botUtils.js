@@ -2,7 +2,9 @@ const { Collection } = require('discord.js');
 
 module.exports = {
 	cleanInput: function (input) {
-		return input.replace('@everyone', '@\u200beveryone');
+		let msg = input.replace('@everyone', '@\u200beveryone');
+		msg = msg.replace('@here', '@\u200bhere');
+		return msg;
 	},
 	fetchMore: async function (channel, limit = 250) {
 		if (!channel) {
