@@ -10,9 +10,10 @@ module.exports = {
 			interaction.reply(`Only bot owner's can do this!`).catch(console.error);
 		}
 
-		client.guilds.fetch().then((g) => {
+		client.guilds.fetch().then((guilds) => {
 			let names = '';
-			for (const guild of g) {
+			console.log(guilds);
+			for (const guild of guilds) {
 				names += `${guild.name}\n`;
 			}
 			interaction
