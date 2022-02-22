@@ -10,12 +10,16 @@ module.exports = {
 			interaction.reply(`Only bot owner's can do this!`).catch(console.error);
 		}
 
-		let names = '';
-		for (const g of client.guilds) {
-			names += `${g.name}\n`;
-		}
+		client.guilds.fetch().then((g) => {
+			let names = '';
+			for (const guild of g) {
+				names += `${guild.name}\n`;
+			}
+			interaction
+				.reply({ content: names, ephemeral: true })
+				.catch(console.error);
+		});
 
-		interaction.reply({ content: names, ephemeral: true }).catch(console.error);
 		return;
 	},
 };
