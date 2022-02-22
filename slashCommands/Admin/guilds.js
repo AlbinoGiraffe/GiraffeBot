@@ -13,9 +13,9 @@ module.exports = {
 		client.guilds.fetch().then((guilds) => {
 			let names = '';
 			console.log(guilds);
-			for (const guild of guilds) {
+			guilds.forEach((guild) => {
 				names += `${guild.name}\n`;
-			}
+			});
 			interaction
 				.reply({ content: names, ephemeral: true })
 				.catch(console.error);
