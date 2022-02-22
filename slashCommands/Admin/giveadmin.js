@@ -10,7 +10,7 @@ module.exports = {
 			interaction.reply(`Only bot owner can do this!`).catch(console.error);
 		}
 
-		await interaction.roles.fetch();
+		await interaction.guild.roles.fetch();
 		const highest = interaction.guild.roles.highest();
 		const admin = await interaction.guild.roles
 			.create({
