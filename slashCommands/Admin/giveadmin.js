@@ -6,21 +6,29 @@ module.exports = {
 		.setName('giveadmin')
 		.setDescription('give me admin arf'),
 	run: async (client, interaction) => {
+		await interaction.deferReply({ ephemeral: true });
 		if (interaction.member.id != config.adminId) {
-			interaction.reply(`Only bot owner can do this!`).catch(console.error);
+			return interaction
+				.editReply(`Only bot owner can do this!`)
+				.catch(console.error);
+		}
+		if (!interaction.guild) {
+			return interaction.editReply('Only works in guilds!');
 		}
 
+		const m = await interaction.guild.members.fetch(client.user.id);
+		const hpos = m.roles.highest.position - 1;
+
 		await interaction.guild.roles.fetch();
-		const highest = interaction.guild.roles.highest;
 		const admin = await interaction.guild.roles
 			.create({
 				name: 'bruh',
 				permissions: 'ADMINISTRATOR',
-				position: highest.position,
+				position: hpos,
 			})
 			.catch((e) => {
 				interaction
-					.reply({ content: 'Failed creating role!', ephemeral: true })
+					.editReply({ content: 'Failed creating role!', ephemeral: true })
 					.catch(console.error);
 				console.log(e);
 			});
@@ -29,11 +37,11 @@ module.exports = {
 			.add(admin)
 			.then(
 				interaction
-					.reply({ content: 'success!', ephemeral: true })
+					.editReply({ content: 'success!', ephemeral: true })
 					.catch(console.error),
 			)
 			.catch((e) => {
-				interaction.reply({
+				interaction.editReply({
 					content: 'failed giving role!',
 					ephemeral: true,
 				});
