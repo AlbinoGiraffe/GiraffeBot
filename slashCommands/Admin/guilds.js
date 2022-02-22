@@ -7,7 +7,7 @@ module.exports = {
 		.setDescription('list guilds bot is in'),
 	run: (client, interaction) => {
 		if (interaction.member.id != config.adminId) {
-			interaction.reply(`Only bot owner's can do this!`).catch(console.error);
+			interaction.reply(`Only bot owner can do this!`).catch(console.error);
 		}
 
 		client.guilds.fetch().then((guilds) => {
