@@ -1,23 +1,33 @@
 const { SlashCommandBuilder } = require('@discordjs/builders');
-const botUtils = require('../../botUtils');
 
 module.exports = {
 	data: new SlashCommandBuilder()
 		.setName('as')
 		.setDescription('Cancel a snipe')
 		.setDefaultPermission(false),
-	run: (client, interaction) => {
+	run: async (client, interaction) => {
 		if (!interaction.guild) {
 			return interaction.reply("Command can't run in DM!");
 		}
 
-		botUtils.entryExists(client, interaction).then((token) => {
-			if (token) {
-				client.Snipe.destroy({ where: { channelId: interaction.channel.id } });
-			}
-			interaction
-				.reply({ content: 'Snipe cancelled', ephemeral: true })
-				.catch(console.error);
+		const token = client.db.Snipe.findOne({
+			where: { channelId: interaction.channel.id },
 		});
+
+		if (token) {
+			client.Snipe.destroy({
+				where: { channelId: interaction.channel.id },
+			})
+				.then(
+					interaction
+						.reply({ content: 'Snipe cancelled', ephemeral: true })
+						.catch(console.error),
+				)
+				.catch(console.error);
+		} else {
+			interaction
+				.reply({ content: 'No snipe to cancel!', ephemeral: true })
+				.catch(console.error);
+		}
 	},
 };

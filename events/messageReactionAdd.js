@@ -23,12 +23,12 @@ module.exports = async (client, reaction) => {
 	}
 
 	thresh = await getThresh(client, reaction, 'pin');
-	if (reaction.emoji.toString() == '📌' && reaction.count > thresh) {
+	if (reaction.emoji.toString() == '📌' && reaction.count >= thresh) {
 		reaction.message.pin().catch(console.error);
 	}
 
 	thresh = await getThresh(client, reaction, 'star');
-	if (reaction.emoji.toString() == '⭐' && reaction.count > thresh) {
+	if (reaction.emoji.toString() == '⭐' && reaction.count >= thresh) {
 		// starboard
 		if (!reaction.message.guild) return;
 

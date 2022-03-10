@@ -17,8 +17,8 @@ let lastMember = null;
 
 module.exports = async (client, message) => {
 	if (message.author.bot) return;
-	if (message.channel.partial) message.channel.fetch();
-	if (message.partial) message.fetch();
+	if (message.channel.partial) await message.channel.fetch();
+	if (message.partial) await message.fetch();
 
 	await processCounter(client, message);
 
@@ -141,11 +141,19 @@ module.exports = async (client, message) => {
 
 		if (!cmd) return;
 		cmd.run(client, message, args);
-		console.log(
-			color.blue(
-				`${message.guild.name}: ${message.author.tag} ran a command (${cmd.name}) in #${message.channel.name}`,
-			),
-		);
+		if (message.guild) {
+			console.log(
+				color.blue(
+					`${message.guild.name}: ${message.author.tag} ran a command (${cmd.name}) in #${message.channel.name}`,
+				),
+			);
+		} else {
+			console.log(
+				color.blue(
+					`DM: ${message.author.tag} ran a command (${cmd.name}) in #${message.channel.name}`,
+				),
+			);
+		}
 		return;
 	}
 

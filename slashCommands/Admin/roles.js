@@ -424,6 +424,12 @@ module.exports = {
 					const removed = [];
 					let count = 0;
 
+					if (!roleNames) {
+						const embd = new MessageEmbed().setTitle(`Invalid list format!`);
+						interaction.editReply({ embeds: [embd] });
+						return;
+					}
+
 					for (const name of roleNames) {
 						const r = botUtils.findRoles(
 							await interaction.guild.roles.fetch(),
