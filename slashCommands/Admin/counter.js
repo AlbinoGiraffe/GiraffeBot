@@ -291,7 +291,7 @@ module.exports = {
 				countingMuteRole = null;
 			}
 
-			let totals = JSON.parse(tok.totalCounts);
+			let totals = JSON.parse(tok.totalCount);
 			if (!highestCounter) {
 				totals = '?';
 			} else {
