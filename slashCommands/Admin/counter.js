@@ -292,6 +292,7 @@ module.exports = {
 			}
 
 			let totals = JSON.parse(tok.totalCount);
+			console.log(totals);
 			if (!highestCounter) {
 				totals = '?';
 			} else {
