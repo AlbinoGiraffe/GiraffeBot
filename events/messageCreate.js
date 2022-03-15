@@ -228,6 +228,8 @@ async function processCounter(client, message) {
 	LAST_COUNTER_ROLE = await message.guild.roles.fetch(count.lastCounterRole);
 	COUNTING_MUTE_ROLE = await message.guild.roles.fetch(count.countingMute);
 
+	console.log(COUNTING_MUTE_ROLE);
+
 	const re = /^([1-9]\d*)/;
 	if (!re.test(message.content)) {
 		await countUtils.reactDeleteMute(
