@@ -28,7 +28,7 @@ module.exports = {
 		}
 
 		setTimeout(() => {
-			if (!msg.deleted) msg.delete().catch((err) => console.error(err));
+			msg.delete().catch((err) => console.error(err));
 		}, Math.max(500, emojis.length * 1200));
 
 		if (length) {

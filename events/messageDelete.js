@@ -65,12 +65,18 @@ async function processCounter(client, message) {
 	if (!tok.channelId || !tok.lastNumber) return;
 	if (!(tok.channelId == message.channel.id)) return;
 
+	const COUNTING_MUTE_ROLE = await message.guild.roles.fetch(tok.countingMute);
 	const numberMatch = message.content.match(/^([1-9]\d*)/);
 
 	if (numberMatch && parseInt(numberMatch[1], 10) === tok.lastNumber) {
 		message.channel.send(numberMatch[1]);
 	}
-	countUtils.reactDeleteMute(message, 30 * 1000);
+	countUtils.reactDeleteMute(
+		message,
+		30 * 1000,
+		['🔢', '❓', '🚫'],
+		COUNTING_MUTE_ROLE,
+	);
 	message.member.user
 		.send('Do not delete your messages! You have been muted for 30 seconds.')
 		.catch((err) => console.error(err));
