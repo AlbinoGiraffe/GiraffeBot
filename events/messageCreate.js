@@ -189,7 +189,7 @@ module.exports = async (client, message) => {
 	// nice
 	const re = new RegExp('420|69|4.20');
 	if (re.test(message.content.replaceAll(/<.!*.*>/g, ''))) {
-		message.reply('nice');
+		message.reply('nice').catch(console.error);
 	}
 };
 
@@ -215,10 +215,16 @@ async function processCounter(client, message) {
 	}
 
 	lastNumber = parseInt(count.lastNumber);
+
 	TOTAL_COUNTS = JSON.parse(count.totalCount);
+	if (!TOTAL_COUNTS) {
+		TOTAL_COUNTS = {};
+	}
+
 	HIGHEST_COUNTER_ROLE = await message.guild.roles.fetch(
 		count.highestCounterRole,
 	);
+
 	LAST_COUNTER_ROLE = await message.guild.roles.fetch(count.lastCounterRole);
 	COUNTING_MUTE_ROLE = await message.guild.roles.fetch(count.countingMute);
 
@@ -276,7 +282,11 @@ async function processCounter(client, message) {
 	} else {
 		highestCounter = message.member;
 	}
-	await highestCounter.roles.add(HIGHEST_COUNTER_ROLE).catch(console.error);
+	await highestCounter.roles
+		.add(HIGHEST_COUNTER_ROLE)
+		.catch(
+			console.log(`Error setting highest counter for ${message.guild.name}!`),
+		);
 
 	// Update role name if needed
 	await countUtils.updateHighestCounterRole(
@@ -310,7 +320,7 @@ async function processCounter(client, message) {
 async function updateNumber(num, member, msg) {
 	lastNumber = parseInt(num, 10);
 	lastMember = member;
-	if (lastNumber % 100 === 0) {
+	if (lastNumber % 10 === 0) {
 		await msg.channel.setName('counting-' + lastNumber);
 	}
 }

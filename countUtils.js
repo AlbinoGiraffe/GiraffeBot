@@ -32,7 +32,7 @@ module.exports = {
 		}, Math.max(500, emojis.length * 1200));
 
 		if (length) {
-			await msg.member.roles.add(COUNTING_MUTE_ROLE);
+			await msg.member.roles.add(COUNTING_MUTE_ROLE).catch(console.error);
 			setTimeout(() => {
 				msg.member.roles
 					.remove(COUNTING_MUTE_ROLE)
