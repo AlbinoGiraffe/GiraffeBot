@@ -266,6 +266,7 @@ async function processCounter(client, message) {
 	);
 
 	// Increase counter for user
+	console.log(TOTAL_COUNTS);
 	if (!TOTAL_COUNTS[message.member.id]) {
 		TOTAL_COUNTS[message.member.id] = 0;
 	}
