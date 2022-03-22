@@ -15,7 +15,7 @@ module.exports = {
 		});
 
 		if (token) {
-			client.Snipe.destroy({
+			client.db.Snipe.destroy({
 				where: { channelId: interaction.channel.id },
 			})
 				.then(
