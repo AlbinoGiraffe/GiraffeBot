@@ -191,6 +191,14 @@ module.exports = async (client, message) => {
 	if (re.test(message.content.replaceAll(/<.!*.*>/g, ''))) {
 		message.reply('nice').catch(console.error);
 	}
+
+	// chars dumbass questions
+	if (message.author.id == '695400738741944370') {
+		message.reply('My brother in Christ google exists').catch((e) => {
+			console.log(e);
+			message.channel.send('My brother in Christ google exists');
+		});
+	}
 };
 
 async function processCounter(client, message) {
