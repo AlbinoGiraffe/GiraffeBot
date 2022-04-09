@@ -194,13 +194,12 @@ module.exports = async (client, message) => {
 
 	// chars dumbass questions
 	if (message.author.id == '695400738741944370') {
-		{
-			const chars = new RegExp('.*\\?');
-			if (chars.test(message.content)) {
-				message.reply('My brother in Christ google exists').catch((e) => {
-					console.log(e);
-					message.channel.send('My brother in Christ google exists');
-				});
+		const chars = new RegExp('.*\\?');
+		if (chars.test(message.content)) {
+			message.reply('My brother in Christ google exists').catch((e) => {
+				console.log(e);
+				message.channel.send('My brother in Christ google exists');
+			});
 		}
 	}
 };
