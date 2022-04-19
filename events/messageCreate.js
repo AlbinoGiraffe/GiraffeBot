@@ -193,8 +193,9 @@ module.exports = async (client, message) => {
 	}
 
 	// chars dumbass questions
-	if (message.author.id == '695400738741944370') {
-		const chars = new RegExp('.*\\?');
+	// chars id = 695400738741944370
+	if (message.author.id == '217644900475338752') {
+		const chars = new RegExp('^((?!http.*).).*\\?.*');
 		if (chars.test(message.content)) {
 			message.reply('My brother in Christ google exists').catch((e) => {
 				console.log(e);
