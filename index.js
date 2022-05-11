@@ -202,5 +202,6 @@ function dmOwner(bot, err, p, r = '') {
 		c.send(`ERROR:\n${err}\n${p}\n${r}`);
 	});
 }
+
 // Login to Discord
 client.login(config.token);
