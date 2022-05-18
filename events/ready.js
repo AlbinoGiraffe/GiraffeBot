@@ -8,9 +8,13 @@ const config = require('../config.json');
 const rest = new REST({ version: '9' }).setToken(config.token);
 
 module.exports = async (client) => {
+	console.log('Client ready, setting up other stuff');
+
 	client.user.setPresence({
-		activities: [{ name: 'GIRAFFEBOT RELEASE 1.0', type: 'PLAYING' }],
+		activities: [{ name: 'GIRAFFEBOT RELEASE 1.1', type: 'PLAYING' }],
 	});
+
+	console.log('Fetching client application');
 
 	if (!client.application?.owner) client.application?.fetch();
 
@@ -52,15 +56,7 @@ async function setup(client) {
 			});
 		}
 
-		// update permissions
-		await updatePermissions(client, guild);
-
-		// set guild commands
-		if (!config.globalCommands) {
-			guild.commands.set(client.slash).catch((e) => console.log(e));
-		}
-
-		// Udate counting number
+		// Update counting number
 		await guild.members.fetch();
 		client.db.Count.findOne({ where: { guildId: guild.id } }).then((t) => {
 			if (!t) return;
@@ -106,66 +102,9 @@ async function setup(client) {
 		} catch (error) {
 			console.error(error);
 		}
+	} else {
+		// set guild commands for testing server
+		// store testing server guild id in config
+		// guild.commands.set(client.slash).catch((e) => console.log(e));
 	}
-}
-
-async function updatePermissions(client, guild) {
-	const adminPermissions = [
-		{
-			id: config.adminId,
-			type: 'USER',
-			permission: true,
-		},
-	];
-
-	const modPermissions = [
-		{
-			id: config.adminId,
-			type: 'USER',
-			permission: true,
-		},
-	];
-
-	const tok = await client.db.GuildConfig.findOne({
-		where: { guildId: guild.id },
-	});
-
-	if (!tok) return;
-
-	let modList = [];
-	let adminList = [];
-
-	if (tok.modRoles) {
-		modList = JSON.parse(tok.modRoles);
-	}
-
-	if (tok.adminRoles) {
-		adminList = JSON.parse(tok.adminRoles);
-	}
-
-	modList.forEach((cid) => {
-		modPermissions.push({ id: cid, type: 'ROLE', permission: true });
-	});
-
-	adminList.forEach((cid) => {
-		adminPermissions.push({ id: cid, type: 'ROLE', permission: true });
-	});
-
-	// update permissions
-	await guild.commands
-		.fetch()
-		.then((guildCommands) => {
-			if (guildCommands) {
-				guildCommands.forEach((c) => {
-					if (client.adminSlashCommands.includes(c.name)) {
-						c.permissions.add({ permissions: adminPermissions });
-					}
-
-					if (client.modSlashCommands.includes(c.name)) {
-						c.permissions.add({ permissions: modPermissions });
-					}
-				});
-			}
-		})
-		.catch(console.error);
 }

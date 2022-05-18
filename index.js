@@ -92,7 +92,6 @@ client.db.Count = client.db.define('CountingConfigs', {
 
 // clear snipes at startup
 client.db.Snipe.sync({ force: true });
-// client.db.Count.sync({ alter: true });
 client.db.sync();
 
 console.log(color.yellow('Database synced'));

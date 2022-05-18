@@ -191,18 +191,6 @@ module.exports = async (client, message) => {
 	if (re.test(message.content.replaceAll(/<.!*.*>/g, ''))) {
 		message.reply('nice').catch(console.error);
 	}
-
-	// chars dumbass questions
-	// chars id = 695400738741944370
-	// if (message.author.id == '695400738741944370') {
-	// 	const chars = new RegExp('^((?!http.*).).*\\?.*');
-	// 	if (chars.test(message.content)) {
-	// 		message.reply('My brother in Christ google exists').catch((e) => {
-	// 			console.log(e);
-	// 			message.channel.send('My brother in Christ google exists');
-	// 		});
-	// 	}
-	// }
 };
 
 async function processCounter(client, message) {
