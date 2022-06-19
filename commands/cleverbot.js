@@ -9,6 +9,8 @@ module.exports = {
 			.replaceAll('\u200B', '')
 			.replaceAll(client.user.username, '');
 
+		console.log(`Query: ${cbquery}`);
+
 		if (cbquery) {
 			client.clev
 				.query(cbquery)
@@ -16,8 +18,6 @@ module.exports = {
 					message.reply(response.output);
 				})
 				.catch(console.error);
-		} else {
-			console.log('empty');
 		}
 	},
 };
