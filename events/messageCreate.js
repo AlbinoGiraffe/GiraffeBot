@@ -204,8 +204,15 @@ async function processCounter(client, message) {
 	if (!count.channelId) return;
 	if (!(message.channel.id == count.channelId)) return;
 
-	lastMember = await message.guild.members.fetch(count.lastMember);
-	highestCounter = await message.guild.members.fetch(count.highestCounter);
+	lastMember = await message.guild.members.fetch(count.lastMember).catch(() => {
+		console.log(`Counting error: No member with ID ${count.lastMember}`);
+	});
+
+	highestCounter = await message.guild.members
+		.fetch(count.highestCounter)
+		.catch(() => {
+			console.log(`Counting error: No member with ID ${count.highestCounter}`);
+		});
 
 	if (!highestCounter || highestCounter.size > 0) {
 		highestCounter = null;
@@ -326,6 +333,12 @@ async function updateNumber(num, member, msg) {
 }
 
 function updateDB(client, guild) {
+	console.log(`Count for ${guild.name} - Updating DB`);
+	console.log(`Last Member: ${lastMember}`);
+	console.log(`Highest Counter: ${highestCounter}`);
+	console.log(`Last Number: ${lastNumber}`);
+	console.log(`Total Count: ${TOTAL_COUNTS}`);
+
 	client.db.Count.update(
 		{
 			highestCounter: highestCounter.id,
