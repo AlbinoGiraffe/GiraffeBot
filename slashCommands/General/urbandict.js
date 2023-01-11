@@ -35,7 +35,7 @@ function sendEmbed(interaction, result, error) {
 			.setColor('0xe74c3c')
 			.setTitle(`${result.word}`)
 			.setDescription(`${result.definition}`)
-			.addFields({ name: '', value: `Example: ${result.example}` });
+			.addFields({ name: 'Example:', value: `${result.example}` });
 		interaction.editReply({ embeds: [embed] });
 	} else {
 		const embed = new MessageEmbed()
