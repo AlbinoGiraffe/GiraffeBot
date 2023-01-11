@@ -35,12 +35,12 @@ function sendEmbed(interaction, result, error) {
 			.setColor('0xe74c3c')
 			.setTitle(`${result.word}`)
 			.setDescription(`${result.definition}`)
-			.setFooter(`Example: ${result.example}`);
+			.addFields({ name: '', value: `Example: ${result.example}` });
 		interaction.editReply({ embeds: [embed] });
 	} else {
 		const embed = new MessageEmbed()
 			.setTitle('Error Getting Word')
-			.setDescription('Maybe it doesnt exist on UD?');
+			.setDescription("Maybe it doesn't exist on UD?");
 		interaction.editReply({ embeds: [embed] });
 	}
 }

@@ -265,9 +265,12 @@ module.exports = {
 					roles += `${n}\n`;
 				});
 
-				embed.addField(`Admin Roles (${adminRoles.length}):`, roles);
+				embed.addFields({
+					name: `Admin Roles (${adminRoles.length}):`,
+					value: roles,
+				});
 			} else {
-				embed.addField(`Admin Roles (0):`, 'none');
+				embed.addFields({ name: `Admin Roles (0):`, value: 'none' });
 			}
 
 			if (modRoles.length > 0) {
@@ -276,9 +279,12 @@ module.exports = {
 					roles += `${n}\n`;
 				});
 
-				embed.addField(`Mod Roles (${modRoles.length}):`, roles);
+				embed.addFields({
+					name: `Mod Roles (${modRoles.length}):`,
+					value: roles,
+				});
 			} else {
-				embed.addField(`Mod Roles (0):`, 'none');
+				embed.addFields({ name: `Mod Roles (0):`, value: 'none' });
 			}
 
 			interaction.editReply({ embeds: [embed] });

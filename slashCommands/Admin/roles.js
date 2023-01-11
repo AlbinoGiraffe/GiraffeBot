@@ -352,7 +352,10 @@ module.exports = {
 							});
 							dupes += '\n';
 						});
-						embd.addField(`${duplicates.length} roles with duplicates.`, dupes);
+						embd.addFields({
+							name: `${duplicates.length} roles with duplicates.`,
+							value: dupes,
+						});
 					}
 
 					if (inList.length > 0) {
@@ -360,7 +363,10 @@ module.exports = {
 						inList.forEach((k) => {
 							listmsg += `${k} `;
 						});
-						embd.addField(`${inList.length} roles already in list.`, listmsg);
+						embd.addFields({
+							name: `${inList.length} roles already in list.`,
+							value: listmsg,
+						});
 					}
 
 					if (noMatch.length > 0) {
@@ -368,7 +374,10 @@ module.exports = {
 						noMatch.forEach((k) => {
 							listmsg += `${k} `;
 						});
-						embd.addField(`${noMatch.length} didn't match any roles.`, listmsg);
+						embd.addFields({
+							name: `${noMatch.length} didn't match any roles.`,
+							value: listmsg,
+						});
 					}
 
 					if (added.length > 0) {
@@ -376,7 +385,10 @@ module.exports = {
 						added.forEach((k) => {
 							listmsg += `${k} `;
 						});
-						embd.addField(`${added.length} roles added to list.`, listmsg);
+						embd.addFields({
+							name: `${added.length} roles added to list.`,
+							value: listmsg,
+						});
 					}
 					return interaction.editReply({ embeds: [embd] });
 				}
@@ -489,7 +501,10 @@ module.exports = {
 						});
 						console.log(dupes);
 						console.log(duplicates.length);
-						embd.addField(`${duplicates.length} roles with duplicates.`, dupes);
+						embd.addFields({
+							name: `${duplicates.length} roles with duplicates.`,
+							value: dupes,
+						});
 					}
 
 					if (notInList.length > 0) {
@@ -497,10 +512,10 @@ module.exports = {
 						notInList.forEach((k) => {
 							listmsg += `${k} `;
 						});
-						embd.addField(
-							`${notInList.length} roles weren't in the list.`,
-							listmsg,
-						);
+						embd.addFields({
+							name: `${notInList.length} roles weren't in the list.`,
+							value: listmsg,
+						});
 					}
 
 					if (noMatch.length > 0) {
@@ -508,7 +523,10 @@ module.exports = {
 						noMatch.forEach((k) => {
 							listmsg += `${k} `;
 						});
-						embd.addField(`${noMatch.length} didn't match any roles.`, listmsg);
+						embd.addFields({
+							name: `${noMatch.length} didn't match any roles.`,
+							value: listmsg,
+						});
 					}
 
 					if (removed.length > 0) {
@@ -516,10 +534,10 @@ module.exports = {
 						removed.forEach((k) => {
 							listmsg += `${k} `;
 						});
-						embd.addField(
-							`${removed.length} roles removed from list.`,
-							listmsg,
-						);
+						embd.addFields({
+							name: `${removed.length} roles removed from list.`,
+							value: listmsg,
+						});
 					}
 					interaction.editReply({ embeds: [embd] });
 				}
