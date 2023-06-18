@@ -1,0 +1,160 @@
+[33mDatabase synced[39m
+[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
+Client ready, setting up other stuff
+Fetching client application
+
+^X^C[33mDatabase synced[39m
+[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
+Client ready, setting up other stuff
+Fetching client application
+[33mRemoved counting mute roles[39m
+[33mSetting global commands.[39m
+[33mSuccessfully set global commands.[39m
+[33mSet commands/permissions/config for 10 guilds[39m
+[32mReady! Logged in as GiraffeBot#0397 in 6.007s[39m
+[33mDatabase synced[39m
+[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
+Client ready, setting up other stuff
+Fetching client application
+[33mRemoved counting mute roles[39m
+[33mSetting global commands.[39m
+[33mSuccessfully set global commands.[39m
+[33mSet commands/permissions/config for 10 guilds[39m
+[32mReady! Logged in as GiraffeBot#0397 in 6.425s[39m
+^C^C[33mDatabase synced[39m
+[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
+Client ready, setting up other stuff
+Fetching client application
+[33mRemoved counting mute roles[39m
+[33mSetting global commands.[39m
+^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A[33mSuccessfully set global commands.[39m
+[33mSet commands/permissions/config for 10 guilds[39m
+[32mReady! Logged in as GiraffeBot#0397 in 6.143s[39m
+^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^C[33mDatabase synced[39m
+[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
+Client ready, setting up other stuff
+Fetching client application
+Last number updated for UCSC (Welcoming CSE refugees) [121219 => 122641]
+[33mRemoved counting mute roles[39m
+[33mSetting global commands.[39m
+[33mSuccessfully set global commands.[39m
+[33mSet commands/permissions/config for 10 guilds[39m
+[32mReady! Logged in as GiraffeBot#0397 in 8.402s[39m
+Gave albinogiraffe#0 'Psychology'
+[34malbinogiraffe#0 in #new-selector triggered an interaction (role).[39m
+[34malbinogiraffe#0 in #counting-121210 triggered an interaction (count).[39m
+Error setting highest counter for UCSC (Welcoming CSE refugees)!
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@217644900475338752>
+Highest Counter: <@691068448888979566>
+Last Number: 122642
+Total Count: [object Object]
+[6/18/2023, 12:23:50 AM]: albinogiraffe#0 in #lounge: GiraffeBot should be back
+[6/18/2023, 12:24:30 AM]: albinogiraffe#0 in #lounge: what
+Error setting highest counter for UCSC (Welcoming CSE refugees)!
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 122643
+Total Count: [object Object]
+[6/18/2023, 12:27:04 AM]: albinogiraffe#0 in #lounge: yay
+[6/18/2023, 12:27:06 AM]: albinogiraffe#0 in #lounge: what
+[6/18/2023, 12:27:09 AM]: albinogiraffe#0 in #lounge: what
+[34malbinogiraffe#0 in #counting-121210 triggered an interaction (count).[39m
+[34malbinogiraffe#0 in #lounge triggered an interaction (guilds).[39m
+Collection(10) [Map] {
+  [32m'336982018376335361'[39m => OAuth2Guild {
+    id: [32m'336982018376335361'[39m,
+    name: [32m'UCSC (Welcoming CSE refugees)'[39m,
+    icon: [32m'a_97e716e9c82382cb82c5f19669552cbb'[39m,
+    features: [
+      [32m'THREADS_ENABLED'[39m,
+      [32m'NEWS'[39m,
+      [32m'CHANNEL_ICON_EMOJIS_GENERATED'[39m,
+      [32m'HAS_DIRECTORY_ENTRY'[39m,
+      [32m'NEW_THREAD_PERMISSIONS'[39m,
+      [32m'LINKED_TO_HUB'[39m,
+      [32m'COMMUNITY_EXP_MEDIUM'[39m,
+      [32m'PREVIEW_ENABLED'[39m,
+      [32m'WELCOME_SCREEN_ENABLED'[39m,
+      [32m'COMMUNITY'[39m
+    ],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'760375168815071264'[39m => OAuth2Guild {
+    id: [32m'760375168815071264'[39m,
+    name: [32m'Slugs On Campus'[39m,
+    icon: [32m'cdf4ea75b58d01b74396622bb954e7df'[39m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'762379682108276756'[39m => OAuth2Guild {
+    id: [32m'762379682108276756'[39m,
+    name: [32m'Incel Central'[39m,
+    icon: [32m'6a0388bf1d5922c63784ac2e895315a0'[39m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'826946831958933554'[39m => OAuth2Guild {
+    id: [32m'826946831958933554'[39m,
+    name: [32m'INCEL MOMENT'[39m,
+    icon: [32m'9011b4efb9f9b8cd293543a5195a98fa'[39m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'846284879578005504'[39m => OAuth2Guild {
+    id: [32m'846284879578005504'[39m,
+    name: [32m'sup'[39m,
+    icon: [32m'2a7148b6b7b6978791cc328a909172cf'[39m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'894699617172721665'[39m => OAuth2Guild {
+    id: [32m'894699617172721665'[39m,
+    name: [32m'Prescott 🦃'[39m,
+    icon: [32m'634a8b7b2750e29c6610ad7b026fd4f6'[39m,
+    features: [ [32m'TEXT_IN_VOICE_ENABLED'[39m ],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'927774159281467412'[39m => OAuth2Guild {
+    id: [32m'927774159281467412'[39m,
+    name: [32m'ECE101 W23'[39m,
+    icon: [1mnull[22m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'956787066572791863'[39m => OAuth2Guild {
+    id: [32m'956787066572791863'[39m,
+    name: [32m'ECE 103'[39m,
+    icon: [1mnull[22m,
+    features: [ [32m'TEXT_IN_VOICE_ENABLED'[39m ],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'956787102874484736'[39m => OAuth2Guild {
+    id: [32m'956787102874484736'[39m,
+    name: [32m'CSE 121'[39m,
+    icon: [32m'db45f297645dc36a970ccb8d24aa4d52'[39m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  },
+  [32m'1062517190315741295'[39m => OAuth2Guild {
+    id: [32m'1062517190315741295'[39m,
+    name: [32m'CSE123A W23'[39m,
+    icon: [1mnull[22m,
+    features: [],
+    owner: [33mfalse[39m,
+    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+  }
+}
+[6/18/2023, 12:29:46 AM]: albinogiraffe#0 in #lounge: <@560284009469575169> how are you?
+[6/18/2023, 12:29:52 AM]: albinogiraffe#0 in #lounge: fuck yea
+^[[A^[[A^[[A^[[A^[[A^[[A^[[A^C
