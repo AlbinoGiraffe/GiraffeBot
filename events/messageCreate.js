@@ -337,7 +337,6 @@ function updateDB(client, guild) {
 	console.log(`Last Member: ${lastMember}`);
 	console.log(`Highest Counter: ${highestCounter}`);
 	console.log(`Last Number: ${lastNumber}`);
-	console.log(`Total Count: ${TOTAL_COUNTS}`);
 
 	client.db.Count.update(
 		{

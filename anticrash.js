@@ -19,12 +19,6 @@ module.exports = (client) => {
 		dmOwner(client, err, origin);
 		process.exit(1);
 	});
-	process.on('multipleResolves', (type, promise, reason) => {
-		console.log('[antiCrash] :: Multiple Resolves');
-		console.log(type, promise, reason);
-		dmOwner(client, type, promise, reason);
-		process.exit(1);
-	});
 };
 
 function dmOwner(client, err, p, r = '') {

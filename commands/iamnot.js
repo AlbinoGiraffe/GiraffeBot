@@ -7,6 +7,8 @@ module.exports = {
 	description: 'Remove a role from yourself',
 	help: 'Usage: `iamnot [role name]`',
 	run: async (client, message, args) => {
+		if (!message.guild) return;
+
 		// find role
 		const roles = botUtils.findRoles(
 			await message.guild.roles.fetch(),

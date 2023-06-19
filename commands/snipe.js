@@ -5,6 +5,8 @@ module.exports = {
 	description: 'Snipe a deleted message',
 	help: 'Usage: `s`',
 	run: (client, message) => {
+		if (!message.guild) return;
+
 		client.db.Snipe.findOne({ where: { channelId: message.channel.id } }).then(
 			(token) => {
 				if (token === null) {
