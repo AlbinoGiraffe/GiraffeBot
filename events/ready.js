@@ -7,11 +7,16 @@ const config = require('../config.json');
 
 const rest = new REST({ version: '9' }).setToken(config.token);
 
+const packageJSON = require('../package.json');
+const discordJSVersion = packageJSON.dependencies['discord.js'];
+
 module.exports = async (client) => {
 	console.log('Client ready, setting up other stuff');
 
 	client.user.setPresence({
-		activities: [{ name: 'GIRAFFEBOT RELEASE 1.1', type: 'PLAYING' }],
+		activities: [
+			{ name: 'Running Discord.JS ' + discordJSVersion, type: 'PLAYING' },
+		],
 	});
 
 	console.log('Fetching client application');

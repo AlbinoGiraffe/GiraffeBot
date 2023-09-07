@@ -2,6 +2,7 @@ const color = require('colors/safe');
 const botUtils = require('../botUtils');
 const config = require('../config.json');
 const countUtils = require('../countUtils');
+const Cleverbot = require('../clev');
 
 // counting variables
 let lastNumber = null;
@@ -171,18 +172,25 @@ module.exports = async (client, message) => {
 			return client.commands.get('help').run(client, message);
 		}
 
+		// Cleverbot
 		const cbquery = message.cleanContent
 			.replaceAll('@', '')
 			.replaceAll('’', "'")
 			.replaceAll('\u200B', '')
 			.replaceAll(client.user.username, '');
 
-		client.clev
-			.query(cbquery)
-			.then((response) => {
-				message.reply(response.output);
+		const response = Cleverbot.query(
+			client,
+			client.clev,
+			cbquery,
+			message.author.id,
+		);
+		response
+			.then((r) => {
+				message.reply(r.output);
 			})
-			.catch(console.error);
+			.catch();
+
 		return;
 	}
 
@@ -190,6 +198,29 @@ module.exports = async (client, message) => {
 	const re = new RegExp('420|69|4.20');
 	if (re.test(message.content.replaceAll(/<.!*.*>/g, ''))) {
 		message.reply('nice').catch(console.error);
+		return;
+	}
+
+	// randomly respond to something
+	const d = Math.random();
+	if (d < 0.12) {
+		const cbquery = message.cleanContent
+			.replaceAll('@', '')
+			.replaceAll('’', "'")
+			.replaceAll('\u200B', '')
+			.replaceAll(client.user.username, '');
+
+		const response = Cleverbot.query(
+			client,
+			client.clev,
+			cbquery,
+			message.author.id,
+		);
+		response
+			.then((r) => {
+				message.reply(r.output);
+			})
+			.catch();
 	}
 };
 

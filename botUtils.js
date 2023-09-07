@@ -1,5 +1,4 @@
 const { Collection } = require('discord.js');
-const config = require('./config.json');
 
 module.exports = {
 	cleanInput: function (input) {

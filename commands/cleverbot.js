@@ -1,3 +1,5 @@
+const Cleverbot = require('../clev.js');
+
 module.exports = {
 	name: 'gb',
 	description: 'Talk to me!',
@@ -12,12 +14,17 @@ module.exports = {
 		console.log(`Query: ${cbquery}`);
 
 		if (cbquery) {
-			client.clev
-				.query(cbquery)
-				.then((response) => {
-					message.reply(response.output);
+			const response = Cleverbot.query(
+				client,
+				client.clev,
+				cbquery,
+				message.author.id,
+			);
+			response
+				.then((r) => {
+					message.reply(r.output);
 				})
-				.catch(console.error);
+				.catch();
 		}
 	},
 };

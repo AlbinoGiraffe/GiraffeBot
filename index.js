@@ -3,8 +3,8 @@ const fs = require('fs');
 const { Client, Collection, Intents } = require('discord.js');
 const config = require('./config.json');
 const color = require('colors/safe');
-const Cleverbot = require('cleverbot');
 const { Sequelize } = require('sequelize');
+const Cleverbot = require('./clev.js');
 
 // Create a new client instance
 const client = new Client({
@@ -18,7 +18,7 @@ const client = new Client({
 	partials: ['CHANNEL', 'MESSAGE', 'REACTION'],
 });
 
-// create database
+// create/load database
 client.db = new Sequelize('sqlite', config.dbUser, config.dbPass, {
 	host: 'localhost',
 	dialect: 'sqlite',
@@ -88,6 +88,11 @@ client.db.Count = client.db.define('CountingConfigs', {
 	lastMember: Sequelize.STRING,
 });
 
+client.db.Cleverbot = client.db.define('Cleverbot', {
+	csStr: Sequelize.STRING,
+	userid: { type: Sequelize.STRING, unique: true },
+});
+
 // Syncing DB
 
 // clear snipes at startup
@@ -97,7 +102,7 @@ client.db.sync();
 console.log(color.yellow('Database synced'));
 
 // initialize Cleverbot
-client.clev = new Cleverbot({ key: config.cbKey });
+client.clev = Cleverbot.init(config.cbKey);
 
 // command and event handling
 let numSlashCommands = 0;
