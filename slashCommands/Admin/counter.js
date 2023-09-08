@@ -94,7 +94,7 @@ module.exports = {
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
 		if (!interaction.guild) {
-			return interaction.reply("Command can't run in DM!");
+			return interaction.reply("Command can't run in DM!").catch();
 		}
 
 		const group = interaction.options.getSubcommandGroup(false);
@@ -111,7 +111,7 @@ module.exports = {
 		);
 
 		if (group == 'set') {
-			await interaction.deferReply({ ephemeral: true });
+			await interaction.deferReply({ ephemeral: true }).catch();
 
 			if (cmd == 'highestcounter') {
 				const role = interaction.options.getRole('role');
@@ -119,10 +119,12 @@ module.exports = {
 					{ highestCounterRole: role.id },
 					{ where: { guildId: interaction.guild.id } },
 				);
-				interaction.editReply({
-					content: `Highest Counter set to ${role}`,
-					ephemeral: true,
-				});
+				interaction
+					.editReply({
+						content: `Highest Counter set to ${role}`,
+						ephemeral: true,
+					})
+					.catch();
 			}
 
 			if (cmd == 'countingmute') {

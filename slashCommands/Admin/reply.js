@@ -24,7 +24,7 @@ module.exports = {
 		interaction.channel.messages
 			.fetch(mid)
 			.then((message) => {
-				message.reply(rep);
+				message.reply(rep).catch();
 				interaction.editReply('Sent');
 			})
 			.catch((e) => {

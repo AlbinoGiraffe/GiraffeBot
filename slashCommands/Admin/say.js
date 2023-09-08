@@ -23,7 +23,7 @@ module.exports = {
 		const msg = BotUtils.cleanInput(interaction.options.getString('input'));
 
 		if (msg.length > 2000) {
-			return interaction.reply('Message too long (2000 characters)');
+			return interaction.reply('Message too long (2000 characters)').catch();
 		}
 
 		if (num) {

@@ -21,14 +21,14 @@ module.exports = {
 		.setDefaultPermission(false),
 	run: (client, interaction) => {
 		if (!interaction.guild) {
-			return interaction.reply("Command can't run in DM!");
+			return interaction.reply("Command can't run in DM!").catch();
 		}
 
 		const op = interaction.options.getString('select');
 		const thresh = interaction.options.getInteger('threshold');
 
 		if (thresh < 0) {
-			return interaction.reply('Threshold must be positive integer!');
+			return interaction.reply('Threshold must be positive integer!').catch();
 		}
 
 		if (op == 'star') {

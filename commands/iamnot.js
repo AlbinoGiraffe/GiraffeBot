@@ -21,11 +21,11 @@ module.exports = {
 				const embd = new MessageEmbed()
 					.setColor('0xe74c3c')
 					.setDescription(`Role(s) removed!`);
-				message.reply({ embeds: [embd] });
+				message.reply({ embeds: [embd] }).catch();
 			})
 			.catch((e) => {
 				console.log(color.red(e.name));
-				message.reply(`Error removing role!`);
+				message.reply(`Error removing role!`).catch();
 			});
 	},
 };

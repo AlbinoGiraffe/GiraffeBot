@@ -17,6 +17,9 @@ module.exports = {
 		.addSubcommand((get) =>
 			get.setName('get').setDescription('get starboard channel'),
 		)
+		.addSubcommand((stats) =>
+			stats.setName('stats').setDescription('Get starboard stats'),
+		)
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
 		if (!interaction.guild) {
@@ -78,6 +81,25 @@ module.exports = {
 				content: `Starboard set to ${channel}`,
 				ephemeral: true,
 			});
+		}
+
+		if (cmd == 'stats') {
+			// const tok = await client.db.GuildConfig.findOne({
+			// 	where: { guildId: interaction.guild.id },
+			// });
+			// if (!tok.starBoardChannelId) {
+			// 	return interaction.reply({
+			// 		content: `Starboard channel not set!`,
+			// 		ephemeral: true,
+			// 	});
+			// }
+			// const channel = await interaction.guild.channels.fetch(
+			// 	tok.starBoardChannelId,
+			// );
+			// interaction.reply({
+			// 	content: `Starboard set to ${channel}`,
+			// 	ephemeral: true,
+			// });
 		}
 	},
 };

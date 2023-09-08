@@ -23,7 +23,7 @@ module.exports = {
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
 		if (!interaction.guild) {
-			return interaction.reply("Command can't run in DM!");
+			return interaction.reply("Command can't run in DM!").catch();
 		}
 
 		const cmd = interaction.options.getSubcommand();
@@ -66,10 +66,12 @@ module.exports = {
 			});
 
 			if (!tok.selectorId) {
-				return interaction.reply({
-					content: `Selector channel not set!`,
-					ephemeral: true,
-				});
+				return interaction
+					.reply({
+						content: `Selector channel not set!`,
+						ephemeral: true,
+					})
+					.catch();
 			}
 
 			const channel = await interaction.guild.channels.fetch(tok.selectorId);

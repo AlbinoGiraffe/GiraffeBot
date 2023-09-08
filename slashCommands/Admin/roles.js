@@ -141,7 +141,7 @@ module.exports = {
 		),
 	run: async (client, interaction) => {
 		if (!interaction.guild) {
-			return interaction.reply("Command can't run in DM!");
+			return interaction.reply("Command can't run in DM!").catch();
 		}
 
 		const group = interaction.options.getSubcommandGroup(false);

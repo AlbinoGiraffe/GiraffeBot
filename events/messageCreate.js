@@ -187,7 +187,7 @@ module.exports = async (client, message) => {
 		);
 		response
 			.then((r) => {
-				message.reply(r.output);
+				message.reply(r.output).catch();
 			})
 			.catch();
 
@@ -218,7 +218,7 @@ module.exports = async (client, message) => {
 		);
 		response
 			.then((r) => {
-				message.reply(r.output);
+				message.reply(r.output).catch();
 			})
 			.catch();
 	}
@@ -320,11 +320,11 @@ async function processCounter(client, message) {
 	} else {
 		highestCounter = message.member;
 	}
-	await highestCounter.roles
-		.add(HIGHEST_COUNTER_ROLE)
-		.catch(
-			console.log(`Error setting highest counter for ${message.guild.name}!`),
+	await highestCounter.roles.add(HIGHEST_COUNTER_ROLE).catch((e) => {
+		console.log(
+			`Error: ${e} setting highest counter for ${message.guild.name}!`,
 		);
+	});
 
 	// Update role name if needed
 	await countUtils.updateHighestCounterRole(

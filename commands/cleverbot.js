@@ -22,7 +22,7 @@ module.exports = {
 			);
 			response
 				.then((r) => {
-					message.reply(r.output);
+					message.reply(r.output).catch();
 				})
 				.catch();
 		}

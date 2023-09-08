@@ -7,7 +7,7 @@ module.exports = {
 		.setDefaultPermission(false),
 	run: async (client, interaction) => {
 		if (!interaction.guild) {
-			return interaction.reply("Command can't run in DM!");
+			return interaction.reply("Command can't run in DM!").catch();
 		}
 
 		const token = client.db.Snipe.findOne({

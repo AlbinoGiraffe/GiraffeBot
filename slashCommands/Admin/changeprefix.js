@@ -13,7 +13,7 @@ module.exports = {
 		),
 	run: (client, interaction) => {
 		if (!interaction.guild) {
-			return interaction.reply("Command can't run in DM!");
+			return interaction.reply("Command can't run in DM!").catch();
 		}
 
 		const newPrefix = interaction.options.getString('prefix');

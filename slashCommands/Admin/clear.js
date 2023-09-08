@@ -10,7 +10,7 @@ module.exports = {
 			option.setName('num').setDescription('Number of bot messages to clear'),
 		),
 	run: async (client, interaction) => {
-		await interaction.deferReply({ ephemeral: true });
+		await interaction.deferReply({ ephemeral: true }).catch();
 		let num = interaction.options.getInteger('num');
 		if (num <= 1 || num > 999) {
 			num = 250;
@@ -22,7 +22,7 @@ module.exports = {
 					if (msg.author == client.user) {
 						msg.delete().catch((e) => console.log(e));
 					}
-					interaction.editReply(`Deleted ${num} bot messages`);
+					interaction.editReply(`Deleted ${num} bot messages`).catch();
 				});
 			})
 			.catch();

@@ -30,7 +30,7 @@ module.exports = {
 
 				if (!assignable) {
 					console.log(`No assignable roles for ${message.guild.name}!`);
-					return message.reply('Error getting roles');
+					return message.reply('Error getting roles').catch();
 				}
 
 				const r = roles.find((e) => assignable.includes(e.id));
@@ -41,14 +41,14 @@ module.exports = {
 							const embd = new MessageEmbed()
 								.setColor(r.color)
 								.setDescription(`Gave you the ${r} role!`);
-							message.reply({ embeds: [embd] });
+							message.reply({ embeds: [embd] }).catch();
 						})
 						.catch((e) => {
 							console.log(color.red(e.name));
-							message.reply(`Error giving role!`);
+							message.reply(`Error giving role!`).catch();
 						});
 				} else {
-					message.reply(`You can't have that role!`);
+					message.reply(`You can't have that role!`).catch();
 				}
 			}
 		});
