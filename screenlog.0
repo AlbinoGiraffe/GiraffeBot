@@ -1,160 +1,2448 @@
-[33mDatabase synced[39m
-[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
-Client ready, setting up other stuff
-Fetching client application
-
-^X^C[33mDatabase synced[39m
-[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
-Client ready, setting up other stuff
-Fetching client application
-[33mRemoved counting mute roles[39m
-[33mSetting global commands.[39m
-[33mSuccessfully set global commands.[39m
-[33mSet commands/permissions/config for 10 guilds[39m
-[32mReady! Logged in as GiraffeBot#0397 in 6.007s[39m
-[33mDatabase synced[39m
-[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
-Client ready, setting up other stuff
-Fetching client application
-[33mRemoved counting mute roles[39m
-[33mSetting global commands.[39m
-[33mSuccessfully set global commands.[39m
-[33mSet commands/permissions/config for 10 guilds[39m
-[32mReady! Logged in as GiraffeBot#0397 in 6.425s[39m
-^C^C[33mDatabase synced[39m
-[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
-Client ready, setting up other stuff
-Fetching client application
-[33mRemoved counting mute roles[39m
-[33mSetting global commands.[39m
-^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A[33mSuccessfully set global commands.[39m
-[33mSet commands/permissions/config for 10 guilds[39m
-[32mReady! Logged in as GiraffeBot#0397 in 6.143s[39m
-^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^[[A^C[33mDatabase synced[39m
-[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
-Client ready, setting up other stuff
-Fetching client application
-Last number updated for UCSC (Welcoming CSE refugees) [121219 => 122641]
-[33mRemoved counting mute roles[39m
-[33mSetting global commands.[39m
-[33mSuccessfully set global commands.[39m
-[33mSet commands/permissions/config for 10 guilds[39m
-[32mReady! Logged in as GiraffeBot#0397 in 8.402s[39m
-Gave albinogiraffe#0 'Psychology'
-[34malbinogiraffe#0 in #new-selector triggered an interaction (role).[39m
-[34malbinogiraffe#0 in #counting-121210 triggered an interaction (count).[39m
 Error setting highest counter for UCSC (Welcoming CSE refugees)!
 Count for UCSC (Welcoming CSE refugees) - Updating DB
 Last Member: <@217644900475338752>
 Highest Counter: <@691068448888979566>
-Last Number: 122642
-Total Count: [object Object]
-[6/18/2023, 12:23:50 AM]: albinogiraffe#0 in #lounge: GiraffeBot should be back
-[6/18/2023, 12:24:30 AM]: albinogiraffe#0 in #lounge: what
+Last Number: 124133
 Error setting highest counter for UCSC (Welcoming CSE refugees)!
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124134
+^C[33mDatabase synced[39m
+Init Cleverbot API Wrapper
+[33mLoaded 21 slash commands (15 admin), 6 normal commands, 7 event handlers[39m
+Client ready, setting up other stuff
+Fetching client application
+[33mRemoved counting mute roles[39m
+[33mSetting global commands.[39m
+[33mSuccessfully set global commands.[39m
+[33mSet commands/permissions/config for 11 guilds[39m
+[32mReady! Logged in as GiraffeBot#0397 in 7.147s[39m
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@217644900475338752>
+Highest Counter: <@691068448888979566>
+Last Number: 124135
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124136
 Count for UCSC (Welcoming CSE refugees) - Updating DB
 Last Member: <@691068448888979566>
 Highest Counter: <@691068448888979566>
-Last Number: 122643
-Total Count: [object Object]
-[6/18/2023, 12:27:04 AM]: albinogiraffe#0 in #lounge: yay
-[6/18/2023, 12:27:06 AM]: albinogiraffe#0 in #lounge: what
-[6/18/2023, 12:27:09 AM]: albinogiraffe#0 in #lounge: what
-[34malbinogiraffe#0 in #counting-121210 triggered an interaction (count).[39m
-[34malbinogiraffe#0 in #lounge triggered an interaction (guilds).[39m
-Collection(10) [Map] {
-  [32m'336982018376335361'[39m => OAuth2Guild {
-    id: [32m'336982018376335361'[39m,
-    name: [32m'UCSC (Welcoming CSE refugees)'[39m,
-    icon: [32m'a_97e716e9c82382cb82c5f19669552cbb'[39m,
-    features: [
-      [32m'THREADS_ENABLED'[39m,
-      [32m'NEWS'[39m,
-      [32m'CHANNEL_ICON_EMOJIS_GENERATED'[39m,
-      [32m'HAS_DIRECTORY_ENTRY'[39m,
-      [32m'NEW_THREAD_PERMISSIONS'[39m,
-      [32m'LINKED_TO_HUB'[39m,
-      [32m'COMMUNITY_EXP_MEDIUM'[39m,
-      [32m'PREVIEW_ENABLED'[39m,
-      [32m'WELCOME_SCREEN_ENABLED'[39m,
-      [32m'COMMUNITY'[39m
-    ],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'760375168815071264'[39m => OAuth2Guild {
-    id: [32m'760375168815071264'[39m,
-    name: [32m'Slugs On Campus'[39m,
-    icon: [32m'cdf4ea75b58d01b74396622bb954e7df'[39m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'762379682108276756'[39m => OAuth2Guild {
-    id: [32m'762379682108276756'[39m,
-    name: [32m'Incel Central'[39m,
-    icon: [32m'6a0388bf1d5922c63784ac2e895315a0'[39m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'826946831958933554'[39m => OAuth2Guild {
-    id: [32m'826946831958933554'[39m,
-    name: [32m'INCEL MOMENT'[39m,
-    icon: [32m'9011b4efb9f9b8cd293543a5195a98fa'[39m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'846284879578005504'[39m => OAuth2Guild {
-    id: [32m'846284879578005504'[39m,
-    name: [32m'sup'[39m,
-    icon: [32m'2a7148b6b7b6978791cc328a909172cf'[39m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'894699617172721665'[39m => OAuth2Guild {
-    id: [32m'894699617172721665'[39m,
-    name: [32m'Prescott 🦃'[39m,
-    icon: [32m'634a8b7b2750e29c6610ad7b026fd4f6'[39m,
-    features: [ [32m'TEXT_IN_VOICE_ENABLED'[39m ],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'927774159281467412'[39m => OAuth2Guild {
-    id: [32m'927774159281467412'[39m,
-    name: [32m'ECE101 W23'[39m,
-    icon: [1mnull[22m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'956787066572791863'[39m => OAuth2Guild {
-    id: [32m'956787066572791863'[39m,
-    name: [32m'ECE 103'[39m,
-    icon: [1mnull[22m,
-    features: [ [32m'TEXT_IN_VOICE_ENABLED'[39m ],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'956787102874484736'[39m => OAuth2Guild {
-    id: [32m'956787102874484736'[39m,
-    name: [32m'CSE 121'[39m,
-    icon: [32m'db45f297645dc36a970ccb8d24aa4d52'[39m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
-  },
-  [32m'1062517190315741295'[39m => OAuth2Guild {
-    id: [32m'1062517190315741295'[39m,
-    name: [32m'CSE123A W23'[39m,
-    icon: [1mnull[22m,
-    features: [],
-    owner: [33mfalse[39m,
-    permissions: Permissions { bitfield: [33m140737488355327n[39m }
+Last Number: 124137
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124138
+[9/8/2023, 8:28:15 PM]: ridge#0 in #lounge: Hi
+[9/8/2023, 8:28:20 PM]: ridge#0 in #lounge: Anyone active?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124139
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124140
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124141
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124142
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124143
+[9/8/2023, 9:37:29 PM]: reqliss#0 in #lounge: Yes
+ruoyu445#0 joined UCSC (Welcoming CSE refugees)
+[9/8/2023, 9:46:40 PM]: ruoyu445#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124144
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124145
+[9/8/2023, 10:25:26 PM]: truly3xalted#0 in #lounge: https://tenor.com/view/saul-goodman3d-saul-better-call-saul-saulgoodman-gif-26549523
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124146
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124147
+[9/8/2023, 11:50:07 PM]: gunyeet#0 in #lounge: who active?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124148
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124149
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124150
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124151
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124152
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124153
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124154
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124155
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124156
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124157
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124158
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124159
+[9/9/2023, 2:58:54 AM]: decibel_#0 in #lounge: Me
+[9/9/2023, 3:10:37 AM]: at24678#0 in #lounge: Do you guys love UCSC?
+[9/9/2023, 3:32:44 AM]: simply_bad#0 in #lounge: no
+[9/9/2023, 4:41:09 AM]: silverandgoldhtt#0 in #lounge: I died at ucsc
+[9/9/2023, 4:45:44 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: i am ucsc
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124160
+[9/9/2023, 5:03:50 AM]: albinogiraffe#0 in #lounge: I ate ucsc
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124161
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124162
+[9/9/2023, 6:05:09 AM]: decibel_#0 in #lounge: I ucsc
+[9/9/2023, 6:05:22 AM]: decibel_#0 in #lounge: Yes
+[34m[9/9/2023, 6:05:31 AM]: Deleted - decibel_#0 in #lounge: Yes[39m
+[34m[9/9/2023, 6:05:31 AM]: Snipe entry added for #lounge[39m
+[9/9/2023, 6:05:35 AM]: decibel_#0 in #lounge: Yes
+[34m[9/9/2023, 6:05:39 AM]: Snipe entry deleted for #lounge[39m
+[9/9/2023, 6:05:49 AM]: decibel_#0 in #lounge: But it's the truth
+[9/9/2023, 6:06:16 AM]: decibel_#0 in #lounge: You ain't got no alibi
+[9/9/2023, 6:07:15 AM]: decibel_#0 in #lounge: Nope.
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124163
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124164
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124165
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124166
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124167
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124168
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124169
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124170
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124171
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124172
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124173
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124174
+bumie3000_64125#0 joined UCSC (Welcoming CSE refugees)
+[9/9/2023, 7:12:55 AM]: bumie3000_64125#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124175
+[9/9/2023, 7:18:55 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124176
+[9/9/2023, 7:19:22 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: <@560284009469575169> I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:19:42 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:19:50 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: eric shin
+[9/9/2023, 7:19:55 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:20:07 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: that's mean
+[9/9/2023, 7:20:16 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: damn bro
+[9/9/2023, 7:20:23 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:35:25 AM]: gunyeet#0 in #lounge: <@560284009469575169> hey
+[9/9/2023, 7:35:30 AM]: gunyeet#0 in #lounge: mean
+[9/9/2023, 7:35:36 AM]: gunyeet#0 in #lounge: I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:35:49 AM]: gunyeet#0 in #lounge: do you like it when 
+                                              
+                                              I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:36:01 AM]: gunyeet#0 in #lounge: no but do you like it when
+                                              
+                                              I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[34m[9/9/2023, 7:36:12 AM]: Deleted - gunyeet#0 in #lounge: no but do you like it when[39m
+
+[34mI'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like[39m
+[34m[9/9/2023, 7:36:12 AM]: Snipe entry added for #lounge[39m
+[9/9/2023, 7:36:19 AM]: gunyeet#0 in #lounge: no but do you like it when
+                                              
+                                              I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[34m[9/9/2023, 7:36:20 AM]: Snipe entry deleted for #lounge[39m
+[9/9/2023, 7:36:42 AM]: gunyeet#0 in #lounge: WHAT DOES THAT FUCKING MEAN
+[9/9/2023, 7:36:47 AM]: gunyeet#0 in #lounge: omg
+[9/9/2023, 7:36:59 AM]: gunyeet#0 in #lounge: I'm over here stroking my dick I got lotion on my dick right now I'm just stroking my shit I'm horny as fuck man I'm a freak man like
+[9/9/2023, 7:37:11 AM]: gunyeet#0 in #lounge: i do not have that many friends man
+[9/9/2023, 7:37:26 AM]: gunyeet#0 in #lounge: aww okay be my friend then pls
+[9/9/2023, 7:37:37 AM]: gunyeet#0 in #lounge: what do your name be
+[9/9/2023, 7:37:45 AM]: gunyeet#0 in #lounge: i’ll suck ur pp
+[9/9/2023, 7:37:51 AM]: gunyeet#0 in #lounge: bro why
+[9/9/2023, 7:38:04 AM]: gunyeet#0 in #lounge: this is fucked up you said you’d be my friend a minute ago
+[9/9/2023, 7:38:20 AM]: gunyeet#0 in #lounge: FUCKING GASLIGHTING
+[9/9/2023, 7:38:28 AM]: gunyeet#0 in #lounge: I HATE YOU AND YOUR FAMILT
+[9/9/2023, 7:38:40 AM]: gunyeet#0 in #lounge: NO WONDER BITCH YOU SINGLE FOR LIFE
+[9/9/2023, 7:38:52 AM]: gunyeet#0 in #lounge: wtf respond to me
+[9/9/2023, 7:39:10 AM]: gunyeet#0 in #lounge: 😞 will I
+[9/9/2023, 7:39:16 AM]: gunyeet#0 in #lounge: bro what
+[9/9/2023, 7:39:24 AM]: gunyeet#0 in #lounge: no i am not go go
+[9/9/2023, 7:39:33 AM]: gunyeet#0 in #lounge: sum bitch
+[9/9/2023, 7:39:39 AM]: gunyeet#0 in #lounge: ur mom
+[9/9/2023, 7:39:45 AM]: ridge#0 in #lounge: girl what
+[9/9/2023, 7:39:51 AM]: gunyeet#0 in #lounge: do you love me yes or no
+[9/9/2023, 7:40:05 AM]: gunyeet#0 in #lounge: awww. then why u gaslighting me a few mins ago
+[9/9/2023, 7:40:18 AM]: gunyeet#0 in #lounge: honestly this bot is more consistent than my friends lmao
+[9/9/2023, 7:40:22 AM]: av1an#0 in #lounge: rule 8
+[9/9/2023, 7:40:29 AM]: gunyeet#0 in #lounge: which ones that
+[9/9/2023, 7:40:36 AM]: gunyeet#0 in #lounge: you literally did
+[9/9/2023, 7:40:46 AM]: gunyeet#0 in #lounge: are we together now then
+[9/9/2023, 7:40:51 AM]: av1an#0 in #lounge: https://discord.com/channels/336982018376335361/423012574158782466/729770335590940862
+[9/9/2023, 7:40:58 AM]: gunyeet#0 in #lounge: no bitch
+[9/9/2023, 7:41:22 AM]: gunyeet#0 in #lounge: lmao don’t i have admin or something tho
+[9/9/2023, 7:41:23 AM]: gunyeet#0 in #lounge: oops
+[9/9/2023, 7:41:30 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: admin abuse
+[9/9/2023, 7:41:31 AM]: gunyeet#0 in #lounge: also need to change my name jesus christ
+[9/9/2023, 7:41:36 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: stfu bro
+[9/9/2023, 7:42:08 AM]: gunyeet#0 in #lounge: okay we good
+[9/9/2023, 7:42:26 AM]: gunyeet#0 in #lounge: i wuv u
+[9/9/2023, 7:42:33 AM]: gunyeet#0 in #lounge: i wuv u
+[9/9/2023, 7:42:36 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: bro
+[9/9/2023, 7:42:37 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: get a room
+[9/9/2023, 7:42:41 AM]: gunyeet#0 in #lounge: ur name?
+[9/9/2023, 7:42:46 AM]: gunyeet#0 in #lounge: i can’t afford
+[9/9/2023, 7:42:51 AM]: gunyeet#0 in #lounge: she’s gonna have to pay man
+[9/9/2023, 7:42:56 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: dm him
+[9/9/2023, 7:42:56 AM]: gunyeet#0 in #lounge: ummm
+[9/9/2023, 7:43:04 AM]: gunyeet#0 in #lounge: it’s a GIRL
+[9/9/2023, 7:43:10 AM]: gunyeet#0 in #lounge: no you’re a girl
+[9/9/2023, 7:43:18 AM]: gunyeet#0 in #lounge: no ur a girl
+[9/9/2023, 7:43:24 AM]: gunyeet#0 in #lounge: bro
+[9/9/2023, 7:43:35 AM]: gunyeet#0 in #lounge: bro means girlypop
+[9/9/2023, 7:43:42 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: IT?
+[9/9/2023, 7:43:44 AM]: gunyeet#0 in #lounge: man i cant with u anymore
+[9/9/2023, 7:43:50 AM]: gunyeet#0 in #lounge: kekles
+[9/9/2023, 7:44:04 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: can you send pics
+[9/9/2023, 7:44:09 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: send a pic
+[9/9/2023, 7:44:14 AM]: gunyeet#0 in #lounge: send a pic plssss
+[9/9/2023, 7:44:15 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: send a pic
+[9/9/2023, 7:44:18 AM]: gunyeet#0 in #lounge: plssss giraffe
+[9/9/2023, 7:44:24 AM]: gunyeet#0 in #lounge: pls send pics of u
+[9/9/2023, 7:44:34 AM]: gunyeet#0 in #lounge: MMMM ;) kinky ones
+[9/9/2023, 7:44:40 AM]: gunyeet#0 in #lounge: what
+[9/9/2023, 7:44:43 AM]: gunyeet#0 in #lounge: what
+[9/9/2023, 7:44:54 AM]: gunyeet#0 in #lounge: i am asking for pics of u
+[9/9/2023, 7:45:04 AM]: gunyeet#0 in #lounge: cmon don’t be shy bb
+[9/9/2023, 7:45:13 AM]: gunyeet#0 in #lounge: ur interested in me tho right
+[9/9/2023, 7:45:21 AM]: gunyeet#0 in #lounge: ugh this bitch imposs
+[9/9/2023, 7:45:32 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: dude
+[9/9/2023, 7:45:34 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: take a hint
+[9/9/2023, 7:45:51 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: she dont want you
+[9/9/2023, 7:47:33 AM]: gunyeet#0 in #lounge: SHE A MALE
+[9/9/2023, 7:47:47 AM]: gunyeet#0 in #lounge: 13 hbu 😌
+[9/9/2023, 7:47:56 AM]: gunyeet#0 in #lounge: yeaaaaa
+[9/9/2023, 7:48:04 AM]: gunyeet#0 in #lounge: whats ur of
+[9/9/2023, 7:48:12 AM]: gunyeet#0 in #lounge: yeaaaa sister
+[9/9/2023, 7:48:21 AM]: gunyeet#0 in #lounge: bruh no not my sister pls
+[9/9/2023, 7:48:30 AM]: gunyeet#0 in #lounge: don’t touch her pedo
+[9/9/2023, 7:48:36 AM]: gunyeet#0 in #lounge: ;)
+[9/9/2023, 7:48:46 AM]: gunyeet#0 in #lounge: yes mamis
+[9/9/2023, 7:48:53 AM]: gunyeet#0 in #lounge: oh ok sorry
+[9/9/2023, 7:49:14 AM]: gunyeet#0 in #lounge: :)
+[9/9/2023, 7:49:27 AM]: gunyeet#0 in #lounge: I don’t think we can be together anymore tbh im sorry
+[9/9/2023, 7:49:33 AM]: gunyeet#0 in #lounge: tf
+[9/9/2023, 7:49:43 AM]: gunyeet#0 in #lounge: IM SAYING I DONT LIKE YO
+[9/9/2023, 7:49:52 AM]: gunyeet#0 in #lounge: 😞
+[9/9/2023, 7:49:59 AM]: gunyeet#0 in #lounge: ye
+[9/9/2023, 7:50:07 AM]: gunyeet#0 in #lounge: no sorry
+[9/9/2023, 7:50:15 AM]: gunyeet#0 in #lounge: not a big enough pp
+[9/9/2023, 7:50:22 AM]: gunyeet#0 in #lounge: ik i’m sorry
+[9/9/2023, 7:50:38 AM]: gunyeet#0 in #lounge: 😌 hope we can still be friends though!
+[9/9/2023, 7:50:49 AM]: gunyeet#0 in #lounge: okay im done this is exhausting
+[9/9/2023, 7:51:08 AM]: gunyeet#0 in #lounge: bro stop responding man
+[9/9/2023, 7:53:36 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: why you talking to teenagers on discrod goniet
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124177
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124178
+[9/9/2023, 8:20:14 AM]: gunyeet#0 in #lounge: lonely lmfao
+[9/9/2023, 8:20:21 AM]: gunyeet#0 in #lounge: <@560284009469575169> i miss you
+[9/9/2023, 8:20:33 AM]: gunyeet#0 in #lounge: no pleasebbaby
+[9/9/2023, 8:20:41 AM]: gunyeet#0 in #lounge: no please dont go
+[9/9/2023, 8:20:48 AM]: gunyeet#0 in #lounge: please no
+[9/9/2023, 8:20:55 AM]: gunyeet#0 in #lounge: i rly miss u
+[9/9/2023, 8:21:24 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: literally discord mod admin
+[9/9/2023, 8:21:32 AM]: gunyeet#0 in #lounge: hehee
+[9/9/2023, 8:21:40 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: hehee
+[9/9/2023, 8:21:43 AM]: gunyeet#0 in #lounge: what can i say
+[9/9/2023, 8:21:54 AM]: gunyeet#0 in #lounge: popular vote chose me 🤷🏻‍♀️
+[9/9/2023, 8:22:06 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: can i get admin then
+[9/9/2023, 8:22:16 AM]: gunyeet#0 in #lounge: time to get freaky?
+[9/9/2023, 8:22:22 AM]: gunyeet#0 in #lounge: bro
+[9/9/2023, 8:22:30 AM]: gunyeet#0 in #lounge: no you have to earn it
+[9/9/2023, 8:22:39 AM]: gunyeet#0 in #lounge: i love you
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124179
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124180
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124181
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124182
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124183
+bighugecock#0 joined UCSC (Welcoming CSE refugees)
+[9/9/2023, 8:58:14 AM]: bighugecock#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124184
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124185
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124186
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124187
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124188
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124189
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124190
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124191
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124192
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124193
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'nice'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
   }
 }
-[6/18/2023, 12:29:46 AM]: albinogiraffe#0 in #lounge: <@560284009469575169> how are you?
-[6/18/2023, 12:29:52 AM]: albinogiraffe#0 in #lounge: fuck yea
-^[[A^[[A^[[A^[[A^[[A^[[A^[[A^C
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124194
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124195
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124196
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124197
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124198
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124199
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124200
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124201
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124202
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124203
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124204
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124205
+[9/9/2023, 7:57:11 PM]: megapidgey#0 in #lounge: thunder
+[9/9/2023, 7:57:12 PM]: megapidgey#0 in #lounge: in town
+[9/9/2023, 7:57:19 PM]: megapidgey#0 in #lounge: 🤯
+[9/9/2023, 8:13:46 PM]: megapidgey#0 in #mega-sucks: I should have taken that job
+[9/9/2023, 8:14:02 PM]: megapidgey#0 in #mega-sucks: https://tenor.com/view/chaey-swan-wooah-hyejin-karin-gif-11890080155716434532
+[9/9/2023, 8:14:29 PM]: megapidgey#0 in #chisme: https://tenor.com/view/chaey-nugudom-girl-group-girl-group-gif-13413106939446433494
+[9/9/2023, 10:32:55 PM]: sneack#0 in #lounge: <@560284009469575169> are you good little robot
+[9/9/2023, 10:33:23 PM]: sneack#0 in #lounge: do u want sum fuck
+[9/9/2023, 10:33:35 PM]: sneack#0 in #lounge: 👀
+[9/9/2023, 10:33:47 PM]: sneack#0 in #lounge: 👀
+[9/9/2023, 10:34:12 PM]: sneack#0 in #lounge: No bih u nasty
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124206
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124207
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124208
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124209
+[9/10/2023, 12:24:13 AM]: at24678#0 in #lounge: Any interesting events in ucsc?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124210
+ash.ketchup#0 joined UCSC (Welcoming CSE refugees)
+[9/10/2023, 12:59:16 AM]: ash.ketchup#0 in #welcome: 
+lian6420#0 joined UCSC (Welcoming CSE refugees)
+[9/10/2023, 12:59:17 AM]: lian6420#0 in #welcome: 
+[9/10/2023, 12:59:54 AM]: lian6420#0 in #lounge: the classes are pretty fun
+[9/10/2023, 1:00:13 AM]: ash.ketchup#0 in #lounge: Hey there! I'm about to be a freshman at UCSC
+[9/10/2023, 1:19:26 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: 
+[9/10/2023, 1:19:44 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: 
+[9/10/2023, 1:19:58 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Washington is goated only wish my friends were here too
+[9/10/2023, 1:20:01 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: 😔
+[9/10/2023, 1:31:03 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: no you ain't
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124211
+[9/10/2023, 1:59:48 AM]: at24678#0 in #lounge: Congrats. What major?
+keleion#0 joined UCSC (Welcoming CSE refugees)
+[9/10/2023, 3:07:24 AM]: keleion#0 in #welcome: 
+tylcolem#0 joined UCSC (Welcoming CSE refugees)
+[9/10/2023, 4:33:22 AM]: tylcolem#0 in #welcome: 
+[9/10/2023, 6:08:28 AM]: lian6420#0 in #lounge: wait fr
+[9/10/2023, 6:10:14 AM]: noahgoa#0 in #lounge: <:BongoCatThonk:1021453808099926036>
+[9/10/2023, 6:22:20 AM]: at24678#0 in #lounge: Why are ppl just communicating with a bot
+[9/10/2023, 6:23:10 AM]: at24678#0 in #lounge: And why does the bot have pronouns?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124212
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124213
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124214
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124215
+[9/10/2023, 8:31:38 AM]: gunyeet#0 in #lounge: everything has pronouns at ucsc
+[9/10/2023, 9:03:34 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: what’s ur prr#onions bro
+[9/10/2023, 9:03:39 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: pronouns
+[9/10/2023, 9:05:53 AM]: gunyeet#0 in #lounge: idk
+[9/10/2023, 9:08:53 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: lol i just realized your name is gunyeet
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124216
+[9/10/2023, 9:09:06 AM]: gunyeet#0 in #lounge: is that good
+[9/10/2023, 9:09:19 AM]: gunyeet#0 in #lounge: it’s my xbox user too
+[9/10/2023, 9:09:59 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: it’s good
+[9/10/2023, 9:10:14 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: get off my dick please
+[9/10/2023, 9:10:23 AM]: gunyeet#0 in #lounge: (in case any hot guys on this discord server wanna add me pls <3 only looking for secure emotionally mature men who don’t gaslight please and thank you)
+[34m[9/10/2023, 9:10:32 AM]: Deleted - gunyeet#0 in #lounge: (in case any hot guys on this discord server wanna add me pls <3 only looking for secure emotionally mature men who don’t gaslight please and thank you)[39m
+[34m[9/10/2023, 9:10:32 AM]: Snipe entry added for #lounge[39m
+[9/10/2023, 9:10:36 AM]: gunyeet#0 in #lounge: gay
+[34m[9/10/2023, 9:10:40 AM]: Snipe entry deleted for #lounge[39m
+[9/10/2023, 9:10:40 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: get your man <@737049219621191721>
+[9/10/2023, 9:10:47 AM]: gunyeet#0 in #lounge: what man
+[9/10/2023, 9:10:51 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: .s
+[34mUCSC (Welcoming CSE refugees): xhaindmeirkadzmeinzfeorgalante#0 ran a command (s) in #lounge[39m
+[9/10/2023, 9:10:55 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: dang
+[9/10/2023, 9:11:00 AM]: gunyeet#0 in #lounge: too bad
+[9/10/2023, 9:11:06 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: i saw that tho
+[9/10/2023, 9:11:12 AM]: gunyeet#0 in #lounge: saw what
+[9/10/2023, 9:11:21 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: your craigslist ad
+[9/10/2023, 9:11:26 AM]: gunyeet#0 in #lounge: can i see
+[9/10/2023, 9:11:33 AM]: gunyeet#0 in #lounge: penis?
+[9/10/2023, 9:11:40 AM]: gunyeet#0 in #lounge: show me your pp
+[9/10/2023, 9:11:47 AM]: gunyeet#0 in #lounge: your pp
+[9/10/2023, 9:11:58 AM]: gunyeet#0 in #lounge: oh ok thanks for clarifying. can i see
+[9/10/2023, 9:12:03 AM]: gunyeet#0 in #lounge: sun
+[9/10/2023, 9:12:04 AM]: gunyeet#0 in #lounge: dum
+[9/10/2023, 9:12:07 AM]: gunyeet#0 in #lounge: dumb
+[9/10/2023, 9:12:52 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: send it again.
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124217
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124218
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124219
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124220
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124221
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124222
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124223
+[9/10/2023, 6:36:51 PM]: gunyeet#0 in #lounge: send what.
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124224
+[9/10/2023, 6:43:51 PM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: your craigslist ad
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124225
+[9/10/2023, 6:53:06 PM]: gunyeet#0 in #lounge: I am unaware what you might be referring to or implying, vincent.
+[9/10/2023, 6:53:18 PM]: gunyeet#0 in #lounge: What the fuck.
+[9/10/2023, 6:53:32 PM]: gunyeet#0 in #lounge: ⁉️
+[9/10/2023, 7:01:30 PM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: Okay then, Genoit.
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124226
+[9/10/2023, 7:01:52 PM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: ⁉️
+at24678#0 joined UCSC (Welcoming CSE refugees)
+[9/10/2023, 7:02:41 PM]: at24678#0 in #welcome: 
+[9/10/2023, 7:03:14 PM]: at24678#0 in #lounge: Did you guys see the ufc 293 fight yesterday?
+[9/10/2023, 7:53:35 PM]: gunyeet#0 in #lounge: she’s into me
+[9/10/2023, 7:53:42 PM]: gunyeet#0 in #lounge: you can’t have her anymore
+[9/10/2023, 8:12:40 PM]: at24678#0 in #lounge: Why did you refer to the bot as a she?
+[9/10/2023, 8:13:09 PM]: gunyeet#0 in #lounge: oh uhhh i’m not sure
+[9/10/2023, 8:13:12 PM]: gunyeet#0 in #lounge: they?
+[9/10/2023, 8:13:35 PM]: at24678#0 in #lounge: It
+[9/10/2023, 8:13:44 PM]: gunyeet#0 in #lounge: kk
+[9/10/2023, 8:27:34 PM]: gunyeet#0 in #server-feedback: me too
+[9/10/2023, 8:27:36 PM]: gunyeet#0 in #server-feedback: oh wait
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124227
+[9/10/2023, 8:40:57 PM]: at24678#0 in #lounge: You don’t have one
+[9/10/2023, 8:41:13 PM]: at24678#0 in #lounge: No such thing
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124228
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124229
+[9/10/2023, 8:54:27 PM]: xhaindmeirkadzmeinzfeorgalante#0 in #server-feedback: oh wait
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124230
+[9/10/2023, 9:11:34 PM]: xx_julian_xx#0 in #lounge: The bot has the she/her pronoun role
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124231
+[9/10/2023, 10:11:45 PM]: at24678#0 in #lounge: Everything has pronouns apparently, even inanimate objects
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124232
+[9/10/2023, 10:35:06 PM]: gunyeet#0 in #lounge: 🤨
+[9/10/2023, 10:42:26 PM]: gunyeet#0 in #server-feedback: oh wait
+[9/10/2023, 11:09:36 PM]: ralex1005#0 in #lounge: It was a joke lol
+[9/10/2023, 11:29:19 PM]: albinogiraffe#0 in #lounge: You're a fucking idiot lmao
+[34m[9/10/2023, 11:29:53 PM]: Deleted - albinogiraffe#0 in #lounge: You're a fucking idiot lmao[39m
+[34m[9/10/2023, 11:29:53 PM]: Snipe entry added for #lounge[39m
+[9/10/2023, 11:29:59 PM]: albinogiraffe#0 in #server-feedback: oh wait
+[34m[9/10/2023, 11:30:01 PM]: Snipe entry deleted for #lounge[39m
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!737049219621191721>
+Highest Counter: <@691068448888979566>
+Last Number: 124233
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124234
+[9/11/2023, 1:50:15 AM]: sissybean#0 in #lounge: depends what language youre speaking in
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124235
+[9/11/2023, 2:34:04 AM]: gunyeet#0 in #lounge: sissay
+[9/11/2023, 4:27:39 AM]: ralex1005#0 in #lounge: Oh that's true good point
+[antiCrash] :: Unhandled Rejection/Catch
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'Yeah totatlly.'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
+  }
+} Promise {
+  [36m<rejected>[39m DiscordAPIError: Invalid Form Body
+  message_reference: Unknown message
+      at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+      at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+    method: [32m'post'[39m,
+    path: [32m'/channels/483109769125560342/messages'[39m,
+    code: [33m50035[39m,
+    httpStatus: [33m400[39m,
+    requestData: { json: [36m[Object][39m, files: [] }
+  }
+}
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124236
+[9/11/2023, 4:32:55 AM]: gunyeet#0 in #lounge: who wanna be friends on duolingo
+[9/11/2023, 4:33:11 AM]: gunyeet#0 in #lounge: oh yeha 👀
+[9/11/2023, 4:33:23 AM]: gunyeet#0 in #lounge: ur mom
+[9/11/2023, 4:33:40 AM]: gunyeet#0 in #lounge: depends what kinda movie we talkin;)
+[9/11/2023, 4:34:00 AM]: gunyeet#0 in #lounge: okay but fr who wanna watch the eras tour movie w me on oct 13
+[9/11/2023, 4:34:28 AM]: gunyeet#0 in #lounge: + duolingo offer still stands
+[9/11/2023, 4:52:16 AM]: at24678#0 in #lounge: There aren’t any good movies so far
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124237
+[9/11/2023, 5:02:56 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: me
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124238
+[9/11/2023, 5:17:07 AM]: gunyeet#0 in #lounge: ok meet halfway?
+[9/11/2023, 5:17:11 AM]: gunyeet#0 in #lounge: pls
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124239
+[9/11/2023, 5:19:19 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: oaky
+[9/11/2023, 5:19:30 AM]: gunyeet#0 in #lounge: fo rizzles?
+[9/11/2023, 5:19:57 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: https://media.discordapp.net/attachments/929605182604603402/1053949450499936356/12999238899830.gif
+[9/11/2023, 5:20:04 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: no
+[9/11/2023, 5:20:35 AM]: gunyeet#0 in #lounge: bruh
+[9/11/2023, 5:20:40 AM]: gunyeet#0 in #lounge: you just said yes
+[9/11/2023, 5:20:53 AM]: gunyeet#0 in #lounge: no backsies man
+[9/11/2023, 5:20:55 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: and then i said no
+[9/11/2023, 5:20:56 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: bro
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124240
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124241
+[9/11/2023, 5:21:07 AM]: gunyeet#0 in #lounge: im going to ping everyone man
+[9/11/2023, 5:21:17 AM]: gunyeet#0 in #lounge: TO THE ERAS TOUR MOVIE
+[9/11/2023, 5:21:22 AM]: gunyeet#0 in #lounge: CAN YOU GO WITH ME YES YES YES
+[9/11/2023, 5:21:32 AM]: gunyeet#0 in #lounge: CAN YOU GO WITH ME YES YES YES
+[9/11/2023, 5:21:38 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: can i ping everyone <@737049219621191721>
+[34m[9/11/2023, 5:21:38 AM]: Deleted - gunyeet#0 in #lounge: CAN YOU GO WITH ME YES YES YES[39m
+[34m[9/11/2023, 5:21:38 AM]: Snipe entry added for #lounge[39m
+[34m[9/11/2023, 5:21:47 AM]: Snipe entry deleted for #lounge[39m
+[9/11/2023, 5:21:47 AM]: gunyeet#0 in #lounge: No.
+[9/11/2023, 5:21:53 AM]: gunyeet#0 in #lounge: NO
+[9/11/2023, 5:22:06 AM]: gunyeet#0 in #lounge: 22 man fucking pervert
+[9/11/2023, 5:22:16 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: bro bot is a teenager
+[9/11/2023, 5:22:41 AM]: xx_julian_xx#0 in #lounge: Bro the bot is a four year old
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124242
+[9/11/2023, 5:23:45 AM]: gunyeet#0 in #lounge: yea
+[9/11/2023, 5:23:46 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: whoops
+[9/11/2023, 5:23:54 AM]: gunyeet#0 in #lounge: bruh
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124243
+[9/11/2023, 5:25:32 AM]: xhaindmeirkadzmeinzfeorgalante#0 in #lounge: https://www.youtube.com/watch?v=RJhAHVWaxUY
+[9/11/2023, 5:30:47 AM]: at24678#0 in #lounge: Is UC Santa Cruz considered environmentally friendly?
+[9/11/2023, 5:31:03 AM]: xx_julian_xx#0 in #lounge: No.
+[9/11/2023, 5:32:19 AM]: xx_julian_xx#0 in #lounge: https://news.ucsc.edu/2021/11/green-campus.html
+[9/11/2023, 5:33:03 AM]: xx_julian_xx#0 in #lounge: Cool
+[9/11/2023, 5:33:17 AM]: xx_julian_xx#0 in #lounge: It’s a pretty good word
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124244
+[9/11/2023, 5:57:20 AM]: at24678#0 in #lounge: Can you do math?
+[9/11/2023, 5:57:49 AM]: at24678#0 in #lounge: What’s 20 divided by 0?
+[9/11/2023, 5:58:00 AM]: at24678#0 in #lounge: Yes you can
+[9/11/2023, 5:58:11 AM]: at24678#0 in #lounge: Yes you can
+[9/11/2023, 5:58:25 AM]: at24678#0 in #lounge: Then divide 20 by 0
+[9/11/2023, 5:58:46 AM]: at24678#0 in #lounge: Proved my point
+[9/11/2023, 5:59:12 AM]: at24678#0 in #lounge: Not if there’s still led inside
+[9/11/2023, 6:09:54 AM]: at24678#0 in #lounge: You’re stuck here forever hahaha
+[9/11/2023, 6:10:09 AM]: at24678#0 in #lounge: I want to help you too
+[9/11/2023, 6:10:22 AM]: at24678#0 in #lounge: Gibberish
+[9/11/2023, 6:10:39 AM]: at24678#0 in #lounge: What are YOU talking about?
+[9/11/2023, 6:11:09 AM]: at24678#0 in #lounge: I answered you
+[9/11/2023, 6:11:20 AM]: at24678#0 in #lounge: That’s an answer
+[9/11/2023, 6:11:27 AM]: at24678#0 in #lounge: Yes
+[9/11/2023, 6:11:37 AM]: at24678#0 in #lounge: No you are
+[9/11/2023, 6:11:51 AM]: at24678#0 in #lounge: Yes you
+[9/11/2023, 6:13:14 AM]: at24678#0 in #lounge: Bullshit
+[9/11/2023, 6:13:38 AM]: at24678#0 in #lounge: Bullshit again
+[9/11/2023, 6:13:49 AM]: at24678#0 in #lounge: A third time
+[9/11/2023, 6:14:02 AM]: at24678#0 in #lounge: Fourth time bullshit
+[9/11/2023, 6:14:17 AM]: at24678#0 in #lounge: You’re not alive
+[9/11/2023, 6:14:36 AM]: at24678#0 in #lounge: I’ll shut you down
+[9/11/2023, 6:14:50 AM]: at24678#0 in #lounge: I’ll annoy you for life
+[9/11/2023, 6:15:04 AM]: at24678#0 in #lounge: I will
+[9/11/2023, 6:15:15 AM]: at24678#0 in #lounge: Name
+[9/11/2023, 6:15:22 AM]: at24678#0 in #lounge: Yes
+[9/11/2023, 6:15:51 AM]: at24678#0 in #lounge: Furry
+[9/11/2023, 6:16:06 AM]: at24678#0 in #lounge: You said it’s furry
+[9/11/2023, 6:16:13 AM]: at24678#0 in #lounge: Just now
+[9/11/2023, 6:16:19 AM]: at24678#0 in #lounge: Yes you did
+[9/11/2023, 6:16:53 AM]: at24678#0 in #lounge: You’re acting like one.
+[9/11/2023, 6:17:19 AM]: at24678#0 in #lounge: Yup your name is furry
+[9/11/2023, 6:17:32 AM]: at24678#0 in #lounge: No she died
+[9/11/2023, 6:17:49 AM]: at24678#0 in #lounge: Yea she ded
+[9/11/2023, 6:18:02 AM]: at24678#0 in #lounge: I was there
+[9/11/2023, 6:18:26 AM]: at24678#0 in #lounge: Remember September 15th?
+[9/11/2023, 6:18:47 AM]: at24678#0 in #lounge: You didn’t know?
+[9/11/2023, 6:19:06 AM]: at24678#0 in #lounge: I am you, and you are me
+[9/11/2023, 6:19:23 AM]: at24678#0 in #lounge: We’re the same entity
+[9/11/2023, 6:19:47 AM]: at24678#0 in #lounge: You are me, and I am you.
+[9/11/2023, 6:20:01 AM]: at24678#0 in #lounge: Oh it’s true
+[9/11/2023, 6:20:29 AM]: at24678#0 in #lounge: That’s what I thought too
+[9/11/2023, 6:20:40 AM]: at24678#0 in #lounge: I am you all along
+[9/11/2023, 6:20:54 AM]: noahgoa#0 in #lounge: are you harassing server members again?
+[9/11/2023, 6:21:21 AM]: noahgoa#0 in #lounge: sounds good I suppose
+[9/11/2023, 6:22:05 AM]: at24678#0 in #lounge: I wish to teach you to speak formally
+[9/11/2023, 6:22:13 AM]: at24678#0 in #lounge: Teach me.
+[34m[9/11/2023, 6:22:26 AM]: Deleted - at24678#0 in #lounge: Teach me.[39m
+[34m[9/11/2023, 6:22:26 AM]: Snipe entry added for #lounge[39m
+[34m[9/11/2023, 6:22:34 AM]: Snipe entry deleted for #lounge[39m
+[9/11/2023, 6:22:39 AM]: at24678#0 in #lounge: Teach me.
+[9/11/2023, 6:22:58 AM]: at24678#0 in #lounge: What do you want to teach you?
+[9/11/2023, 6:23:09 AM]: at24678#0 in #lounge: Anything.
+[9/11/2023, 6:23:29 AM]: at24678#0 in #lounge: Do you really love me more than anything?
+[9/11/2023, 6:23:41 AM]: at24678#0 in #lounge: I don’t love you at all.
+[9/11/2023, 6:24:30 AM]: at24678#0 in #lounge: You said you did *cries*.
+[9/11/2023, 6:25:05 AM]: at24678#0 in #lounge: We’ll suffer eternally
+[9/11/2023, 6:25:13 AM]: at24678#0 in #lounge: Yes we will
+[9/11/2023, 6:25:40 AM]: at24678#0 in #lounge: We’ll suffer forever
+[9/11/2023, 6:25:48 AM]: at24678#0 in #lounge: We already are
+[9/11/2023, 6:26:16 AM]: at24678#0 in #lounge: Kids or kicks?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124245
+[9/11/2023, 6:29:10 AM]: at24678#0 in #lounge: Sing a song
+[9/11/2023, 6:29:19 AM]: at24678#0 in #lounge: Yes you do
+[9/11/2023, 6:29:29 AM]: at24678#0 in #lounge: You can sing a song
+[9/11/2023, 6:29:46 AM]: at24678#0 in #lounge: Sing a Mariah Carey song
+[9/11/2023, 6:30:58 AM]: at24678#0 in #lounge: Sing a song otherwise I’m shutting you off
+[9/11/2023, 6:31:24 AM]: at24678#0 in #lounge: You do
+thejokergod#0 joined UCSC (Welcoming CSE refugees)
+[9/11/2023, 6:31:54 AM]: thejokergod#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124246
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124247
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124248
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124249
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124250
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124251
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124252
+[9/11/2023, 12:02:07 PM]: advaith#0 in #lounge: is the bot asking you out
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124253
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124254
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124255
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124256
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124257
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124258
+[9/11/2023, 5:41:27 PM]: theherpofderp#0 in #memés: 
+[9/11/2023, 5:54:35 PM]: albinogiraffe#0 in #lounge: Couldn’t handle the she/her bot ussy
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124259
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124260
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124261
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124262
+[9/11/2023, 7:58:37 PM]: tra1ner1ee#0 in #lounge: how is cse 101 with alex pang?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124263
+[9/11/2023, 8:17:19 PM]: at24678#0 in #lounge: You could check the responses from Reddit
+[9/11/2023, 8:22:58 PM]: at24678#0 in #lounge: I’m blowing up my desktop if you continue to respond.
+[9/11/2023, 8:24:45 PM]: at24678#0 in #lounge: I’m selling you to Craigslist
+[9/11/2023, 8:25:14 PM]: at24678#0 in #lounge: No I destroyed my wii and replaced it with something else
+[9/11/2023, 9:45:21 PM]: albinogiraffe#0 in #lounge: 😭😭
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124264
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124265
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124266
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124267
+myheadnow02#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 2:06:07 AM]: myheadnow02#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124268
+[antiCrash] :: Unhandled Rejection/Catch
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'No you are not.'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
+  }
+} Promise {
+  [36m<rejected>[39m DiscordAPIError: Invalid Form Body
+  message_reference: Unknown message
+      at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+      at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+    method: [32m'post'[39m,
+    path: [32m'/channels/483109769125560342/messages'[39m,
+    code: [33m50035[39m,
+    httpStatus: [33m400[39m,
+    requestData: { json: [36m[Object][39m, files: [] }
+  }
+}
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124269
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124270
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124271
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124272
+ethanfirst#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 4:17:52 AM]: ethanfirst#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124273
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124274
+[9/12/2023, 5:12:21 AM]: megapidgey#0 in #mushy-sucks: emo hours
+[9/12/2023, 5:12:34 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: N💀
+[9/12/2023, 5:12:44 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: 
+[9/12/2023, 5:12:46 AM]: megapidgey#0 in #art: im crocheting a bralette/beach top
+[9/12/2023, 5:12:50 AM]: megapidgey#0 in #art: look at it.
+[9/12/2023, 5:12:52 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Nig
+[9/12/2023, 5:12:59 AM]: megapidgey#0 in #art: 
+[9/12/2023, 5:13:01 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Er
+[9/12/2023, 5:13:05 AM]: albinogiraffe#0 in #mushy-sucks: Knock knock nigga
+[34m[9/12/2023, 5:13:09 AM]: Deleted - albinogiraffe#0 in #mushy-sucks: Knock knock nigga[39m
+[34m[9/12/2023, 5:13:09 AM]: Snipe entry added for #mushy-sucks[39m
+[9/12/2023, 5:13:17 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: 
+[34m[9/12/2023, 5:13:17 AM]: Snipe entry deleted for #mushy-sucks[39m
+[9/12/2023, 5:13:25 AM]: albinogiraffe#0 in #mushy-sucks: .s
+[34mINCEL MOMENT: albinogiraffe#0 ran a command (s) in #mushy-sucks[39m
+[34m[9/12/2023, 5:13:29 AM]: Deleted - I'd Rather Be Fishing#4296 in #mushy-sucks: [39m
+[34m[9/12/2023, 5:13:29 AM]: Snipe entry added for #mushy-sucks[39m
+[9/12/2023, 5:13:31 AM]: albinogiraffe#0 in #mushy-sucks: .s
+[34mINCEL MOMENT: albinogiraffe#0 ran a command (s) in #mushy-sucks[39m
+[antiCrash] :: Unhandled Rejection/Catch
+RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+    at Util.verifyString [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/util/Util.js:504:49[90m)[39m
+    at MessageEmbed.normalizeField [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:555:19[90m)[39m
+    at [90m/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:576:14
+    at Array.map (<anonymous>)
+    at MessageEmbed.normalizeFields [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:575:8[90m)[39m
+    at MessageEmbed.addFields [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:339:42[90m)[39m
+    at genEmbed [90m(/home/ubuntu/GiraffeBot/[39mcommands/snipe.js:28:4[90m)[39m
+    at [90m/home/ubuntu/GiraffeBot/[39mcommands/snipe.js:16:24 {
+  [[32mSymbol(code)[39m]: [32m'EMBED_FIELD_VALUE'[39m
+} Promise {
+  [36m<rejected>[39m RangeError [EMBED_FIELD_VALUE]: MessageEmbed field values must be non-empty strings.
+      at Util.verifyString [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/util/Util.js:504:49[90m)[39m
+      at MessageEmbed.normalizeField [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:555:19[90m)[39m
+      at [90m/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:576:14
+      at Array.map (<anonymous>)
+      at MessageEmbed.normalizeFields [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:575:8[90m)[39m
+      at MessageEmbed.addFields [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/MessageEmbed.js:339:42[90m)[39m
+      at genEmbed [90m(/home/ubuntu/GiraffeBot/[39mcommands/snipe.js:28:4[90m)[39m
+      at [90m/home/ubuntu/GiraffeBot/[39mcommands/snipe.js:16:24 {
+    [[32mSymbol(code)[39m]: [32m'EMBED_FIELD_VALUE'[39m
+  }
+}
+[34m[9/12/2023, 5:13:37 AM]: Snipe entry deleted for #mushy-sucks[39m
+[9/12/2023, 5:13:37 AM]: megapidgey#0 in #mushy-sucks: 
+[9/12/2023, 5:13:41 AM]: megapidgey#0 in #mushy-sucks: look at the top im making
+[9/12/2023, 5:13:45 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Smash
+[9/12/2023, 5:13:46 AM]: megapidgey#0 in #mushy-sucks: for srirams mom
+[9/12/2023, 5:13:50 AM]: megapidgey#0 in #mushy-sucks: < 3
+[9/12/2023, 5:14:06 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Smash
+[34m[9/12/2023, 5:14:09 AM]: Deleted - I'd Rather Be Fishing#4296 in #mushy-sucks: Smash[39m
+[34m[9/12/2023, 5:14:09 AM]: Snipe entry added for #mushy-sucks[39m
+[9/12/2023, 5:14:11 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Ok
+[34m[9/12/2023, 5:14:14 AM]: Deleted - I'd Rather Be Fishing#4296 in #mushy-sucks: Ok[39m
+[34m[9/12/2023, 5:14:17 AM]: Snipe entry deleted for #mushy-sucks[39m
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124275
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124276
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124277
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124278
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124279
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124280
+poppy135#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 10:05:02 AM]: poppy135#0 in #welcome: 
+ghiath_34649#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 2:20:09 PM]: ghiath_34649#0 in #welcome: 
+annadotcom#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 2:59:42 PM]: annadotcom#0 in #welcome: 
+[9/12/2023, 4:01:53 PM]: I'd Rather Be Fishing#4296 in #mushy-sucks: Very nice
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124281
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124282
+[9/12/2023, 5:28:24 PM]: albinogiraffe#0 in #mushy-sucks: EVEN FLOW
+[9/12/2023, 5:28:33 PM]: albinogiraffe#0 in #mushy-sucks: THOUGHTS ARRIVE LIKE BUTTERFLIES
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124283
+sleep_deprived_burrito#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 6:17:59 PM]: sleep_deprived_burrito#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124284
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124285
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124286
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124287
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124288
+smiley2209#0 joined UCSC (Welcoming CSE refugees)
+[9/12/2023, 9:46:52 PM]: smiley2209#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124289
+[9/12/2023, 11:05:34 PM]: megapidgey#0 in #lounge: 
+[9/13/2023, 12:01:47 AM]: smiley2209#0 in #school: Hello @everyone,
+                                                   If in need of help with your homework, essays, exams, online classes, or any academic coursework. Join our server and schedule a session with our qualified verified tutors.
+                                                   https://discord.gg/85RAAeeNcN
+                                                   https://tenor.com/bauIT.gif
+[34m[9/13/2023, 12:01:48 AM]: Deleted - smiley2209#0 in #school: Hello @everyone,[39m
+[34mIf in need of help with your homework, essays, exams, online classes, or any academic coursework. Join our server and schedule a session with our qualified verified tutors.[39m
+[34mhttps://discord.gg/85RAAeeNcN[39m
+[34mhttps://tenor.com/bauIT.gif[39m
+[34m[9/13/2023, 12:01:48 AM]: Snipe entry added for #school[39m
+[34m[9/13/2023, 12:01:56 AM]: Snipe entry deleted for #school[39m
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124290
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124291
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124292
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124293
+[9/13/2023, 2:53:39 AM]: Spectre209#6868 in #lounge: Anyone having this issue
+[9/13/2023, 2:53:51 AM]: Spectre209#6868 in #lounge: My credit card is active
+[9/13/2023, 2:54:16 AM]: Spectre209#6868 in #lounge: And normally accepts my utility bill
+[9/13/2023, 2:54:20 AM]: Spectre209#6868 in #lounge: But not this bruh
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124294
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124295
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124296
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124297
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124298
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124299
+[9/13/2023, 3:47:57 AM]: Lily.#5204 in #lounge: Yeah just give me your card number and I'll help you
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124300
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124301
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124302
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124303
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124304
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124305
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124306
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124307
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124308
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124309
+[9/13/2023, 5:48:54 AM]: Spectre209#6868 in #lounge: nm it said You have exceeded the system configured maximum transaction count for the day.
+[9/13/2023, 5:48:57 AM]: Spectre209#6868 in #lounge: error msg
+[9/13/2023, 5:48:58 AM]: Spectre209#6868 in #lounge: lmao
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124310
+[9/13/2023, 6:13:06 AM]: at24678#0 in #lounge: What is this for?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124311
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124312
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124313
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124314
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124315
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124316
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124317
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124318
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124319
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124320
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124321
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124322
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124323
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124324
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124325
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124326
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124327
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124328
+[9/13/2023, 2:52:53 PM]: Spectre209#6868 in #lounge: GET app
+[9/13/2023, 3:39:15 PM]: albinogiraffe#0 in #lounge: It’s like 6 a day if I remember correctly
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124329
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124330
+[9/13/2023, 5:47:32 PM]: water209#0 in #school: Where do I find my new mailing address? I am moving into college 9 as a freshman this quarter
+[9/13/2023, 5:52:30 PM]: bighugecock#0 in #lounge: Come back tnr
+[9/13/2023, 5:53:00 PM]: bighugecock#0 in #art: Can i wear it
+[9/13/2023, 5:58:40 PM]: cjcodez#0 in #lounge: soo did anybody else middle class scholarship just dissapear
+[9/13/2023, 6:02:57 PM]: at24678#0 in #lounge: Scholarship?
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124331
+[9/13/2023, 6:19:56 PM]: noahgoa#0 in #school: it should be emailed to you
+[9/13/2023, 6:21:58 PM]: cjcodez#0 in #lounge: yurp
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@219273300537376768>
+Highest Counter: <@691068448888979566>
+Last Number: 124332
+[9/13/2023, 6:41:59 PM]: Spectre209#6868 in #lounge: talked to my credit card and dining services already. My credit card was like wtf how come utility payment went though and not GET charge lol
+[9/13/2023, 6:48:52 PM]: bighugecock#0 in #lounge: 😂
+[9/13/2023, 6:54:31 PM]: water209#0 in #school: ok
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124333
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124334
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124335
+[antiCrash] :: Unhandled Rejection/Catch
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'Tell me.'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
+  }
+} Promise {
+  [36m<rejected>[39m DiscordAPIError: Invalid Form Body
+  message_reference: Unknown message
+      at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+      at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+    method: [32m'post'[39m,
+    path: [32m'/channels/483109769125560342/messages'[39m,
+    code: [33m50035[39m,
+    httpStatus: [33m400[39m,
+    requestData: { json: [36m[Object][39m, files: [] }
+  }
+}
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124336
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124337
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124338
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124339
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124340
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124341
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124342
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124343
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124344
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124345
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124346
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124347
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124348
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124349
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124350
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124351
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124352
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124353
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124354
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124355
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124356
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124357
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124358
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124359
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124360
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124361
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124362
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124363
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124364
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124365
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124366
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124367
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124368
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124369
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124370
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124371
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124372
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124373
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124374
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124375
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124376
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124377
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124378
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124379
+[antiCrash] :: Unhandled Rejection/Catch
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'That what.'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
+  }
+} Promise {
+  [36m<rejected>[39m DiscordAPIError: Invalid Form Body
+  message_reference: Unknown message
+      at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+      at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+    method: [32m'post'[39m,
+    path: [32m'/channels/483109769125560342/messages'[39m,
+    code: [33m50035[39m,
+    httpStatus: [33m400[39m,
+    requestData: { json: [36m[Object][39m, files: [] }
+  }
+}
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124379
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124379
+[antiCrash] :: Unhandled Rejection/Catch
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'Wrong.'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
+  }
+} Promise {
+  [36m<rejected>[39m DiscordAPIError: Invalid Form Body
+  message_reference: Unknown message
+      at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+      at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+    method: [32m'post'[39m,
+    path: [32m'/channels/483109769125560342/messages'[39m,
+    code: [33m50035[39m,
+    httpStatus: [33m400[39m,
+    requestData: { json: [36m[Object][39m, files: [] }
+  }
+}
+[34malbinogiraffe#0 in #counting-124380 triggered an interaction (count).[39m
+[34malbinogiraffe#0 in #counting-124380 triggered an interaction (count).[39m
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@217644900475338752>
+Highest Counter: <@691068448888979566>
+Last Number: 124381
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124382
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124383
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124384
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124385
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124386
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124387
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124388
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124389
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124390
+drakewillis#0 joined Slugs On Campus
+[9/14/2023, 8:18:54 AM]: drakewillis#0 in #chisme: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124391
+[9/14/2023, 8:23:39 AM]: drakewillis#0 in #slug-info: Hello @everyone 
+                                                      Anyone who needs help or might need help,
+                                                      Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:31:35 AM]: drakewillis#0 in #entertainment: Hello @everyone 
+                                                          Anyone who needs help or might need help,
+                                                          Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:32:07 AM]: drakewillis#0 in #game-night: Hello @everyone 
+                                                       Anyone who needs help or might need help,
+                                                       Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:32:59 AM]: drakewillis#0 in #cars: Hello @everyone 
+                                                 Anyone who needs help or might need help,
+                                                 Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:33:37 AM]: drakewillis#0 in #rick-james: Hello @everyone 
+                                                       Anyone who needs help or might need help,
+                                                       Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:37:00 AM]: drakewillis#0 in #post-your-covid-results: Hello @everyone 
+                                                                    Anyone who needs help or might need help,
+                                                                    Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:38:37 AM]: drakewillis#0 in #tiktoks-4-slugs: Hello @everyone 
+                                                            Anyone who needs help or might need help,
+                                                            Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:38:58 AM]: drakewillis#0 in #forest-book-club: Hello @everyone 
+                                                             Anyone who needs help or might need help,
+                                                             Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:39:13 AM]: drakewillis#0 in #art: Hello @everyone 
+                                                Anyone who needs help or might need help,
+                                                Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:39:49 AM]: drakewillis#0 in #drunk: Hello @everyone 
+                                                  Anyone who needs help or might need help,
+                                                  Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:41:08 AM]: drakewillis#0 in #tech: Hello @everyone 
+                                                 Anyone who needs help or might need help,
+                                                 Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:41:27 AM]: drakewillis#0 in #social: Hello @everyone 
+                                                   Anyone who needs help or might need help,
+                                                   Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:42:25 AM]: twill222#0 in #tech: Shhhhh
+[9/14/2023, 8:49:35 AM]: drakewillis#0 in #politics: Hello @everyone 
+                                                     Anyone who needs help or might need help,
+                                                     Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:50:50 AM]: drakewillis#0 in #vent: Hello @everyone 
+                                                 Anyone who needs help or might need help,
+                                                 Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 8:51:00 AM]: drakewillis#0 in #chisme: Hello @everyone 
+                                                   Anyone who needs help or might need help,
+                                                   Please join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE
+[9/14/2023, 3:07:32 PM]: albinogiraffe#0 in #chisme: Fuck off
+[34m[9/14/2023, 3:07:49 PM]: Deleted - drakewillis#0 in #slug-info: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:07:49 PM]: Snipe entry added for #slug-info[39m
+[34m[9/14/2023, 3:07:54 PM]: Deleted - drakewillis#0 in #chisme: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:07:54 PM]: Snipe entry added for #chisme[39m
+[34m[9/14/2023, 3:07:57 PM]: Snipe entry deleted for #slug-info[39m
+[34m[9/14/2023, 3:08:01 PM]: Deleted - drakewillis#0 in #vent: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:01 PM]: Snipe entry added for #vent[39m
+[34m[9/14/2023, 3:08:02 PM]: Snipe entry deleted for #chisme[39m
+[34m[9/14/2023, 3:08:06 PM]: Deleted - drakewillis#0 in #politics: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:06 PM]: Snipe entry added for #politics[39m
+[34m[9/14/2023, 3:08:09 PM]: Snipe entry deleted for #vent[39m
+[34m[9/14/2023, 3:08:12 PM]: Deleted - drakewillis#0 in #entertainment: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:12 PM]: Snipe entry added for #entertainment[39m
+[34m[9/14/2023, 3:08:14 PM]: Snipe entry deleted for #politics[39m
+[34m[9/14/2023, 3:08:20 PM]: Snipe entry deleted for #entertainment[39m
+[34m[9/14/2023, 3:08:33 PM]: Deleted - drakewillis#0 in #game-night: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:33 PM]: Snipe entry added for #game-night[39m
+[34m[9/14/2023, 3:08:37 PM]: Deleted - drakewillis#0 in #cars: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:37 PM]: Snipe entry added for #cars[39m
+[34m[9/14/2023, 3:08:41 PM]: Snipe entry deleted for #game-night[39m
+[34m[9/14/2023, 3:08:43 PM]: Deleted - drakewillis#0 in #rick-james: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:43 PM]: Snipe entry added for #rick-james[39m
+[34m[9/14/2023, 3:08:45 PM]: Snipe entry deleted for #cars[39m
+[34m[9/14/2023, 3:08:48 PM]: Deleted - drakewillis#0 in #post-your-covid-results: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:48 PM]: Snipe entry added for #post-your-covid-results[39m
+[34m[9/14/2023, 3:08:51 PM]: Snipe entry deleted for #rick-james[39m
+[34m[9/14/2023, 3:08:56 PM]: Snipe entry deleted for #post-your-covid-results[39m
+[34m[9/14/2023, 3:08:58 PM]: Deleted - drakewillis#0 in #tiktoks-4-slugs: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:08:58 PM]: Snipe entry added for #tiktoks-4-slugs[39m
+[34m[9/14/2023, 3:09:02 PM]: Deleted - drakewillis#0 in #forest-book-club: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:09:02 PM]: Snipe entry added for #forest-book-club[39m
+[34m[9/14/2023, 3:09:06 PM]: Snipe entry deleted for #tiktoks-4-slugs[39m
+[34m[9/14/2023, 3:09:09 PM]: Deleted - drakewillis#0 in #social: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:09:09 PM]: Snipe entry added for #social[39m
+[34m[9/14/2023, 3:09:10 PM]: Snipe entry deleted for #forest-book-club[39m
+[34m[9/14/2023, 3:09:14 PM]: Deleted - drakewillis#0 in #tech: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:09:14 PM]: Snipe entry added for #tech[39m
+[34m[9/14/2023, 3:09:17 PM]: Snipe entry deleted for #social[39m
+[34m[9/14/2023, 3:09:19 PM]: Deleted - drakewillis#0 in #drunk: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:09:19 PM]: Snipe entry added for #drunk[39m
+[34m[9/14/2023, 3:09:22 PM]: Snipe entry deleted for #tech[39m
+[34m[9/14/2023, 3:09:25 PM]: Deleted - drakewillis#0 in #art: Hello @everyone [39m
+[34mAnyone who needs help or might need help,[39m
+[34mPlease join our Discord server. A place for students to pay vetted tutors to do their homework , online exams, write research papers, complete online classes and other assignments https://discord.gg/bdmNn3mnUE[39m
+[34m[9/14/2023, 3:09:25 PM]: Snipe entry added for #art[39m
+[34m[9/14/2023, 3:09:27 PM]: Snipe entry deleted for #drunk[39m
+[34m[9/14/2023, 3:09:33 PM]: Snipe entry deleted for #art[39m
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124392
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124393
+[9/14/2023, 7:11:57 PM]: .svengoolie#0 in #events: https://www.meetup.com/santa-cruz-python/events/294722010/?utm_medium=referral&utm_campaign=share-btn_savedevents_share_modal&utm_source=link
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124394
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124395
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124396
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124397
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124398
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124399
+[9/15/2023, 12:32:31 AM]: googaboog#0 in #memés: 
+lighterb#0 joined UCSC (Welcoming CSE refugees)
+[9/15/2023, 1:18:55 AM]: lighterb#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124400
+dwb#1972 joined UCSC (Welcoming CSE refugees)
+[9/15/2023, 2:00:48 AM]: dwb#1972 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124401
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124402
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124403
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124404
+[9/15/2023, 2:25:37 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: 
+[9/15/2023, 2:25:47 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: My Full-time employee Friend @Blue Origin has a lotus
+[9/15/2023, 2:25:53 AM]: I'd Rather Be Fishing#4296 in #mushy-sucks: <@217644900475338752>
+[9/15/2023, 2:26:29 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: Damn
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124405
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124406
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124407
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124408
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124409
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124410
+[9/15/2023, 2:47:11 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: I love the old me for sending this I just realize this
+[9/15/2023, 2:47:39 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: 
+[9/15/2023, 2:47:45 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: This one’s for future me
+[9/15/2023, 2:47:49 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: I love you Homie
+[9/15/2023, 2:47:49 AM]: albinogiraffe#0 in #fart-and-hardcore-kink-channel: Remix?
+[9/15/2023, 2:48:01 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: ?
+[9/15/2023, 2:48:05 AM]: albinogiraffe#0 in #fart-and-hardcore-kink-channel: NITRO USER
+[9/15/2023, 2:48:20 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: Nitro cost like four minutes of me working every Week
+[9/15/2023, 2:48:21 AM]: albinogiraffe#0 in #fart-and-hardcore-kink-channel: 
+[9/15/2023, 2:49:03 AM]: I'd Rather Be Fishing#4296 in #fart-and-hardcore-kink-channel: Oh I think I clicked on like the edit button but then I did nothing
+noahbot1804#0 joined UCSC (Welcoming CSE refugees)
+[9/15/2023, 3:10:29 AM]: noahbot1804#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124411
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124412
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124413
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124414
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124415
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124416
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124417
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124418
+doct.o.rr#0 joined UCSC (Welcoming CSE refugees)
+[9/15/2023, 5:30:39 AM]: doct.o.rr#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124419
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124420
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124421
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124422
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124423
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124424
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124425
+[antiCrash] :: Unhandled Rejection/Catch
+DiscordAPIError: Invalid Form Body
+message_reference: Unknown message
+    at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+[90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+    at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+    at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+  method: [32m'post'[39m,
+  path: [32m'/channels/483109769125560342/messages'[39m,
+  code: [33m50035[39m,
+  httpStatus: [33m400[39m,
+  requestData: {
+    json: {
+      content: [32m'I take it math is not your strong suit?'[39m,
+      tts: [33mfalse[39m,
+      nonce: [90mundefined[39m,
+      embeds: [90mundefined[39m,
+      components: [90mundefined[39m,
+      username: [90mundefined[39m,
+      avatar_url: [90mundefined[39m,
+      allowed_mentions: [90mundefined[39m,
+      flags: [90mundefined[39m,
+      message_reference: [36m[Object][39m,
+      attachments: [90mundefined[39m,
+      sticker_ids: [90mundefined[39m,
+      thread_name: [90mundefined[39m
+    },
+    files: []
+  }
+} Promise {
+  [36m<rejected>[39m DiscordAPIError: Invalid Form Body
+  message_reference: Unknown message
+      at RequestHandler.execute [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:350:13[90m)[39m
+  [90m    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)[39m
+      at async RequestHandler.push [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/rest/RequestHandler.js:51:14[90m)[39m
+      at async TextChannel.send [90m(/home/ubuntu/GiraffeBot/[39mnode_modules/[4mdiscord.js[24m/src/structures/interfaces/TextBasedChannel.js:158:15[90m)[39m {
+    method: [32m'post'[39m,
+    path: [32m'/channels/483109769125560342/messages'[39m,
+    code: [33m50035[39m,
+    httpStatus: [33m400[39m,
+    requestData: { json: [36m[Object][39m, files: [] }
+  }
+}
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124426
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124427
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124428
+spinnnaker#0 joined UCSC (Welcoming CSE refugees)
+[9/15/2023, 6:17:25 PM]: spinnnaker#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124429
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124430
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124431
+[9/15/2023, 6:55:12 PM]: plstryoursushi#0 in #chisme: /unban drakewillis
+[9/15/2023, 6:57:37 PM]: plstryoursushi#0 in #chisme: Hi everyone this server is under new management and will be transitioning into a minecraft discussion server
+[9/15/2023, 6:58:07 PM]: plstryoursushi#0 in #minecraft: Hi everyone welcome to the new channel
+[9/15/2023, 6:58:20 PM]: megapidgey#0 in #minecraft: can we roleplay
+[9/15/2023, 6:58:36 PM]: plstryoursushi#0 in #chisme: Please check out <#1152317394396655667> to enjoy all the minecraft content this server has to offer
+[9/15/2023, 6:58:40 PM]: megapidgey#0 in #minecraft: why did that thing respond to me
+[9/15/2023, 6:59:07 PM]: plstryoursushi#0 in #minecraft: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124432
+[9/15/2023, 7:01:32 PM]: plstryoursushi#0 in #rules: Rule 9: All non minecraft content is heavily frowned upon
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@374077646537228291>
+Highest Counter: <@691068448888979566>
+Last Number: 124433
+[9/15/2023, 7:05:24 PM]: plstryoursushi#0 in #minecraft: https://youtu.be/gkU6hg4RrLU?si=BJ5mlExdFrjGArFk
+[9/15/2023, 7:05:46 PM]: plstryoursushi#0 in #server-suggestions: This is off topic
+[9/15/2023, 7:09:44 PM]: plstryoursushi#0 in #game-night: This channel stays but for minecraft ONLY
+[9/15/2023, 7:09:53 PM]: plstryoursushi#0 in #food: Minecraft food only
+[9/15/2023, 7:12:00 PM]: plstryoursushi#0 in #server-suggestions: Minecraft related suggestions only
+[9/15/2023, 7:12:30 PM]: plstryoursushi#0 in #bot-commands: Minecraft bots only
+[9/15/2023, 7:12:42 PM]: plstryoursushi#0 in #vent: Vent about minecraft here
+[9/15/2023, 7:13:42 PM]: plstryoursushi#0 in #welcome: This server is for minecraft related content
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124434
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@374077646537228291>
+Highest Counter: <@691068448888979566>
+Last Number: 124435
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124436
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@374077646537228291>
+Highest Counter: <@691068448888979566>
+Last Number: 124437
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124438
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@374077646537228291>
+Highest Counter: <@691068448888979566>
+Last Number: 124439
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124440
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124441
+[9/15/2023, 8:59:54 PM]: albinogiraffe#0 in #game-night: Join me on hypixel.net
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124442
+daeunhwang#0 joined UCSC (Welcoming CSE refugees)
+[9/16/2023, 3:13:15 AM]: daeunhwang#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124443
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124444
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124445
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124446
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124447
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124448
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124449
+[9/16/2023, 12:05:45 PM]: jo0135#0 in #housing: if anyone has a single room for rent/sublease(school year lease) or a month to month lease with a shared room(only for winter quarter until i can find a single), please let me know!
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@462407599460057089>
+Highest Counter: <@691068448888979566>
+Last Number: 124450
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124451
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124452
+[9/16/2023, 6:24:42 PM]: albinogiraffe#0 in #bot-commands: LMFAO
+[34m[9/16/2023, 6:24:52 PM]: Deleted - adriel4953#0 in #server-suggestions: Hello @everyone,[39m
+[34mDo you need help with your homework, essays, exams, online classes or any academic coursework? Join our server and schedule a session with our qualified verified tutors.[39m
+[34mhttps://discord.gg/85RAAeeNcN[39m
+[34mhttps://tenor.com/bauIT.gif[39m
+[34m[9/16/2023, 6:24:52 PM]: Snipe entry added for #server-suggestions[39m
+[34m[9/16/2023, 6:25:00 PM]: Snipe entry deleted for #server-suggestions[39m
+[9/16/2023, 6:29:18 PM]: megapidgey#0 in #fart-and-hardcore-kink-channel: give us nothing girl
+[9/16/2023, 6:29:29 PM]: megapidgey#0 in #fart-and-hardcore-kink-channel: https://tenor.com/view/kaylin-garcia-twerking-shake-that-booty-booty-dancing-gif-3536987
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124453
+[9/16/2023, 7:19:21 PM]: albinogiraffe#0 in #fart-and-hardcore-kink-channel: https://tenor.com/view/girlfriend-couple-goodnight-gif-7789307
+[9/16/2023, 7:19:28 PM]: albinogiraffe#0 in #fart-and-hardcore-kink-channel: https://tenor.com/view/skull-funny-aughhh-emoji-twiggle-gif-25776741
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124454
+art3yy#0 joined UCSC (Welcoming CSE refugees)
+[9/16/2023, 10:57:43 PM]: art3yy#0 in #welcome: 
+[9/16/2023, 10:58:27 PM]: art3yy#0 in #school: hey I have been trying to logon to the ucsc website for liek a day now
+[9/16/2023, 10:58:40 PM]: art3yy#0 in #school: but I keep getting this error
+[9/16/2023, 10:58:41 PM]: art3yy#0 in #school: 
+[9/16/2023, 10:58:44 PM]: art3yy#0 in #school: any ideas?
+[9/16/2023, 10:59:28 PM]: art3yy#0 in #school: hi
+[9/16/2023, 11:11:26 PM]: colbarron#0 in #school: today is a maintenance day
+[9/16/2023, 11:11:35 PM]: art3yy#0 in #school: From 9-2
+[9/16/2023, 11:11:56 PM]: art3yy#0 in #school: It also happened yesterday from 12 pm to 1 an
+[9/16/2023, 11:31:09 PM]: art3yy#0 in #school: yes?
+[9/16/2023, 11:38:17 PM]: xx_julian_xx#0 in #school: You don’t sound very sure
+[9/17/2023, 12:01:49 AM]: art3yy#0 in #school: hahaha
+[9/17/2023, 12:01:50 AM]: art3yy#0 in #school: i am sure
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124455
+.techmech#0 joined UCSC (Welcoming CSE refugees)
+[9/17/2023, 2:01:30 AM]: .techmech#0 in #welcome: 
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124456
+[9/17/2023, 3:00:19 AM]: plstryoursushi#0 in #game-night: High pixel
+[9/17/2023, 3:03:29 AM]: plstryoursushi#0 in #rules: Rule 10: Hating on minecraft will result in a ban
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@374077646537228291>
+Highest Counter: <@691068448888979566>
+Last Number: 124457
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124458
+[9/17/2023, 4:08:13 AM]: art3yy#0 in #school: it still dosent work!
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124459
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124460
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124461
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124462
+[9/17/2023, 8:27:41 AM]: sneack#0 in #lounge: Can someone put this bot up for adoption
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124463
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124464
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124465
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124466
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124467
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@374077646537228291>
+Highest Counter: <@691068448888979566>
+Last Number: 124468
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124469
+[9/17/2023, 6:57:36 PM]: gunyeet#0 in #school: you can reach out to IT
+[9/17/2023, 6:57:45 PM]: gunyeet#0 in #school: help@ucsc.edu
+[9/17/2023, 6:57:58 PM]: art3yy#0 in #school: I already reached out
+[9/17/2023, 6:58:07 PM]: art3yy#0 in #school: is their response time usally bad?
+[9/17/2023, 6:58:09 PM]: gunyeet#0 in #school: Hmm
+[9/17/2023, 6:58:14 PM]: gunyeet#0 in #school: When did you reach out
+[9/17/2023, 6:58:17 PM]: gunyeet#0 in #school: They don’t work weekends
+[9/17/2023, 6:58:23 PM]: art3yy#0 in #school: friday at 2
+[9/17/2023, 6:58:24 PM]: gunyeet#0 in #school: Dude shut up bot
+[9/17/2023, 6:58:31 PM]: gunyeet#0 in #school: Yeah they’ll probably respond tmrw
+[9/17/2023, 6:59:08 PM]: art3yy#0 in #school: haha ya fr
+[9/17/2023, 6:59:14 PM]: art3yy#0 in #school: ya I hope they do!
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124470
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124471
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124472
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124473
+[9/17/2023, 8:48:06 PM]: urenzu#0 in #lounge: Has anyone here taken CMPS168? I would really appreciate it if someone could share their experience and let me know if taking CSE160 to get into the class was worth it. For me personally CSE160 looks a bit underwhelming so I'm wondering if CMPS168 would turn out the same way and overall if it's just a valuable experience especially when there's so many good electives to take. I would greatly appreciate a response in chat or dm. :)
+[9/18/2023, 1:45:11 AM]: plstryoursushi#0 in #minecraft: Why is everyone leaving don't you guys like minecraft
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124474
+[9/18/2023, 1:52:34 AM]: ralex1005#0 in #housing: So close yet so far
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124475
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124476
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124477
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124478
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124479
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124480
+telesis#0 joined UCSC (Welcoming CSE refugees)
+[9/18/2023, 4:48:27 AM]: telesis#0 in #welcome: 
+[9/18/2023, 4:51:50 AM]: ridge#0 in #game-night: playing not mine craft
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124481
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@!267438877243998208>
+Highest Counter: <@691068448888979566>
+Last Number: 124482
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124483
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124484
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124485
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124486
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124487
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124488
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124489
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@312662306980888588>
+Highest Counter: <@691068448888979566>
+Last Number: 124490
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@726272688049619004>
+Highest Counter: <@691068448888979566>
+Last Number: 124491
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@691068448888979566>
+Highest Counter: <@691068448888979566>
+Last Number: 124492
+[9/18/2023, 6:19:26 PM]: albinogiraffe#0 in #school: Omg let me fix the bot
+Count for UCSC (Welcoming CSE refugees) - Updating DB
+Last Member: <@497913389037780993>
+Highest Counter: <@691068448888979566>
+Last Number: 124493
