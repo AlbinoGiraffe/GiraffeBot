@@ -28,7 +28,7 @@ function genEmbed(client, token, message) {
 		.addFields(
 			{ name: 'Message:', value: token.content },
 			{
-				name: '',
+				name: 'Info',
 				value: `id: ${token.mid} | ${token.date} | #${message.channel.name}`,
 			},
 		);
