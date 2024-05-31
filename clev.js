@@ -19,6 +19,7 @@ module.exports = {
 		out.setTweak('attentiveness', 60);
 
 		if (csStr !== undefined) {
+			// console.log('User had context string');
 			r = await out.query(input, { cs: csStr });
 		} else {
 			r = await out.query(input);
