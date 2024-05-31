@@ -203,7 +203,8 @@ module.exports = async (client, message) => {
 
 	// randomly respond to something
 	const d = Math.random();
-	if (d < 0.02) {
+	//if (d < 0.02) {
+	if (false) {
 		const cbquery = message.cleanContent
 			.replaceAll('@', '')
 			.replaceAll('’', "'")
